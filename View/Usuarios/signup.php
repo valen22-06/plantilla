@@ -5,8 +5,6 @@
 include_once '../../Lib/helpers.php';
 
 ?>
-
-
 <style>
   body {
     background-image: url("https://propacifico.org/wp-content/uploads/2024/02/adobestock-284418692-scaled.jpeg");
