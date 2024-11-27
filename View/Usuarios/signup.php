@@ -3,7 +3,7 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <?php
 include_once '../../Lib/helpers.php';
-$tipo_documento = getUrl("Usuarios","Usuarios","getCreate");
+  $tipo_documento = getUrl("Usuarios","Usuarios","getCreate");
 ?>
 <style>
   body {
@@ -168,7 +168,7 @@ $tipo_documento = getUrl("Usuarios","Usuarios","getCreate");
 
       <div class="row">
 
-        <form action="<?php echo getUrl("Usuarios", "Usuarios", "postCreate"); ?> " class="col-xs-12 col-sm-12 col-md-12">
+        <form action="<?php echo getUrl("Usuarios", "Usuarios", "postCreate"); ?> "method="post" class="col-xs-12 col-sm-12 col-md-12" id='form'>
           <h2>Registrar</h2>
 
           <div class="contM">
