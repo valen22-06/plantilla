@@ -48,6 +48,10 @@ $(document).ready(function(){
             $('#error').removeClass('d-none');
         }
     });
+    $(document).on("click", "#btn-form2", function() {
+        alert('Hola');
+        window.location.href = "<?php echo getUrl('Usuarios', 'Usuarios', 'getCreate'); ?>";
+    });
     
         $(document).on('keyup','#buscar',function(){
             let buscar = $(this).val();

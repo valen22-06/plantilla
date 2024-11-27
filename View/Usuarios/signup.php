@@ -168,7 +168,7 @@ include_once '../../Lib/helpers.php';
 
       <div class="row">
 
-        <form action="<?php echo getUrl("Usuarios", "Usuarios", "postCreate"); ?> "method="post" class="col-xs-12 col-sm-12 col-md-12" id='form'>
+        <form action="<?php echo getUrl("Usuarios", "Usuarios", "postCreate"); ?> " method="post" class="col-xs-12 col-sm-12 col-md-12" id='form'>
           <h2>Registrar</h2>
 
           <div class="contM">
@@ -179,7 +179,7 @@ include_once '../../Lib/helpers.php';
     <?php
     if (isset($tipo_documento) && is_array($tipo_documento)) {
         foreach ($tipo_documento as $tipo) {
-            echo "<option value='" . htmlspecialchars($tipo['id_tipo_documento']) . "'>" . htmlspecialchars($tipo['nombre_tipo_documento']) . "</option>";
+            echo "<option value='".$tipo['id_tipo_documento']."'>".$tipo['nombre_tipo_documento']. "</option>";
         }
     } else {
         echo "<option disabled>No hay tipos de documentos disponibles</option>";

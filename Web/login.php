@@ -16,6 +16,10 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
     />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src = "js/jquery.js"></script>
+<script src = "js/global.js"></script>
   </head>
   <?php
   include_once '../view/partials/head.php';
@@ -88,26 +92,11 @@
           </div>
 
         </form>
-
         <div class="boton">
-            <button type="button" id="btn-registrar" class="btn btn-dark btn-lg">Registrar</button>
+            <button type="button" id="btn-form2" class="btn btn-dark btn-lg">Registrar</button>
           </div>
       </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-      $(document).ready(function() {
-        // Manejar el clic del botón "Registrar"
-        $('#btn-registrar').click(function(event) {
-          // Prevenir comportamiento predeterminado
-          event.preventDefault();
-
-          // Redirigir a la página de registro
-          window.location.href = "../View/Usuarios/signup.php";
-        });
-
-      });
-    </script>
   </body>
 </html>

@@ -26,7 +26,7 @@ $resultado = $model->consult($sql);
     } else {
     echo "No se encontraron registros.";
 }
-
+include_once '../View/Usuarios/signup.php';
     }
     
 
