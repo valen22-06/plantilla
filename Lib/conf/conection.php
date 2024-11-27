@@ -17,7 +17,7 @@ class Connection {
 
         $this->host = $host ?? "localhost";
         $this->user = $user ?? "postgres";
-        $this->pass = $pass ?? " ";
+        $this->pass = $pass ?? "1234";
         $this->port = $port ?? "5432";
         $this->database = $database ?? "geovisor";
     }
