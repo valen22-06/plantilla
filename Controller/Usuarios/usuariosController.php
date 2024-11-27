@@ -1,12 +1,12 @@
 <?php
 
-
+include_once '../Model/Usuarios/UsuariosModel.php';
 
 class UsuariosController{
 
     public function getUsuarios(){
             $obj = new UsuariosModel();
-            $sql="SELECT  u.*, r.nombre_rol as Rdescripcion, e.nombre_estado_usuario as Edescripcion FROM usuarios u, roles r, estado e WHERE u.id_rol=r.id_rol AND u.id_estado = e.id_estado ORDER BY u.usuarioId ASC";
+            $sql="SELECT  u.*, r.nombre_rol as Rdescripcion, e.nombre_estado as Edescripcion FROM usuarios u, roles r, estado e WHERE u.id_rol=r.id_rol AND u.id_estado = e.id_estado ORDER BY u.id_usuario ASC";
             $usuarios = $obj->consult($sql);
 
             include_once '../view/Usuarios/consult.php';

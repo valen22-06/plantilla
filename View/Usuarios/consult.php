@@ -2,7 +2,7 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> 
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <?php
-include_once '../../Lib/helpers.php'; 
+include_once '../Lib/helpers.php'; 
 
 ?>
 <div class="mt 3">
@@ -20,11 +20,12 @@ include_once '../../Lib/helpers.php';
                 <th>ID</th>
                 <th>Tipo de documento</th>
                 <th>Numero de docuento</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Telefono</th>
                 <th>Email</th>
-                <th>Rol</th>
-            
+                <th>Direccion</th>
+                <th>Fecha Nacimiento</th>
                 <th>Estado</th>
                 <th>Editar</th>
                 <th>Eliminar</th>
@@ -39,10 +40,10 @@ include_once '../../Lib/helpers.php';
                         echo "<td>".$usu['id_usuario']."</td>";
                         echo "<td>".$usu['id_tipo_documento']."</td>";
                         echo "<td>".$usu['numero_documento']."</td>";
-                        echo "<td>".$usu['primer_nombre']."</td>";
-                        echo "<td>".$usu['segundo_nombre']."</td>";
-                        echo "<td>".$usu['primer_apellido']."</td>";
-                        echo "<td>".$usu['segundo_apellido']."</td>";
+                        echo "<td>".$usu['primer_nombre'].$usu['segundo_nombre']."</td>";
+                        // echo "<td>".$usu['segundo_nombre']."</td>";
+                        echo "<td>".$usu['primer_apellido'].$usu['segundo_apellido']."</td>";
+                        // echo "<td>".$usu['segundo_apellido']."</td>";
                         echo "<td>".$usu['telefono']."</td>";
                         echo "<td>".$usu['correo']."</td>";
                         echo "<td>".$usu['direcion_residencia']."</td>";
