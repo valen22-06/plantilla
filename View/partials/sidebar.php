@@ -42,7 +42,7 @@
                 <div class="collapse" id="dashboard">
                   <ul class="nav nav-collapse">
                     <li>
-                      <a href="../demo1/index.html">
+                      <a href="../Web/index.php">
                         <span class="sub-item">Inicio</span>
                         
                       </a>
