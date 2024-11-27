@@ -1,6 +1,6 @@
 <?php 
 
-include_once '../Model/Acceso/accesoModel.php'; 
+include_once '../Model/Acceso/AccesoModel.php'; 
 class AccesoController {
     public function login(){
 

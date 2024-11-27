@@ -1,6 +1,5 @@
 <?php
 include_once '../Model/Usuarios/usuariosModel.php';
-include_once '../Model/MasterModel.php';
 
 
 class UsuariosController{
@@ -15,7 +14,7 @@ class UsuariosController{
 
 
     public function getCreate() {
-        $model = new UsuariosModel();
+        $model = new usuariosModel();
 $sql = "SELECT * FROM tipo_documento";
 $resultado = $model->consult($sql);
 
@@ -31,7 +30,7 @@ include_once '../View/Usuarios/signup.php';
     
 
     public function postCreate() {
-        $obj = new UsuariosModel();
+        $obj = new usuariosModel();
 
         $usu_tipo = $_POST['id_tipo_documento'];
         $usu_documento = $_POST['numero_documento'];
@@ -251,7 +250,7 @@ include_once '../View/Usuarios/signup.php';
     }
 
     public function buscar(){
-        $obj = new UsuariosModel();
+        $obj = new usuariosModel();
     
         $buscar = $_POST['buscar'];
 
@@ -264,7 +263,7 @@ include_once '../View/Usuarios/signup.php';
     }
 
     public function getDelete(){
-        $obj = new UsuariosModel();
+        $obj = new usuariosModel();
 
         $usu_id= $_GET['usuarioId'];
 
@@ -275,7 +274,7 @@ include_once '../View/Usuarios/signup.php';
 
     }
     public function postUpdateStatus(){
-        $obj = new UsuariosModel();
+        $obj = new usuariosModel();
         $usu_id=$_POST['user'];
         $est_id = $_POST['id'];
     
@@ -285,7 +284,7 @@ include_once '../View/Usuarios/signup.php';
             $statusToModify = 1;
         }
     
-        $sql = "UPDATE usuarios SET estadoId = $statusToModify WHERE usuarioId=$usu_id";
+        $sql = "UPDATE usuarios SET id_estado = $statusToModify WHERE id_estado=$usu_id";
     
         $ejecutar = $obj->update($sql);
     
