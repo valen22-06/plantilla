@@ -3,7 +3,7 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <?php
 include_once '../../Lib/helpers.php';
-include_once '../../Controller/Usuarios/usuariosController.php';
+
 ?>
 
 
