@@ -1,11 +1,11 @@
 <?php
-
+include_once '../Model/Usuarios/usuariosModel.php';
 
 
 class UsuariosController{
 
     public function getUsuarios(){
-            $obj = new UsuariosModel();
+            $obj = new usuariosModel();
             $sql="SELECT  u.*, r.nombre_rol as Rdescripcion, e.nombre_estado_usuario as Edescripcion FROM usuarios u, roles r, estado e WHERE u.id_rol=r.id_rol AND u.id_estado = e.id_estado ORDER BY u.usuarioId ASC";
             $usuarios = $obj->consult($sql);
 
@@ -14,7 +14,7 @@ class UsuariosController{
 
 
     public function getCreate() {
-        $model = new MasterModel();
+        $model = new UsuariosModel();
 $sql = "SELECT * FROM tipo_documento";
 $resultado = $model->consult($sql);
 
