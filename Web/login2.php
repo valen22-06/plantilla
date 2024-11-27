@@ -125,7 +125,7 @@ include_once '../lib/helpers.php';
     <div class="container">
         <div class="row">
             <div class="text-center">
-                <h2>Bienvenidos</h2>
+                <h2>Bienvenido</h2>
             </div>
             <form
                 class="mt-4"

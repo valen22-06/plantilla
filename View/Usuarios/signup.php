@@ -5,8 +5,6 @@
 include_once '../../Lib/helpers.php';
 $tipo_documento = getUrl("Usuarios","Usuarios","getCreate");
 ?>
-
-
 <style>
   body {
     background-image: url("https://propacifico.org/wp-content/uploads/2024/02/adobestock-284418692-scaled.jpeg");

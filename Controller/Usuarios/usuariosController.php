@@ -15,20 +15,17 @@ class UsuariosController{
 
 
     public function getCreate() {
-        $model = new usuariosModel();
+        $model = new MasterModel();
 $sql = "SELECT * FROM tipo_documento";
 $resultado = $model->consult($sql);
 
-if (!empty($resultado)) {
-    foreach ($resultado as $fila) {
+        if (!empty($resultado)) {
+        foreach ($resultado as $fila) {
         echo $fila['nombre_tipo_documento'] . "<br>";
-    }
-} else {
+        }
+    } else {
     echo "No se encontraron registros.";
 }
-
-// include_once '../View/Usuarios/consult.php';
-include __DIR__ . '../../View/Usuarios/consult.php';
 
     }
     
