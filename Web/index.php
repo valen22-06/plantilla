@@ -6,15 +6,15 @@ include_once '../View/partials/header.php';
             include_once '../view/partials/sidebar.php';
             echo"<div class ='main-panel'>";
                 include_once '../view/partials/navbar.php';
-                    // echo"<div class ='container'>";
-                    //     // echo"<div class='page-inner'>";
-                    //     //     if(isset($_GET['modulo'])){
-                    //     //         resolve();
-                    //     //     }else{
-                    //     //         include_once '../view/partials/content.php';
-                    //     //     }
-                    //     // echo"</div>";
-                    // echo"</div>";
+                    echo"<div class ='container'>";
+                        echo"<div class='page-inner'>";
+                            if(isset($_GET['modulo'])){
+                                resolve();
+                            }else{
+                                include_once '../view/partials/content.php';
+                            }
+                        echo"</div>";
+                    echo"</div>";
                             include_once '../view/partials/footer.php';
             echo"</div>";
         echo "</div>";
