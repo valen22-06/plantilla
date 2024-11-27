@@ -1,3 +1,10 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script> 
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<?php
+include_once '../../Lib/helpers.php';   
+
+?>
 <div class="mt 3">
     <h3 class ="display-4">Consultar Usuarios</h3>
 </div>
@@ -11,6 +18,8 @@
         <thead>
             <tr>
                 <th>ID</th>
+                <th>Tipo de documento</th>
+                <th>Numero de docuento</th>
                 <th>Nombre</th>
                 <th>Apellido</th>
                 <th>Email</th>
@@ -27,39 +36,44 @@
                     $clase="";
                     $texto="";
                     echo "<tr>";
-                        echo "<td>".$usu['usuarioId']."</td>";
-                        echo "<td>".$usu['usuarioNombre']."</td>";
-                        echo "<td>".$usu['usuarioApellido']."</td>";
-                        echo "<td>".$usu['usuarioEmail']."</td>";
-                        echo "<td>".$usu['Rdescripcion']."</td>";
-                       
-                      
-                        // if($usu['estadoId']==1){
-                        //     $clase="btn btn-danger";
-                        //     $texto="Inhabilitar";
-                        // }else if($usu['estadoId']==2){
-                        //     $clase="btn btn-success";
-                        //     $texto="Habilitar";
-                        // }
-                         
-                        // echo "<td>";
-                        //     if(!empty($clase))echo "<button type='button' class='$clase' id='cambiar_estado' 
-                        //     data-url='" .getUrl("Usuarios", "Usuarios", "postUpdateStatus", false, "ajax"). "' 
-                        //     data-id='" .$usu['estadoId'] ."' 
-                        //     data-user='" .$usu['usuarioId'] ."'>$texto</button>"
-                        //     ."</td>";
-                        
-                        //     echo "<td>";
-                        //     echo "<a href='" . getUrl("Usuarios", "Usuarios", "getUpdate", array("usuarioId" => $usu['usuarioId'])) . "'>";
-                        //     echo "<button class='btn btn-primary'>Editar</button>";
-                        //     echo "</a>";
-                        //     echo "</td>";
+                        echo "<td>".$usu['id_usuario']."</td>";
+                        echo "<td>".$usu['id_tipo_documento']."</td>";
+                        echo "<td>".$usu['numero_documento']."</td>";
+                        echo "<td>".$usu['primer_nombre']."</td>";
+                        echo "<td>".$usu['segundo_nombre']."</td>";
+                        echo "<td>".$usu['primer_apellido']."</td>";
+                        echo "<td>".$usu['segundo_apellido']."</td>";
+                        echo "<td>".$usu['telefono']."</td>";
+                        echo "<td>".$usu['correo']."</td>";
+                        echo "<td>".$usu['direcion_residencia']."</td>";
+                        echo "<td>".$usu['fecha_nacimiento']."</td>";
 
-                        //     echo "<td>";
-                        //     echo "<a href='" . getUrl("Usuarios", "Usuarios", "getDelete", array("usuarioId" => $usu['usuarioId'])) . "'>";
-                        //     echo "<button class='btn btn-danger'>Eliminar</button>";
-                        //     echo "</a>";
-                        //     echo "</td>";
+                        if($usu['id_estado']==1){
+                            $clase="btn btn-danger";
+                            $texto="Inhabilitar";
+                        }else if($usu['id_estado']==2){
+                            $clase="btn btn-success";
+                            $texto="Habilitar";
+                        }
+                         
+                        echo "<td>";
+                            if(!empty($clase))echo "<button type='button' class='$clase' id='cambiar_estado' 
+                            data-url='" .getUrl("Usuarios", "Usuarios", "postUpdateStatus", false, "ajax"). "' 
+                            data-id='" .$usu['id_estado'] ."' 
+                            data-user='" .$usu['id_usuario'] ."'>$texto</button>"
+                            ."</td>";
+                        
+                            echo "<td>";
+                            echo "<a href='" . getUrl("Usuarios", "Usuarios", "getUpdate", array("id_usuario" => $usu['id_usuario'])) . "'>";
+                            echo "<button class='btn btn-primary'>Editar</button>";
+                            echo "</a>";
+                            echo "</td>";
+
+                            echo "<td>";
+                            echo "<a href='" . getUrl("Usuarios", "Usuarios", "getDelete", array("id_usuario" => $usu['id_usuario'])) . "'>";
+                            echo "<button class='btn btn-danger'>Eliminar</button>";
+                            echo "</a>";
+                            echo "</td>";
                         
                     echo "</tr>";
                 }
