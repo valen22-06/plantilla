@@ -3,7 +3,7 @@
         <div class="sidebar-logo">
           <!-- Logo Header -->
           <div class="logo-header" data-background-color="dark">
-            <a href="index.html" class="logo">
+            <a href="../Web/index.php" class="logo">
               <img
                 src="assets/img/kaiadmin/logo_light.svg"
                 alt="navbar brand"
@@ -29,25 +29,27 @@
           <div class="sidebar-content">
             <ul class="nav nav-secondary">
               <li class="nav-item active">
-                <!-- <a
+                <a
                   data-bs-toggle="collapse"
-                  href="#dashboard"
+                  href="../Web/index.php"
                   class="collapsed"
                   aria-expanded="false"
                 >
                   <i class="fas fa-home"></i>
                   <p>Inicio</p>
                   <span class="caret"></span>
-                </a> -->
+                </a>
                 <!-- <div class="collapse" id="dashboard">
                   <ul class="nav nav-collapse">
                     <li> -->
-                      <a href="../Web/index.php" href="#dashboard"
+                      <!-- <a href="../Web/index.php" href="#dashboard"
                       class="collapsed" aria-expanded="false">
-                        <span class="sub-item">Inicio</span>
+                        <span class="caret">
+                          <p>Inicio</p>
+                        </span>
                         
-                      <!-- </a>
-                    </li>
+                      </a> -->
+                    <!-- </li>
                   </ul> -->
                 <!-- </div> -->
               </li>

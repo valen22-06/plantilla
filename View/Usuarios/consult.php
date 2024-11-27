@@ -6,7 +6,7 @@ include_once '../Lib/helpers.php';
 
 ?>
 
-<div class="mt 3">
+<div class="mt-3">
     <h3 class ="display-4">Consultar Usuarios</h3>
 </div>
 
