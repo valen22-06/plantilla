@@ -5,11 +5,11 @@ include_once '../Model/Usuarios/usuariosModel.php';
 class UsuariosController{
 
     public function getUsuarios(){
-            $obj = new UsuariosModel();
+            $obj = new usuariosModel();
             $sql="SELECT  u.*, r.nombre_rol as Rdescripcion, e.nombre_estado as Edescripcion FROM usuarios u, roles r, estado e WHERE u.id_rol=r.id_rol AND u.id_estado = e.id_estado ORDER BY u.id_usuario ASC";
             $usuarios = $obj->consult($sql);
 
-            include_once '../view/Usuarios/consult.php';
+            include_once '../View/Usuarios/consult.php';
     }
 
 
@@ -71,22 +71,22 @@ include_once '../View/Usuarios/signup.php';
             $validacion = false;
         }
     
-        if (validarCampoLetras($usu_nombre1) == false) {
-            $_SESSION['errores'][] = "El campo nombre solo debe contener letras";
-            $validacion = false;
-        }
-        if (validarCampoLetras($usu_nombre2) == false) {
-            $_SESSION['errores'][] = "El campo nombre solo debe contener letras";
-            $validacion = false;
-        }
-        if (validarCampoLetras($usu_apellido1) == false) {
-            $_SESSION['errores'][] = "El campo apellido solo debe contener letras";
-            $validacion = false;
-        }
-        if (validarCampoLetras($usu_apellido2) == false) {
-            $_SESSION['errores'][] = "El campo apellido solo debe contener letras";
-            $validacion = false;
-        }
+        // if (validarCampoLetras($usu_nombre1) == false) {
+        //     $_SESSION['errores'][] = "El campo nombre solo debe contener letras";
+        //     $validacion = false;
+        // }
+        // if (validarCampoLetras($usu_nombre2) == false) {
+        //     $_SESSION['errores'][] = "El campo nombre solo debe contener letras";
+        //     $validacion = false;
+        // }
+        // if (validarCampoLetras($usu_apellido1) == false) {
+        //     $_SESSION['errores'][] = "El campo apellido solo debe contener letras";
+        //     $validacion = false;
+        // }
+        // if (validarCampoLetras($usu_apellido2) == false) {
+        //     $_SESSION['errores'][] = "El campo apellido solo debe contener letras";
+        //     $validacion = false;
+        // }
     
         if (validarCorreo($usu_correo) == false) {
             $_SESSION['errores'][] = "El campo correo no cumple, verifica que coincida con example@gmail.com";

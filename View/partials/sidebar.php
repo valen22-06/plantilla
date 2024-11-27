@@ -29,7 +29,7 @@
           <div class="sidebar-content">
             <ul class="nav nav-secondary">
               <li class="nav-item active">
-                <a
+                <!-- <a
                   data-bs-toggle="collapse"
                   href="#dashboard"
                   class="collapsed"
@@ -38,17 +38,18 @@
                   <i class="fas fa-home"></i>
                   <p>Inicio</p>
                   <span class="caret"></span>
-                </a>
-                <div class="collapse" id="dashboard">
+                </a> -->
+                <!-- <div class="collapse" id="dashboard">
                   <ul class="nav nav-collapse">
-                    <li>
-                      <a href="../Web/index.php">
+                    <li> -->
+                      <a href="../Web/index.php" href="#dashboard"
+                      class="collapsed" aria-expanded="false">
                         <span class="sub-item">Inicio</span>
                         
-                      </a>
+                      <!-- </a>
                     </li>
-                  </ul>
-                </div>
+                  </ul> -->
+                <!-- </div> -->
               </li>
               <li class="nav-section">
                 <span class="sidebar-mini-icon">

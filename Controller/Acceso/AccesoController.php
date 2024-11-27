@@ -8,7 +8,7 @@ class AccesoController {
         $user = $_POST['user'];
         $pass = $_POST['pass'];
         
-        $sql = "SELECT * FROM personas WHERE documento_persona='$user'";
+        $sql = "SELECT * FROM usuarios WHERE documento_persona='$user'";
 
         $usuario = $obj -> consult($sql);
 
