@@ -1,6 +1,14 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script> 
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<?php
+include_once '../../Lib/helpers.php';
+
+?>
 <div class="mt 3">
     <h3 class ="display-4">Consultar Usuarios</h3>
 </div>
+
 <div class="row">
         <div class="col-md-3 mt-4">
 <input type="text" name="buscar" id="buscar" class="form-control" placeholder="Buscar por nombre o correo" data-url='<?php echo getUrl("Usuarios","Usuarios","buscar",false,"ajax");?>'>

@@ -3,7 +3,7 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <?php
 include_once '../../Lib/helpers.php';
-
+$tipo_documento = getUrl("Usuarios","Usuarios","getCreate");
 ?>
 
 

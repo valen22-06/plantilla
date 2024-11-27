@@ -1,11 +1,12 @@
 <?php
 
-
+include_once '../Model/Usuarios/usuariosModel.php';
+include_once '../Model/MasterModel.php';
 
 class UsuariosController{
 
     public function getUsuarios(){
-            $obj = new UsuariosModel();
+            $obj = new usuariosModel();
             $sql="SELECT  u.*, r.nombre_rol as Rdescripcion, e.nombre_estado_usuario as Edescripcion FROM usuarios u, roles r, estado e WHERE u.id_rol=r.id_rol AND u.id_estado = e.id_estado ORDER BY u.usuarioId ASC";
             $usuarios = $obj->consult($sql);
 
@@ -14,7 +15,7 @@ class UsuariosController{
 
 
     public function getCreate() {
-        $model = new MasterModel();
+        $model = new usuariosModel();
 $sql = "SELECT * FROM tipo_documento";
 $resultado = $model->consult($sql);
 
@@ -25,6 +26,9 @@ if (!empty($resultado)) {
 } else {
     echo "No se encontraron registros.";
 }
+
+// include_once '../View/Usuarios/consult.php';
+include __DIR__ . '../../View/Usuarios/consult.php';
 
     }
     
