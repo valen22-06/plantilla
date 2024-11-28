@@ -15,18 +15,18 @@ class UsuariosController{
 
     public function getCreate() {
         $model = new usuariosModel();
-$sql = "SELECT * FROM tipo_documento";
-$resultado = $model->consult($sql);
-
-        if (!empty($resultado)) {
-        foreach ($resultado as $fila) {
-        echo $fila['nombre_tipo_documento'] . "<br>";
+        $sql = "SELECT * FROM tipo_documento";
+        $tipo_documento = $model->consult($sql);
+    
+        if (empty($tipo_documento)) {
+            $tipo_documento = []; 
         }
-    } else {
-    echo "No se encontraron registros.";
-}
-include_once '../View/Usuarios/signup.php';
+    
+        include_once '../View/Usuarios/signup.php';
     }
+    
+    
+    
     
 
     public function postCreate() {

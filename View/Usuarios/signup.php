@@ -3,7 +3,7 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <?php
 include_once '../../Lib/helpers.php';
-  $tipo_documento = getUrl("Usuarios","Usuarios","getCreate");
+
 ?>
 <style>
   body {
@@ -174,16 +174,13 @@ include_once '../../Lib/helpers.php';
           <div class="contM">
             <div class="cont1">
               <div class="form-group">
-              <select class="form-control" aria-label="Small select example">
-    <option selected>Tipo de documento</option>
+
+<select class="form-control" name="tipo_documento" required>
+    <option selected disabled>Seleccione un tipo de documento</option>
     <?php
-    if (isset($tipo_documento) && is_array($tipo_documento)) {
         foreach ($tipo_documento as $tipo) {
-            echo "<option value='".$tipo['id_tipo_documento']."'>".$tipo['nombre_tipo_documento']. "</option>";
+            echo "<option value='" . htmlspecialchars($tipo['id_tipo_documento']) . "'>" . htmlspecialchars($tipo['nombre_tipo_documento']) . "</option>";
         }
-    } else {
-        echo "<option disabled>No hay tipos de documentos disponibles</option>";
-    }
     ?>
 </select>
 
