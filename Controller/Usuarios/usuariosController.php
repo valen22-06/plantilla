@@ -1,5 +1,5 @@
 <?php
-include_once '../Model/usuariosModel.php';
+    include_once '../Model/Usuarios/usuariosModel.php';
 
 
 class UsuariosController{
@@ -11,18 +11,22 @@ class UsuariosController{
 
             include_once '../View/Usuarios/consult.php';
     }
+    
 
 
     public function getCreate() {
         $model = new usuariosModel();
         $sql = "SELECT * FROM tipo_documento";
-        $tipo_documento = $model->consult($sql);
-    
-        if (empty($tipo_documento)) {
-            $tipo_documento = []; 
-        }
-    
-        include_once '../View/Usuarios/signup.php';
+        $tipo_documento =$model->consult($sql);
+        if(!empty($tipo_documento)){    
+            // include_once 'signup.php';
+            // foreach($tipo_documento as $tipo){
+            //     echo $tipo;
+            // }
+            // redirect ('signup.php');
+            include_once'signup.php';
+        } 
+
     }
     
     
@@ -33,7 +37,7 @@ class UsuariosController{
         $obj = new usuariosModel();
 
         $usu_tipo = $_POST['id_tipo_documento'];
-        $usu_documento = $_POST['numero_documento'];
+        $usu_documento = $_POST['documento'];
         $usu_nombre1 = $_POST['name'];
         $usu_nombre2 = $_POST['surname'];
         $usu_apellido1 = $_POST['apellido'];
@@ -288,14 +292,14 @@ class UsuariosController{
             $statusToModify = 1;
         }
     
-        $sql = "UPDATE usuarios SET id_estado = $statusToModify WHERE id_estado=$usu_id";
+        $sql = "UPDATE usuarios SET id_estado = $statusToModify WHERE id_usuario=$usu_id";
     
         $ejecutar = $obj->update($sql);
     
-        if($ejecutar){
-            $sql="SELECT  u.*, r.descripcion as Rdescripcion, e.descripcion as Edescripcion FROM usuarios u, rol r, estado e WHERE u.rolId=r.id AND u.estadoId = e.id_estado ORDER BY u.usuarioId ASC";
+        if($ejecutar!=0){
+            $sql="SELECT  u.*, r.nombre_rol as Rdescripcion, e.nombre_estado as Edescripcion FROM usuarios u, roles r, estado e WHERE u.id_rol=r.id_rol AND u.id_estado = e.id_estado ORDER BY u.id_usuario ASC";
             $usuarios = $obj->consult($sql);
-            include_once '../View/Usuarios/buscar.php';
+            include_once '../View/Usuarios/consult.php';
         } else {
             echo "No se pudo actualizar";
         }

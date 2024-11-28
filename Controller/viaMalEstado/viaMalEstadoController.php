@@ -2,7 +2,7 @@
 
 
 <?php
-include_once '../Model/Usuarios/usuariosModel.php';
+include_once '../Model/viaMalEstado/viaMalEstadoModel.php';
 
 Class ViaMalEstadoController{
 
@@ -11,23 +11,21 @@ Class ViaMalEstadoController{
         $sql="SELECT  v.*, d.nombre_danio, e.estado as Edescripcion FROM via_mal_estado v, danio d, estado e WHERE d.id_danio=v.id_danio AND v.id_estado = e.id_estado ORDER BY v.id_via_mal_estado ASC";
         $via_mal_estado = $obj->consult($sql);
 
-        include_once '../View/Solicitudes/create.php';
+        include_once '../View/ViaMalEstado/viaMalEstadoConsult.php';
 }
 
 
 public function getCreate() {
-    $model = new usuariosModel();
-$sql = "SELECT * FROM tipo_documento";
-$resultado = $model->consult($sql);
+    $model = new viaMalEstadoModel();
+$sql = "SELECT * FROM danio";
+$tip_danio = $model->consult($sql);
 
-    if (!empty($resultado)) {
-    foreach ($resultado as $fila) {
-    echo $fila['nombre_tipo_documento'] . "<br>";
-    }
-} else {
-echo "No se encontraron registros.";
+if(!empty($tip_danio)){
+    include_once '../View/viaMalEstado/createViaMalEstado.php';
+     
+ } else {
+     echo "no trae nada";
 }
-include_once '../View/Usuarios/signup.php';
 }
 
 
@@ -65,7 +63,7 @@ public function postCreate() {
                 VALUES ($id, '$via_desc',$via_danio,'$via_direcc', $via_usu , 3,)";
 
         if ($obj->insert($sql)) {
-            redirect("login.php");
+            redirect("index.php");
         } else {
             echo "Se ha producido un error al insertar";
         }

@@ -32,7 +32,7 @@
               <nav
                 class="navbar navbar-header-left navbar-expand-lg navbar-form nav-search p-0 d-none d-lg-flex"
               >
-                <!-- <div class="input-group">
+                <div class="input-group">
                   <div class="input-group-prepend">
                     <button type="submit" class="btn btn-search pe-1">
                       <i class="fa fa-search search-icon"></i>
@@ -43,7 +43,7 @@
                     placeholder="Search ..."
                     class="form-control"
                   />
-                </div> -->
+                </div>
               </nav>
 
               <ul class="navbar-nav topbar-nav ms-md-auto align-items-center">
@@ -89,17 +89,17 @@
                     aria-labelledby="messageDropdown"
                   >
                     <li>
-                      <!-- <div
+                      <div
                         class="dropdown-title d-flex justify-content-between align-items-center"
                       >
                         Messages
                         <a href="#" class="small">Mark all as read</a>
-                      </div> -->
+                      </div>
                     </li>
                     <li>
                       <div class="message-notif-scroll scrollbar-outer">
                         <div class="notif-center">
-                          <!-- <a href="#">
+                          <a href="#">
                             <div class="notif-img">
                               <img
                                 src="assets/img/jm_denis.jpg"
@@ -111,8 +111,8 @@
                               <span class="block"> How are you ? </span>
                               <span class="time">5 minutes ago</span>
                             </div>
-                          </a> -->
-                          <!-- <a href="#">
+                          </a>
+                          <a href="#">
                             <div class="notif-img">
                               <img
                                 src="assets/img/chadengle.jpg"
@@ -124,8 +124,8 @@
                               <span class="block"> Ok, Thanks ! </span>
                               <span class="time">12 minutes ago</span>
                             </div> 
-                          </a> -->
-                          <!-- <a href="#">
+                          </a>
+                          <a href="#">
                             <div class="notif-img">
                               <img
                                 src="assets/img/mlane.jpg"
@@ -139,8 +139,8 @@
                               </span>
                               <span class="time">12 minutes ago</span>
                             </div>
-                          </a> -->
-                          <!-- <a href="#">
+                          </a>
+                          <a href="#">
                             <div class="notif-img">
                               <img
                                 src="assets/img/talha.jpg"
@@ -152,7 +152,7 @@
                               <span class="block"> Hi, Apa Kabar ? </span>
                               <span class="time">17 minutes ago</span>
                             </div>
-                          </a> -->
+                          </a>
                         </div>
                       </div>
                     </li>
@@ -336,7 +336,7 @@
                     </div>
                     <span class="profile-username">
                       <span class="op-7">Hi,</span>
-                      <span class="fw-bold">Hizrian</span>
+                      <span class="fw-bold"><?PHP echo $_SESSION['nombre1']?></span>
                     </span>
                   </a>
                   <ul class="dropdown-menu dropdown-user animated fadeIn">
@@ -351,8 +351,8 @@
                             />
                           </div>
                           <div class="u-text">
-                            <h4>Hizrian</h4>
-                            <p class="text-muted">hello@example.com</p>
+                            <h4>holi</h4>
+                            <p class="text-muted">variable session?></p>
                             <a
                               href="profile.html"
                               class="btn btn-xs btn-secondary btn-sm"

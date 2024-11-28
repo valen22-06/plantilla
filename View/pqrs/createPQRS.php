@@ -30,23 +30,21 @@ include_once '../Lib/helpers.php';
         // }
     ?> -->
         
-<form action="<?php echo getUrl("Solicitudes","pqrs","postCreate"); ?> " method="post" id="form">
+<form action="<?php echo getUrl("pqrs","pqrs","postCreate"); ?> " method="post">
     <div class="row mt-5">
 
         <div class ="col-md-4">
             <label for="cat_pqrs">Seleccionar categoria PQRS:</label>
     
             
-                    <select class="form-control" aria-label="Small select example">
-                    <option selected>Seleccione...</option>
+                    <select class="form-control" aria-label="Small select example" name="cat_pqrs" id="cat_pqrs">
+                    <option disablet>Seleccione...</option>
                     <?php
-                    if (!isset($cat_pqrs) && is_array($cat_pqrs)) {
+                    
                         foreach ($cat_pqrs as $cat) {
                             echo "<option value='".$cat['id_categoria_pqrs']."'>".$cat['nombre_categoria_pqrs']. "</option>";
                         }
-                    } else {
-                        echo "<option disabled>No hay categorias disponibles</option>";
-                    }
+                    
                     ?>
                     </select>
 
@@ -58,11 +56,12 @@ include_once '../Lib/helpers.php';
          
         </div>
 
-        
-    </div>
         <div class="mt-5">
             <input type="submit" value="Enviar" class="btn btn-success">
         </div>
+        
+    </div>
+        
          
 </form>
 

@@ -1,6 +1,7 @@
 <?php
 include_once '../Lib/helpers.php';
 include_once '../View/partials/header.php';
+ if (isset($_SESSION['auth'])) {               
     echo"<body>";
         echo "<div class ='wrapper'>";
             include_once '../view/partials/sidebar.php';
@@ -13,11 +14,6 @@ include_once '../View/partials/header.php';
                             }else{
                                 include_once '../View/partials/content.php';
                             }
-
-                            if (!isset($_SESSION['auth']) || $_SESSION['auth'] != 'ok') {
-                                redirect("login.php");
-                                exit;
-                            }
                         echo"</div>";
                     echo"</div>";
                             include_once '../view/partials/footer.php';
@@ -26,4 +22,16 @@ include_once '../View/partials/header.php';
         include_once '../view/partials/scripts.php';
     echo"</body>";
     echo"</html>";
+                        // }if(empty($_SESSION)){
+                            
+                        // }
+    }else{
+        if(isset($_SESSION['form-ant']) && !$_SESSION['form-ant'] = "iniciar"){
+            include_once '../Controller/Usuarios/UsuariosController.php';
+            $login= new UsuariosController();
+            $login->getCreate();
+        }else{
+            include_once "login.php";
+        }
+    }
 ?>

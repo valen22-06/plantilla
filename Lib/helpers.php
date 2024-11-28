@@ -3,11 +3,14 @@
 
 session_start();
     
-    function redirect($url) {
-        echo "<script type='text/javascript'>"
-        ."window.location.href = '$url'".
-        "</script>";
-    }
+function redirect($url)
+{   
+    echo "<script type='text/javascript'>"
+        . "window.location.href='$url'"
+        . "</script>";
+
+    //Funcion para redireccionar a la pagina
+}
    
     
     function dd($var) {
