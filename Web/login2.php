@@ -162,18 +162,7 @@ include_once '../lib/helpers.php';
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            // Manejar el clic del botón "Registrar"
-            $('#btn-registrar').click(function(event) {
-                // Prevenir comportamiento predeterminado
-                event.preventDefault();
-
-                // Redirigir a la página de registro
-                window.location.href = '../View/Usuarios/signup.php';
-            });
-        });
-    </script>
+    
 </body>
 
 </html>

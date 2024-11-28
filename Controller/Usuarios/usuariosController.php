@@ -111,7 +111,7 @@ include_once '../View/Usuarios/signup.php';
                 echo "Se ha producido un error al insertar";
             }
         } else {
-            redirect(getUrl("Usuario", "Usuario", "getCreate"));
+            redirect(getUrl("Usuarios", "Usuarios", "getCreate"));
         }
     }
     

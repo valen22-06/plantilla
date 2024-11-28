@@ -1,31 +1,35 @@
 <?php 
 
 include_once '../Model/Acceso/AccesoModel.php'; 
+include_once '../Lib/conf/connection.php'; 
 class AccesoController {
-    public function login(){
+ 
 
+    public function login(){
+        $conn = pg_connect("host=localhost dbname=geovisor user=postgres password=Valen123");
+        
         $obj = new AccesoModel();
         $user = $_POST['user'];
         $pass = $_POST['pass'];
         
-        $sql = "SELECT * FROM usuarios WHERE documento_persona='$user'";
+        $sql = "SELECT * FROM usuarios WHERE numero_documento=$user";
+
+        $params = array($user);
 
         $usuario = $obj -> consult($sql);
 
-        $hash = password_hash($pass, PASSWORD_DEFAULT);
 
-
-        if (pg_num_rows($usuario)>0){
+        if (pg_query_params($conn, $sql, $params)>0){
             foreach($usuario as $usu){
-                if(password_verify($pass, $usu['contrasenia_persona'])){
-                    $_SESSION['documento'] = $usu['documento_persona'];
-                    $_SESSION['nombre1'] = $usu['primer_nombre_persona'];
-                    $_SESSION['nombre2'] = $usu['segundo_nombre_persona'];
-                    $_SESSION['apellido1'] = $usu['primer_apellido_persona'];
-                    $_SESSION['apellido2']=$usu['segundo_apellido_persona'];
-                    $_SESSION['email']=$usu['email_persona'];
-                    $_SESSION['telefono']=$usu['telefono_persona'];
-                    $_SESSION['nacimiento']=$usu['fecha_nacimiento_persona'];
+                if(password_verify($pass, $usu['contrasenia'])){
+                    $_SESSION['documento'] = $usu['numero_documento'];
+                    $_SESSION['nombre1'] = $usu['primer_nombre'];
+                    $_SESSION['nombre2'] = $usu['segundo_nombre'];
+                    $_SESSION['apellido1'] = $usu['primer_apellido'];
+                    $_SESSION['apellido2']=$usu['segundo_apellido'];
+                    $_SESSION['email']=$usu['correo'];
+                    $_SESSION['telefono']=$usu['telefono'];
+                    $_SESSION['nacimiento']=$usu['fecha_nacimiento'];
                     
 
                     $_SESSION['auth'] = "ok";

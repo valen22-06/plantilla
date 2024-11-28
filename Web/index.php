@@ -13,6 +13,11 @@ include_once '../View/partials/header.php';
                             }else{
                                 include_once '../view/partials/content.php';
                             }
+
+                            if (!isset($_SESSION['auth']) || $_SESSION['auth'] != 'ok') {
+                                redirect("login2.php");
+                                exit;
+                            }
                         echo"</div>";
                     echo"</div>";
                             include_once '../view/partials/footer.php';

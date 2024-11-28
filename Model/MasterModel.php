@@ -6,7 +6,7 @@
         public function consult($sql) {
             $result = pg_query($this->getConnect(), $sql);
             if (!$result) {
-                die("Error en la consulta: " . pg_last_error());
+                die("Error en la consulta: ".pg_last_error());
             }
         
             $result = pg_fetch_all($result);
