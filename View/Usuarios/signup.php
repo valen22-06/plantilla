@@ -162,32 +162,43 @@ include_once '../../Lib/helpers.php';
 <center>
 
   <body>
+  <div class='alert alert-danger d-none' role='alert' id='error'>
+
+</div>
+
+<?php
+    if(!isset($_SESSION['errores'])){
+        echo "<div class = 'alert alert-danger' role='alert'>";
+        foreach ($_SESSION['errores'] as $error) {
+            echo $error;
+            echo "<br>";
+        }
+        echo "</div>";
+        unset($_SESSION['errores']);
+    }
+?>
 
 
     <div class="container">
 
       <div class="row">
 
-        <form action="../../Controller/Usuarios/UsuariosController.php/postCreate" method="post" class="col-xs-12 col-sm-12 col-md-12">
+        <form action="<?php echo getUrl('Usuarios', 'Usuarios', 'postCreate'); ?>" method="post" class="col-xs-12 col-sm-12 col-md-12" id="form">
           <h2>Registrar</h2>
 
           <div class="contM">
             <div class="cont1">
               <div class="form-group">
 
-<select class="form-control" name="tipo_documento" required>
-    <option selected disabled>Seleccione un tipo de documento</option>
-    <?php
-        foreach ($tipo_documento as $tipo) {
-            echo "<option value='" . htmlspecialchars($tipo['id_tipo_documento']) . "'>" . htmlspecialchars($tipo['nombre_tipo_documento']) . "</option>";
-        }
-    ?>
-</select>
-
-
-              </div>
-
-
+              <select class="form-control" name="tipo_documento" required>
+                  <option selected disabled>Seleccione un tipo de documento</option>
+                  <?php
+                      foreach ($tipo_documento as $tipo) {
+                          echo "<option value='" . htmlspecialchars($tipo['id_tipo_documento']) . "'>" . htmlspecialchars($tipo['nombre_tipo_documento']) . "</option>";
+                      }
+                  ?>
+              </select>
+            </div>
 
               <div class="form-group">
               <!-- <label class="form-label">Primer nombre:</label> -->

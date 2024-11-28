@@ -11,11 +11,11 @@ include_once '../View/partials/header.php';
                             if(isset($_GET['modulo'])){
                                 resolve();
                             }else{
-                                include_once '../view/partials/content.php';
+                                include_once '../View/partials/content.php';
                             }
 
                             if (!isset($_SESSION['auth']) || $_SESSION['auth'] != 'ok') {
-                                redirect("login2.php");
+                                redirect("login.php");
                                 exit;
                             }
                         echo"</div>";

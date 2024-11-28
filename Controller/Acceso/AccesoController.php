@@ -1,7 +1,7 @@
 <?php 
 
 include_once '../Model/Acceso/AccesoModel.php'; 
-include_once '../Lib/conf/connection.php'; 
+
 class AccesoController {
  
 

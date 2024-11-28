@@ -1,3 +1,7 @@
+
+<script src = "js/jquery.js"></script>
+<script src = "js/global.js"></script>
+
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
 
@@ -17,8 +21,10 @@
         href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
 </head>
 <?php
-include_once '../view/partials/head.php';
-include_once '../lib/helpers.php';
+
+include_once '../View/partials/head.php';
+include_once '../Lib/helpers.php';
+
 ?>
 <style>
     body {
@@ -129,9 +135,8 @@ include_once '../lib/helpers.php';
             </div>
             <form
                 class="mt-4"
-                action="<?php echo getUrl('Acceso', 'Acceso', 'login'); ?>"
-                method="post"
-                id="form">
+                action="<?php echo getUrl('Acceso','Acceso','login'); ?>"
+                method="post">
                 <div class="cont1">
                     <label for="emailAddress" class="form-label">Documento de identidad:</label>
                     <input
@@ -156,12 +161,11 @@ include_once '../lib/helpers.php';
                 </div>
             </form>
             <div class="botonReg">
-                <button type="button" id="btn-registrar">Registrar</button>
+                <button type="button" id="btn-form2">Registrar</button>
             </div>
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
 </body>
 

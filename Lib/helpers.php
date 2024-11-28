@@ -30,6 +30,7 @@ session_start();
 
         return $url;
     }
+    
     function resolve(){
         //Recibe el modulo, controlador y funcion.
         $modulo = ucwords($_GET['modulo']); //Modulo recibido
@@ -96,17 +97,24 @@ session_start();
     }
     
     
-    function validarCamponum($input) {
-        $patron = "/^[0-9]+$/"; 
-        return preg_match($patron, $input) === 1;
+    function validarCampoLetras($input){
+        $patron = "/^[a-zA-Z\s]+$/";
+        return preg_match($patron, $input) ===1;
     }
-    function validarCorreo($input) {
-        $patron = "/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/";
-        return preg_match($patron, $input) === 1;
+
+    function validarNumeros($input){
+        $patron = "/^[0-9]+$/";
+        return preg_match($patron, $input) ===1;
     }
-    function validarClave($input) {
-        $patron = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&])[A-Za-z\d@$!%?&]{8,}$/";
-        return preg_match($patron, $input) === 1;
+
+    function validarCorreo($input){
+        $patron = "/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/";
+        return preg_match($patron, $input) ===1;
+    }
+
+    function validarClave($input){
+        $patron = "/^([A-Z])([a-z])(?=.*[\W_]).{8,15}$/";
+        return preg_match($patron, $input) ===1;
     }
 
 

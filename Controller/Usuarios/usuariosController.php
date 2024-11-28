@@ -1,5 +1,5 @@
 <?php
-include_once '../../Model/MasterModel.php';
+include_once '../Model/usuariosModel.php';
 
 
 class UsuariosController{
@@ -34,17 +34,17 @@ class UsuariosController{
 
         $usu_tipo = $_POST['id_tipo_documento'];
         $usu_documento = $_POST['numero_documento'];
-        $usu_nombre1 = $_POST['primer_nombre'];
-        $usu_nombre2 = $_POST['segundo_nombre'];
-        $usu_apellido1 = $_POST['primer_apellido'];
-        $usu_apellido2 = $_POST['segundo_apellido'];
+        $usu_nombre1 = $_POST['name'];
+        $usu_nombre2 = $_POST['surname'];
+        $usu_apellido1 = $_POST['apellido'];
+        $usu_apellido2 = $_POST['segundoApellido'];
         $usu_correo = $_POST['correo'];
         $usu_clave = $_POST['contrasenia'];
         $usu_telefono = $_POST['telefono'];
         $usu_direccion = $_POST['direccion_residencia'];
         $f_nacimiento = $_POST['fecha_nacimiento'];
     
-        $validacion = true;
+        $validacion = true;  
     
         if (empty($usu_documento)) {
             $_SESSION['errores'][] = "El campo documento es requerido";
@@ -71,22 +71,27 @@ class UsuariosController{
             $validacion = false;
         }
     
-        // if (validarCampoLetras($usu_nombre1) == false) {
-        //     $_SESSION['errores'][] = "El campo nombre solo debe contener letras";
-        //     $validacion = false;
-        // }
-        // if (validarCampoLetras($usu_nombre2) == false) {
-        //     $_SESSION['errores'][] = "El campo nombre solo debe contener letras";
-        //     $validacion = false;
-        // }
-        // if (validarCampoLetras($usu_apellido1) == false) {
-        //     $_SESSION['errores'][] = "El campo apellido solo debe contener letras";
-        //     $validacion = false;
-        // }
-        // if (validarCampoLetras($usu_apellido2) == false) {
-        //     $_SESSION['errores'][] = "El campo apellido solo debe contener letras";
-        //     $validacion = false;
-        // }
+        if (validarNumeros($usu_documento) == false) {
+            $_SESSION['errores'][] = "El campo numero de documento solo debe contener numeros";
+            $validacion = false;
+        }
+
+        if (validarCampoLetras($usu_nombre1) == false) {
+            $_SESSION['errores'][] = "El campo nombre solo debe contener letras";
+            $validacion = false;
+        }
+        if (validarCampoLetras($usu_nombre2) == false) {
+            $_SESSION['errores'][] = "El campo nombre solo debe contener letras";
+            $validacion = false;
+        }
+        if (validarCampoLetras($usu_apellido1) == false) {
+            $_SESSION['errores'][] = "El campo apellido solo debe contener letras";
+            $validacion = false;
+        }
+        if (validarCampoLetras($usu_apellido2) == false) {
+            $_SESSION['errores'][] = "El campo apellido solo debe contener letras";
+            $validacion = false;
+        }
     
         if (validarCorreo($usu_correo) == false) {
             $_SESSION['errores'][] = "El campo correo no cumple, verifica que coincida con example@gmail.com";
@@ -102,8 +107,7 @@ class UsuariosController{
     
         if ($validacion) {
             $id = $obj->autoIncrement("usuarios", "id_usuario");
-            $sql = "INSERT INTO usuarios (id_usuario, id_tipo_documento, numero_documento, primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, telefono, correo, direccion_residencia, fecha_nacimiento, contrasenia, id_estado, id_rol) 
-                    VALUES ($id, $usu_tipo , '$usu_documento', '$usu_nombre1', '$usu_nombre2', '$usu_apellido1', '$usu_apellido2', $usu_telefono, '$usu_correo', '$usu_direccion', '$f_nacimiento', '$hash', 1, 3)";
+            $sql = "INSERT INTO usuarios VALUES ($id, 1 , $usu_documento, '$usu_nombre1', '$usu_nombre2', '$usu_apellido1', '$usu_apellido2', $usu_telefono, '$usu_correo', '$usu_direccion', '$f_nacimiento', '$hash', 1, 3)";
     
             if ($obj->insert($sql)) {
                 redirect("login.php");

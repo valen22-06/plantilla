@@ -1,56 +1,59 @@
 $(document).ready(function(){
-    $('#form').submit(function(event){
-    
-        //Evita el envio del formulario si hay errores
+    $('#form').submit(function(event) {
         event.preventDefault();
-        let mensajes=[];
-        //limpia los mensajes previos
-        $('#error').html('').fadeOut(500);
-        
-        //bandera para verificar si hay errores
-        let esValido=true;
+        let mensajes = [];
+        $('#error').html('');
+        // .fadeOut(500);
     
-        //Validar campos de nombre
-        const nombre=$('#nombre').val().trim();
-        if(nombre===''){
-            mensajes.push('El campo nombre es obliatorio');
-            esValido=false;
-            console.log('Error de nombre');
+        let esValido = true;
+        const nombre = $('#nombre').val().trim();
+    
+        if(nombre === ''){
+            mensajes.push('El campo nombre es obligatorio');
+            esValido = false;
         }
-        const apellido=$('#apellido').val().trim();
-        if(apellido===''){
-            mensajes.push('El campo apellido es obliatorio');
-            esValido=false;
+    
+        const apellido = $('#apellido').val().trim();
+    
+        if(apellido === ''){
+            mensajes.push('El campo apellido es obligatorio');
+            esValido = false;
         }
-        const correo=$('#email').val().trim();
-        if(correo===''){
+    
+        const correo = $('#correo').val().trim();
+    
+        if(correo === ''){
             mensajes.push('El campo correo es obligatorio');
-            esValido=false;
-            console.log('Error de correo');
+            esValido = false;
         }
-        const contraseña=$('#clave').val().trim();
-        if (contraseña===''){
-            mensajes.push('El campo contraseña es obligatorio');
-            esValido=false;
-            console.log('Error de contraseña');
+        
+        const clave = $('#clave').val().trim();
+    
+        if(clave === ''){
+            mensajes.push('El campo clave es obligatorio');
+            esValido = false;
         }
     
+        const rol = $('#rol').val().trim();
+    
+        if(rol === ''){
+            mensajes.push('El campo rol es obligatorio');
+            esValido = false;
+        }
         
-        
-        //si todo es válido, puedes enviar el formulario o hacer
-        if(esValido==true){
-            alert('Formulario válido. Enviando datos...');
+        if (esValido) {
+            // alert('Formulario valido. Enviando datos...');
             $('#error').fadeOut(500);
             this.submit();
-    
-        }else{
-            $('#error').html(mensajes.map(msg=> `${msg}<br>`).join(''));
+        } else {
+            $('#error').html(mensajes.map(msg => `${msg}<br>`).join(''));
             $('#error').removeClass('d-none');
         }
+    
     });
     $(document).on("click", "#btn-form2", function() {
-        alert('Hola');
-        window.location.href = "<?php echo getUrl('Usuarios', 'Usuarios', 'getCreate'); ?>";
+        // alert('Hola');
+        window.location.href = "<?php echo getUrl('Usuarios','Usuarios','getCreate');?>";
     });
     
         $(document).on('keyup','#buscar',function(){
