@@ -3,7 +3,7 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 
 <div class="mt-5">
-    <h3 class ="display-4">Registrar Usuario</h3>
+    <h3 class ="display-4">Registrar Accidente</h3>
 </div>
 <div class="mt-5">
     <div class='alert alert-danger d-none' role='alert' id='error'>

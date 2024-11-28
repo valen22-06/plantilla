@@ -9,8 +9,9 @@
                 die("Error en la consulta: " . pg_last_error());
             }
         
-            $result = pg_fetch_all($result);
-            return $result ? $result : [];
+            $data = pg_fetch_all($result);
+            var_dump($data); 
+            return $data ? $data : [];
         }
 
         public function insert($sql) {
