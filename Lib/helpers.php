@@ -17,14 +17,14 @@ session_start();
 
     function getUrl($modulo, $controlador, $funcion, $parametros = false, $pagina=false) {
 
-        if($pagina==false){
-            $pagina = 'index';
+        if($pagina == false){
+            $pagina="index";
         }
         $url = "$pagina.php?modulo=$modulo&controlador=$controlador&funcion=$funcion";
-        
-        if($parametros !=false){
+
+        if($parametros != false){
             foreach($parametros as $key => $value){
-                $url.="&$key=$value";
+                $url .="&$key=$value";
             }
         }
 

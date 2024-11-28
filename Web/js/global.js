@@ -53,7 +53,7 @@ $(document).ready(function(){
     });
     $(document).on("click", "#btn-form2", function() {
         // alert('Hola');
-        window.location.href = "<?php echo getUrl('Usuarios','Usuarios','getCreate');?>";
+        window.location.href = "<?php echo getUrl ('Usuarios','Usuarios','getCreate'); ?>";
     });
     
         $(document).on('keyup','#buscar',function(){

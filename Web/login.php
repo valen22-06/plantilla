@@ -22,7 +22,6 @@
 </head>
 <?php
 
-include_once '../View/partials/head.php';
 include_once '../Lib/helpers.php';
 
 ?>
@@ -144,7 +143,7 @@ include_once '../Lib/helpers.php';
                         class="form-control"
                         name="user"
                         id="documento"
-                        placeholder="Tu Documento" />
+                        placeholder="Tu Documento"/>
                 </div>
                 <div class="cont2">
                     <label for="password" class="form-label">Contraseña:</label>
