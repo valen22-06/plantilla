@@ -1,102 +1,168 @@
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bootstrap Login Form</title>
     <link rel="icon" type="image/x-icon" href="/form-icon.png" />
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
-      crossorigin="anonymous"
-    />
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+        crossorigin="anonymous" />
     <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
-    />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-<script src = "js/jquery.js"></script>
-<script src = "js/global.js"></script>
-  </head>
-  <?php
-  include_once '../view/partials/head.php';
-  include_once '../lib/helpers.php';
-  ?>
-
-  <style>
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
+</head>
+<?php
+include_once '../view/partials/head.php';
+include_once '../lib/helpers.php';
+?>
+<style>
     body {
-      background: #1A2D42;
-      justify-content: center;
+        background-image: url("https://propacifico.org/wp-content/uploads/2024/02/adobestock-284418692-scaled.jpeg");
+        background-repeat: no-repeat;
+        background-size: cover;
     }
 
-    button {
-      width: 200px;
+    .cont1 {
+        margin-left: 20px;
+        justify-content: center;
+        align-items: center;
+        width: 88%;
     }
 
-    .row {
-      width: 40%;
-      margin-top: 30px;
-      padding: 0%;
-      border-radius: 14px;
-      height: auto;
-      background: #3e545b;
+    .cont2 {
+        margin-top: 20px;
+        margin-left: 20px;
+        justify-content: center;
+        align-items: center;
+        width: 88%;
+    }
+
+    .form-control {
+        border-collapse: collapse;
+        border-bottom: 1px solid black;
+        border-radius: 0px;
+        background: rgba(255, 255, 255, 0.5);
+        font-family: 'Oswald', sans-serif;
+    }
+    .form-label{
+        color: black;
     }
 
     .container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
-    .boton {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 18px;
+    .botonIni {
+        display: flex;
+        font-size: 20px;
+        align-items: center;
+        justify-content: center;
+        margin-top: 15px;
+        margin-bottom: 20px;
     }
-  </style>
 
-  <body>
-    <?php
-    if (isset($_SESSION['errores'])) {
-        echo "<div class='alert alert-danger' role='alert'>";
-        foreach ($_SESSION['errores'] as $error) {
-            echo $error."<br>";
-        }
-        echo "</div>";
-        unset($_SESSION['errores']);
+    .botonReg {
+        display: flex;
+        font-size: 20px;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 30px;
     }
-    ?>
-    <br><br>
 
+    .botonIni button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        max-width: 150px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        background-color: 0 0 0;
+        color: white;
+        cursor: pointer;
+        font-size: 18px;
+    }
+
+    .botonReg button {
+        width: 100%;
+        max-width: 150px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        background-color: 0 0 0;
+        color: white;
+        cursor: pointer;
+        font-size: 18px;
+    }
+
+    /* .botonIni button:hover,
+    .botonReg button:hover {
+      background-color: #0056b3; 
+    } */
+
+    .text-center {
+        margin-top: 30px;
+        color: black;
+    }
+
+    .row {
+        width: 35%;
+        margin-top: 105px;
+        border-radius: 40px;
+        background: rgba(255, 255, 255, 0.4);
+    }
+</style>
+
+<body>
     <div class="container">
-      <div class="row">
-        <div class="text-center">
-          <h1>👋</h1>
-          <h2>Bienvenido</h2>
+        <div class="row">
+            <div class="text-center">
+                <h2>Bienvenido</h2>
+            </div>
+            <form
+                class="mt-4"
+                action="<?php echo getUrl('Acceso', 'Acceso', 'login'); ?>"
+                method="post"
+                id="form">
+                <div class="cont1">
+                    <label for="emailAddress" class="form-label">Documento de identidad:</label>
+                    <input
+                        type="number"
+                        class="form-control"
+                        name="user"
+                        id="documento"
+                        placeholder="Tu Documento" />
+                </div>
+                <div class="cont2">
+                    <label for="password" class="form-label">Contraseña:</label>
+                    <input
+                        type="password"
+                        class="form-control"
+                        name="pass"
+                        id="clave"
+                        placeholder="Tu Contraseña" />
+                </div>
+                <br />
+                <div class="botonIni">
+                    <button type="submit" id="btn-iniciar">Iniciar</button>
+                </div>
+            </form>
+            <div class="botonReg">
+                <button type="button" id="btn-registrar">Registrar</button>
+            </div>
         </div>
-        <form class="mt-4" action="<?php echo getUrl("Acceso","Acceso", "login"); ?>" method="post" id="form">
-          <div class="mb-4 col-lg-align-items-md-center mx-auto text-center">
-            <label for="emailAddress" class="form-label fw-semibold">Documento de identidad:</label>
-            <input type="number" class="form-control" name="user" id="documento" placeholder="Tu Documento">
-          </div>
-          <div class="mb-4 col-lg-align-items-md-center mx-auto text-center">
-            <label for="password" class="form-label fw-semibold">Contraseña:</label>
-            <input type="password" class="form-control" name="pass" id="clave" placeholder="Tu Contraseña">
-          </div>
-          <br>
-          <div class="boton">
-            <button type="submit" id="btn-iniciar" class="btn btn-dark btn-lg" >Iniciar</button>
-          </div>
-
-        </form>
-        <div class="boton">
-            <button type="button" id="btn-form2" class="btn btn-dark btn-lg">Registrar</button>
-          </div>
-      </div>
     </div>
 
-  </body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+</body>
+
 </html>

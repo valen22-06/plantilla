@@ -120,7 +120,7 @@
                     </li>
 
                     <li>
-                      <a href="sidebar-style-2.html">
+                      <a href="<?php echo getUrl("Solicitudes","pqrs","getCreate");?>">
                         <span class="sub-item">PQRS</span>
                       </a>
                     </li>
@@ -166,7 +166,7 @@
                       </a>
                     </li>
                     <li>
-                      <a href="sidebar-style-2.html">
+                      <a href="<?php echo getUrl("Solicitudes","pqrs","getCreate");?>">
                         <span class="sub-item">PQRS</span>
                       </a>
                     </li>

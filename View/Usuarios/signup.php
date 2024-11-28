@@ -168,7 +168,7 @@ include_once '../../Lib/helpers.php';
 
       <div class="row">
 
-        <form action="<?php echo getUrl("Usuarios", "Usuarios", "postCreate"); ?> " method="post" class="col-xs-12 col-sm-12 col-md-12" id='form'>
+        <form action="<?php echo getUrl("Usuarios", "Usuarios", "postCreate","ajax",false); ?> " method="post" class="col-xs-12 col-sm-12 col-md-12" id='form'>
           <h2>Registrar</h2>
 
           <div class="contM">
