@@ -24,7 +24,7 @@ class UsuariosController{
             //     echo $tipo;
             // }
             // redirect ('signup.php');
-            include_once'signup.php';
+            include_once 'signup.php';
         } 
 
     }
@@ -111,7 +111,10 @@ class UsuariosController{
     
         if ($validacion) {
             $id = $obj->autoIncrement("usuarios", "id_usuario");
-            $sql = "INSERT INTO usuarios VALUES ($id, 1 , $usu_documento, '$usu_nombre1', '$usu_nombre2', '$usu_apellido1', '$usu_apellido2', $usu_telefono, '$usu_correo', '$usu_direccion', '$f_nacimiento', '$hash', 1, 3)";
+            $sql = "INSERT INTO usuarios 
+        (id_usuario, id_tipo_documento, numero_documento, primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, telefono, correo, direccion_recidencia, fecha_nacimiento, contrasenia, id_estado, id_rol) 
+        VALUES 
+        ($id, $usu_tipo, $usu_documento, '$usu_nombre1', '$usu_nombre2', '$usu_apellido1', '$usu_apellido2', $usu_telefono, '$usu_correo', '$usu_direccion', '$f_nacimiento', '$hash', 1, 3)";
     
             if ($obj->insert($sql)) {
                 redirect("login.php");

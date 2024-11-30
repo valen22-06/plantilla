@@ -6,12 +6,13 @@ $(document).ready(function(){
         // .fadeOut(500);
     
         let esValido = true;
-        const nombre = $('#nombre').val().trim();
+        const nombre = $('#name').val().trim();
     
         if(nombre === ''){
             mensajes.push('El campo nombre es obligatorio');
             esValido = false;
         }
+
     
         const apellido = $('#apellido').val().trim();
     
@@ -19,8 +20,15 @@ $(document).ready(function(){
             mensajes.push('El campo apellido es obligatorio');
             esValido = false;
         }
+
+        const apellido1 = $('#segundoApellido').val().trim();
     
-        const correo = $('#correo').val().trim();
+        if(apellido === ''){
+            mensajes.push('El campo apellido es obligatorio');
+            esValido = false;
+        }
+    
+        const correo = $('#email').val().trim();
     
         if(correo === ''){
             mensajes.push('El campo correo es obligatorio');

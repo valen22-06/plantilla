@@ -191,14 +191,14 @@
 
       <div class="row">
 
-        <form action="<?php echo getUrl('Usuarios', 'Usuarios', 'postCreate'); ?>" method="post" class="col-xs-12 col-sm-12 col-md-12" >
+        <form action="<?php echo getUrl('Usuarios', 'Usuarios', 'postCreate'); ?>" method="post" class="col-xs-12 col-sm-12 col-md-12" id=form>
           <h2>Registrar</h2>
 
           <div class="contM">
             <div class="cont1">
               <div class="form-group">
 
-              <select class="form-control" name="tipo_documento" required>
+              <select class="form-control" name="tipo_documento" id=tipo_docu required>
                   <option selected disabled>Seleccione un tipo de documento</option>
                   <?php
                       foreach ($tipo_documento as $tipo) {
