@@ -48,7 +48,7 @@ include_once '../Lib/helpers.php';
                         // echo "<td>".$usu['segundo_apellido']."</td>";
                         echo "<td>".$usu['telefono']."</td>";
                         echo "<td>".$usu['correo']."</td>";
-                        echo "<td>".$usu['direcion_residencia']."</td>";
+                        echo "<td>".$usu['direccion_residencia']."</td>";
                         echo "<td>".$usu['fecha_nacimiento']."</td>";
 
                         if($usu['id_estado']==1){

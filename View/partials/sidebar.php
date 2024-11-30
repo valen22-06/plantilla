@@ -114,13 +114,13 @@
                       </a>
                     </li>
                     <li>
-                      <a href="sidebar-style-2.html">
+                    <a href="<?php echo getUrl("viaMalEstado","viaMalEstado","getCreate");?>">
                         <span class="sub-item">Via publica en mal estado</span>
                       </a>
                     </li>
 
                     <li>
-                      <a href="<?php echo getUrl("Solicitudes","pqrs","getCreate");?>">
+                      <a href="<?php echo getUrl("pqrs","pqrs","getCreate");?>">
                         <span class="sub-item">PQRS</span>
                       </a>
                     </li>
@@ -166,7 +166,7 @@
                       </a>
                     </li>
                     <li>
-                      <a href="<?php echo getUrl("Solicitudes","pqrs","getCreate");?>">
+                      <a href="<?php echo getUrl("pqrs","pqrs","getPQRS");?>">
                         <span class="sub-item">PQRS</span>
                       </a>
                     </li>

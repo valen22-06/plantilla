@@ -1,11 +1,11 @@
 <?php 
 
 include_once '../Model/Acceso/AccesoModel.php'; 
-include_once '../Lib/conf/connection.php'; 
+
 class AccesoController {
  
 
-    public function login(){
+    public function getCreate(){
         $conn = pg_connect("host=localhost dbname=geovisor user=postgres password=Valen123");
         
         $obj = new AccesoModel();
@@ -18,10 +18,11 @@ class AccesoController {
 
         $usuario = $obj -> consult($sql);
 
-
-        if (pg_query_params($conn, $sql, $params)>0){
+        echo "aca llega";
+        
+        if (!empty($usuario)){
             foreach($usuario as $usu){
-                if(password_verify($pass, $usu['contrasenia'])){
+                if($pass = $usu['contrasenia']){
                     $_SESSION['documento'] = $usu['numero_documento'];
                     $_SESSION['nombre1'] = $usu['primer_nombre'];
                     $_SESSION['nombre2'] = $usu['segundo_nombre'];
@@ -29,29 +30,29 @@ class AccesoController {
                     $_SESSION['apellido2']=$usu['segundo_apellido'];
                     $_SESSION['email']=$usu['correo'];
                     $_SESSION['telefono']=$usu['telefono'];
-                    $_SESSION['nacimiento']=$usu['fecha_nacimiento'];
+                    $_SESSION['direccion_residencia']=$usu[''];
+                    $_SESSION['nacimiento']=$usu['direccion_residencia'];
                     
 
                     $_SESSION['auth'] = "ok";
                     redirect("index.php");
                 } else {
                     $_SESSION['error'][] = "Usuario y/o contrasenia incorrecto";
-                    
+                    redirect("login.php");
                     
                 }
             }    
 
         } else {
-
             $_SESSION['error'] []= "Usuario y/o contrasenia incorrecto";
             
-            
+            redirect("login.php");
         }
     }
 
     public function logout(){
         session_destroy();
-        redirect("login.php");
+       redirect("login.php");
 
     }
 }

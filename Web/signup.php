@@ -1,8 +1,8 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script> 
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <?php
-include_once '../../Lib/helpers.php';
+
+  include_once '../lib/conf/connection.php';
+  //como lo trabajamos en modelo fachada, incluir todas las librerias, html 
+  include_once '../Lib/helpers.php';
 
 ?>
 <style>
@@ -19,12 +19,12 @@ include_once '../../Lib/helpers.php';
     align-items: center;
   }
   input[type="date"]::placeholder {
-      color: black
+    color: rgba(0, 0, 0, 0.8);
     }
 
 
     input[type="text"]::placeholder {
-      color: black;
+      color: rgba(0, 0, 0, 0.8);
     }
 
   .contM {
@@ -55,12 +55,13 @@ include_once '../../Lib/helpers.php';
     border-radius: 0px;
     background: rgba(255, 255, 255, 0.5);
     font-family: 'Oswald', sans-serif;
+    color: black;
     /* display: flex; */
 
   }
 
   .form-control::placeholder {
-    color: black;
+    color: rgba(0, 0, 0, 0.8);
   }
 
   .enviar {
@@ -123,6 +124,7 @@ include_once '../../Lib/helpers.php';
     }
 
     input[type=text] {
+      
       font-size: 13px;
       /* color: #3b4d54; */
       border-radius: 30px;
@@ -158,36 +160,53 @@ include_once '../../Lib/helpers.php';
 
   }
 </style>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
 <center>
 
   <body>
+  <div class='alert alert-danger d-none' role='alert' id='error'>
+
+</div>
+
+<?php
+    if(isset($_SESSION['errores'])){
+        echo "<div class = 'alert alert-danger' role='alert'>";
+        foreach ($_SESSION['errores'] as $error) {
+            echo $error;
+            echo "<br>";
+        }
+        echo "</div>";
+        unset($_SESSION['errores']);
+    }
+?>
 
 
     <div class="container">
 
       <div class="row">
 
-        <form action="<?php echo getUrl("Usuarios", "Usuarios", "postCreate","ajax",false); ?> " method="post" class="col-xs-12 col-sm-12 col-md-12" id='form'>
+        <form action="<?php echo getUrl('Usuarios', 'Usuarios', 'postCreate'); ?>" method="post" class="col-xs-12 col-sm-12 col-md-12" >
           <h2>Registrar</h2>
 
           <div class="contM">
             <div class="cont1">
               <div class="form-group">
 
-<select class="form-control" name="tipo_documento" required>
-    <option selected disabled>Seleccione un tipo de documento</option>
-    <?php
-        foreach ($tipo_documento as $tipo) {
-            echo "<option value='" . htmlspecialchars($tipo['id_tipo_documento']) . "'>" . htmlspecialchars($tipo['nombre_tipo_documento']) . "</option>";
-        }
-    ?>
-</select>
-
-
-              </div>
-
-
+              <select class="form-control" name="tipo_documento" required>
+                  <option selected disabled>Seleccione un tipo de documento</option>
+                  <?php
+                      foreach ($tipo_documento as $tipo) {
+                          echo "<option value='" .$tipo['id_tipo_documento']. "'>" .$tipo['nombre_tipo_documento']."</option>";
+                      }
+                  ?>
+              </select>
+            </div>
 
               <div class="form-group">
               <!-- <label class="form-label">Primer nombre:</label> -->
@@ -199,7 +218,7 @@ include_once '../../Lib/helpers.php';
               </div>
 
               <div class="form-group">
-                <input type="date" class="form-control" id="date" placeholder="Fecha de nacimiento *" name="Rptpwd" required>
+                <input type="date" class="form-control" id="date" placeholder="Fecha de nacimiento *" name="date" required>
               </div>
               <div class="form-group">
                 <input type="email" class="form-control" id="email" placeholder="Email *" name="email" required>
@@ -252,3 +271,8 @@ include_once '../../Lib/helpers.php';
   </form>
 
 </center>
+</html>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script> 
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>

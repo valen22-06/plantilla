@@ -1,3 +1,7 @@
+
+<script src = "js/jquery.js"></script>
+<script src = "js/global.js"></script>
+
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
 
@@ -14,124 +18,39 @@
         crossorigin="anonymous" />
     <link
         rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
+        href="assets/css/login.css" />
+       
 </head>
 <?php
-include_once '../view/partials/head.php';
-include_once '../lib/helpers.php';
+
+include_once '../Lib/helpers.php';
+
 ?>
-<style>
-    body {
-        background-image: url("https://propacifico.org/wp-content/uploads/2024/02/adobestock-284418692-scaled.jpeg");
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
 
-    .cont1 {
-        margin-left: 20px;
-        justify-content: center;
-        align-items: center;
-        width: 88%;
-    }
-
-    .cont2 {
-        margin-top: 20px;
-        margin-left: 20px;
-        justify-content: center;
-        align-items: center;
-        width: 88%;
-    }
-
-    .form-control {
-        border-collapse: collapse;
-        border-bottom: 1px solid black;
-        border-radius: 0px;
-        background: rgba(255, 255, 255, 0.5);
-        font-family: 'Oswald', sans-serif;
-    }
-    .form-label{
-        color: black;
-    }
-
-    .container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .botonIni {
-        display: flex;
-        font-size: 20px;
-        align-items: center;
-        justify-content: center;
-        margin-top: 15px;
-        margin-bottom: 20px;
-    }
-
-    .botonReg {
-        display: flex;
-        font-size: 20px;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 30px;
-    }
-
-    .botonIni button {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        max-width: 150px;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 8px;
-        background-color: 0 0 0;
-        color: white;
-        cursor: pointer;
-        font-size: 18px;
-    }
-
-    .botonReg button {
-        width: 100%;
-        max-width: 150px;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 8px;
-        background-color: 0 0 0;
-        color: white;
-        cursor: pointer;
-        font-size: 18px;
-    }
-
-    /* .botonIni button:hover,
-    .botonReg button:hover {
-      background-color: #0056b3; 
-    } */
-
-    .text-center {
-        margin-top: 30px;
-        color: black;
-    }
-
-    .row {
-        width: 35%;
-        margin-top: 105px;
-        border-radius: 40px;
-        background: rgba(255, 255, 255, 0.4);
-    }
-</style>
 
 <body>
+<div class='alert alert-danger d-none' role='alert' id='error'>
+
+</div>
+
+<?php
+    if(isset($_SESSION['errores'])){
+        echo "<div class = 'alert alert-danger' role='alert'>";
+        foreach ($_SESSION['errores'] as $error) {
+            echo $error;
+            echo "<br>";
+        }
+        echo "</div>";
+        unset($_SESSION['errores']);
+    }
+?>
     <div class="container">
         <div class="row">
             <div class="text-center">
                 <h2>Bienvenido</h2>
             </div>
-            <form
-                class="mt-4"
-                action="<?php echo getUrl('Acceso', 'Acceso', 'login'); ?>"
-                method="post"
-                id="form">
+            <form class="mt-4"action="<?php echo getUrl('Acceso','Acceso','getCreate', false, 'ajax' ); ?>" method="post">
+                <?php $_SESSION['form-ant'] = "iniciar";?>
                 <div class="cont1">
                     <label for="emailAddress" class="form-label">Documento de identidad:</label>
                     <input
@@ -139,7 +58,7 @@ include_once '../lib/helpers.php';
                         class="form-control"
                         name="user"
                         id="documento"
-                        placeholder="Tu Documento" />
+                        placeholder="Tu Documento" required/>
                 </div>
                 <div class="cont2">
                     <label for="password" class="form-label">Contraseña:</label>
@@ -148,20 +67,24 @@ include_once '../lib/helpers.php';
                         class="form-control"
                         name="pass"
                         id="clave"
-                        placeholder="Tu Contraseña" />
+                        placeholder="Tu Contraseña" required/>
                 </div>
                 <br />
                 <div class="botonIni">
                     <button type="submit" id="btn-iniciar">Iniciar</button>
                 </div>
             </form>
+            
+            
             <div class="botonReg">
-                <button type="button" id="btn-registrar">Registrar</button>
+                
+                <a href="<?php echo getUrl('Usuarios', 'Usuarios', 'getCreate', false, "ajax")?>"><?php $_SESSION['form-ant'] = "reg";?><button type="submit" id="btn-form">Registrar</button></a>
             </div>
+            
+
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
 </body>
 

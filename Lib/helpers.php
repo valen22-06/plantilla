@@ -3,11 +3,14 @@
 
 session_start();
     
-    function redirect($url) {
-        echo "<script type='text/javascript'>"
-        ."window.location.href = '$url'".
-        "</script>";
-    }
+function redirect($url)
+{   
+    echo "<script type='text/javascript'>"
+        . "window.location.href='$url'"
+        . "</script>";
+
+    //Funcion para redireccionar a la pagina
+}
    
     
     function dd($var) {
@@ -17,19 +20,20 @@ session_start();
 
     function getUrl($modulo, $controlador, $funcion, $parametros = false, $pagina=false) {
 
-        if($pagina==false){
-            $pagina = 'index';
+        if($pagina == false){
+            $pagina="index";
         }
         $url = "$pagina.php?modulo=$modulo&controlador=$controlador&funcion=$funcion";
-        
-        if($parametros !=false){
+
+        if($parametros != false){
             foreach($parametros as $key => $value){
-                $url.="&$key=$value";
+                $url .="&$key=$value";
             }
         }
 
         return $url;
     }
+    
     function resolve(){
         //Recibe el modulo, controlador y funcion.
         $modulo = ucwords($_GET['modulo']); //Modulo recibido
@@ -96,17 +100,24 @@ session_start();
     }
     
     
-    function validarCamponum($input) {
-        $patron = "/^[0-9]+$/"; 
-        return preg_match($patron, $input) === 1;
+    function validarCampoLetras($input){
+        $patron = "/^[a-zA-Z\s]+$/";
+        return preg_match($patron, $input) ===1;
     }
-    function validarCorreo($input) {
-        $patron = "/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/";
-        return preg_match($patron, $input) === 1;
+
+    function validarNumeros($input){
+        $patron = "/^[0-9]+$/";
+        return preg_match($patron, $input) ===1;
     }
-    function validarClave($input) {
-        $patron = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&])[A-Za-z\d@$!%?&]{8,}$/";
-        return preg_match($patron, $input) === 1;
+
+    function validarCorreo($input){
+        $patron = "/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/";
+        return preg_match($patron, $input) ===1;
+    }
+
+    function validarClave($input){
+        $patron = "/^([A-Z])([a-z])(?=.*[\W_]).{8,15}$/";
+        return preg_match($patron, $input) ===1;
     }
 
 

@@ -1,17 +1,17 @@
 <?php
     
-    include_once '../Lib/conf/conection.php';
+    include_once '../Lib/conf/connection.php';
 
     Class MasterModel extends Connection{
         public function consult($sql) {
             $result = pg_query($this->getConnect(), $sql);
-            if (!$result) {
-                die("Error en la consulta: ".pg_last_error());
-            }
+            // if (!$result) {
+            //     die("Error en la consulta: ".pg_last_error());
+            // }
         
-            $data = pg_fetch_all($result);
-            var_dump($data); 
-            return $data ? $data : [];
+            // $data = pg_fetch_all($result);
+            // var_dump($data); 
+            return pg_fetch_all($result);
         }
 
         public function insert($sql) {

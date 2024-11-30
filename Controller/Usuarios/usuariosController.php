@@ -1,5 +1,5 @@
 <?php
-include_once '../Model/Usuarios/usuariosModel.php';
+    include_once '../Model/Usuarios/usuariosModel.php';
 
 
 class UsuariosController{
@@ -11,18 +11,22 @@ class UsuariosController{
 
             include_once '../View/Usuarios/consult.php';
     }
+    
 
 
     public function getCreate() {
         $model = new usuariosModel();
         $sql = "SELECT * FROM tipo_documento";
-        $tipo_documento = $model->consult($sql);
-    
-        if (empty($tipo_documento)) {
-            $tipo_documento = []; 
-        }
-    
-        include_once '../View/Usuarios/signup.php';
+        $tipo_documento =$model->consult($sql);
+        if(!empty($tipo_documento)){    
+            // include_once 'signup.php';
+            // foreach($tipo_documento as $tipo){
+            //     echo $tipo;
+            // }
+            // redirect ('signup.php');
+            include_once'signup.php';
+        } 
+
     }
     
     
@@ -33,18 +37,18 @@ class UsuariosController{
         $obj = new usuariosModel();
 
         $usu_tipo = $_POST['id_tipo_documento'];
-        $usu_documento = $_POST['numero_documento'];
-        $usu_nombre1 = $_POST['primer_nombre'];
-        $usu_nombre2 = $_POST['segundo_nombre'];
-        $usu_apellido1 = $_POST['primer_apellido'];
-        $usu_apellido2 = $_POST['segundo_apellido'];
+        $usu_documento = $_POST['documento'];
+        $usu_nombre1 = $_POST['name'];
+        $usu_nombre2 = $_POST['surname'];
+        $usu_apellido1 = $_POST['apellido'];
+        $usu_apellido2 = $_POST['segundoApellido'];
         $usu_correo = $_POST['correo'];
         $usu_clave = $_POST['contrasenia'];
         $usu_telefono = $_POST['telefono'];
         $usu_direccion = $_POST['direccion_residencia'];
         $f_nacimiento = $_POST['fecha_nacimiento'];
     
-        $validacion = true;
+        $validacion = true;  
     
         if (empty($usu_documento)) {
             $_SESSION['errores'][] = "El campo documento es requerido";
@@ -71,22 +75,27 @@ class UsuariosController{
             $validacion = false;
         }
     
-        // if (validarCampoLetras($usu_nombre1) == false) {
-        //     $_SESSION['errores'][] = "El campo nombre solo debe contener letras";
-        //     $validacion = false;
-        // }
-        // if (validarCampoLetras($usu_nombre2) == false) {
-        //     $_SESSION['errores'][] = "El campo nombre solo debe contener letras";
-        //     $validacion = false;
-        // }
-        // if (validarCampoLetras($usu_apellido1) == false) {
-        //     $_SESSION['errores'][] = "El campo apellido solo debe contener letras";
-        //     $validacion = false;
-        // }
-        // if (validarCampoLetras($usu_apellido2) == false) {
-        //     $_SESSION['errores'][] = "El campo apellido solo debe contener letras";
-        //     $validacion = false;
-        // }
+        if (validarNumeros($usu_documento) == false) {
+            $_SESSION['errores'][] = "El campo numero de documento solo debe contener numeros";
+            $validacion = false;
+        }
+
+        if (validarCampoLetras($usu_nombre1) == false) {
+            $_SESSION['errores'][] = "El campo nombre solo debe contener letras";
+            $validacion = false;
+        }
+        if (validarCampoLetras($usu_nombre2) == false) {
+            $_SESSION['errores'][] = "El campo nombre solo debe contener letras";
+            $validacion = false;
+        }
+        if (validarCampoLetras($usu_apellido1) == false) {
+            $_SESSION['errores'][] = "El campo apellido solo debe contener letras";
+            $validacion = false;
+        }
+        if (validarCampoLetras($usu_apellido2) == false) {
+            $_SESSION['errores'][] = "El campo apellido solo debe contener letras";
+            $validacion = false;
+        }
     
         if (validarCorreo($usu_correo) == false) {
             $_SESSION['errores'][] = "El campo correo no cumple, verifica que coincida con example@gmail.com";
@@ -102,8 +111,7 @@ class UsuariosController{
     
         if ($validacion) {
             $id = $obj->autoIncrement("usuarios", "id_usuario");
-            $sql = "INSERT INTO usuarios (id_usuario, id_tipo_documento, numero_documento, primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, telefono, correo, direccion_residencia, fecha_nacimiento, contrasenia, id_estado, id_rol) 
-                    VALUES ($id, $usu_tipo , '$usu_documento', '$usu_nombre1', '$usu_nombre2', '$usu_apellido1', '$usu_apellido2', $usu_telefono, '$usu_correo', '$usu_direccion', '$f_nacimiento', '$hash', 1, 3)";
+            $sql = "INSERT INTO usuarios VALUES ($id, 1 , $usu_documento, '$usu_nombre1', '$usu_nombre2', '$usu_apellido1', '$usu_apellido2', $usu_telefono, '$usu_correo', '$usu_direccion', '$f_nacimiento', '$hash', 1, 3)";
     
             if ($obj->insert($sql)) {
                 redirect("login.php");
@@ -284,14 +292,14 @@ class UsuariosController{
             $statusToModify = 1;
         }
     
-        $sql = "UPDATE usuarios SET id_estado = $statusToModify WHERE id_estado=$usu_id";
+        $sql = "UPDATE usuarios SET id_estado = $statusToModify WHERE id_usuario=$usu_id";
     
         $ejecutar = $obj->update($sql);
     
-        if($ejecutar){
-            $sql="SELECT  u.*, r.descripcion as Rdescripcion, e.descripcion as Edescripcion FROM usuarios u, rol r, estado e WHERE u.rolId=r.id AND u.estadoId = e.id_estado ORDER BY u.usuarioId ASC";
+        if($ejecutar!=0){
+            $sql="SELECT  u.*, r.nombre_rol as Rdescripcion, e.nombre_estado as Edescripcion FROM usuarios u, roles r, estado e WHERE u.id_rol=r.id_rol AND u.id_estado = e.id_estado ORDER BY u.id_usuario ASC";
             $usuarios = $obj->consult($sql);
-            include_once '../View/Usuarios/buscar.php';
+            include_once '../View/Usuarios/consult.php';
         } else {
             echo "No se pudo actualizar";
         }
