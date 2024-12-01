@@ -28,25 +28,21 @@ class UsuariosController{
         } 
 
     }
-    
-    
-    
-    
 
     public function postCreate() {
         $obj = new usuariosModel();
 
-        $usu_tipo = $_POST['id_tipo_documento'];
+        $usu_tipo = $_POST['tipo_documento'];
         $usu_documento = $_POST['documento'];
         $usu_nombre1 = $_POST['name'];
-        $usu_nombre2 = $_POST['surname'];
+        $usu_nombre2 = $_POST['secondName'];
         $usu_apellido1 = $_POST['apellido'];
         $usu_apellido2 = $_POST['segundoApellido'];
-        $usu_correo = $_POST['correo'];
-        $usu_clave = $_POST['contrasenia'];
+        $usu_correo = $_POST['email'];
+        $usu_clave = $_POST['Rptpwd'];
         $usu_telefono = $_POST['telefono'];
-        $usu_direccion = $_POST['direccion_residencia'];
-        $f_nacimiento = $_POST['fecha_nacimiento'];
+        $usu_direccion = $_POST['direccion'];
+        $f_nacimiento = $_POST['date'];
     
         $validacion = true;  
     
@@ -110,19 +106,19 @@ class UsuariosController{
         $hash = password_hash($usu_clave, PASSWORD_DEFAULT);
     
         if ($validacion) {
-            $id = $obj->autoIncrement("usuarios", "id_usuario");
-            $sql = "INSERT INTO usuarios 
-        (id_usuario, id_tipo_documento, numero_documento, primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, telefono, correo, direccion_recidencia, fecha_nacimiento, contrasenia, id_estado, id_rol) 
-        VALUES 
-        ($id, $usu_tipo, $usu_documento, '$usu_nombre1', '$usu_nombre2', '$usu_apellido1', '$usu_apellido2', $usu_telefono, '$usu_correo', '$usu_direccion', '$f_nacimiento', '$hash', 1, 3)";
+            $id = $obj->autoIncrement("usuarios");
+            $sql = "INSERT INTO usuarios VALUES ($id, $usu_tipo, $usu_documento, '$usu_nombre1', '$usu_nombre2', '$usu_apellido1', '$usu_apellido2', $usu_telefono, '$usu_correo', '$usu_direccion', '$f_nacimiento', '$hash', 1, 3)";
     
-            if ($obj->insert($sql)) {
-                redirect("login.php");
-            } else {
-                echo "Se ha producido un error al insertar";
-            }
+            $ejecutar = $obj->insert($sql);
+echo "$ejecutar";
+            // if ($ejecutar) {
+
+            //     redirect("login.php");
+            // } else {
+            //     echo "Se ha producido un error al insertar";
+            // }
         } else {
-            redirect(getUrl("Usuarios", "Usuarios", "getCreate"));
+            redirect(getUrl("Usuarios", "Usuarios", "getCreate",false, 'ajax'));
         }
     }
     

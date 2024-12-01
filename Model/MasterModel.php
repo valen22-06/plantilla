@@ -39,8 +39,10 @@
         }
         
 
-        public function autoIncrement($table, $field) {
-            $sql = "SELECT nextval(pg_get_serial_sequence('$table', '$field'))";
+        public function autoIncrement($table) {
+            // $sql = "SELECT nextval(pg_get_serial_sequence('$table', '$field'))";
+
+            $sql= "SELECT count(*)+1 from $table";
             $result = pg_query($this->getConnect(), $sql);
         
             if (!$result) {

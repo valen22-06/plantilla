@@ -119,11 +119,11 @@
                                 alt="Img Profile"
                               />
                             </div>
-                             <div class="notif-content">
+                            <div class="notif-content">
                               <span class="subject">Chad</span>
                               <span class="block"> Ok, Thanks ! </span>
                               <span class="time">12 minutes ago</span>
-                            </div> 
+                            </div>
                           </a>
                           <a href="#">
                             <div class="notif-img">
@@ -336,7 +336,7 @@
                     </div>
                     <span class="profile-username">
                       <span class="op-7">Hi,</span>
-                      <span class="fw-bold"><?PHP echo $_SESSION['nombre1']?></span>
+                      <span class="fw-bold"><?php echo $_SESSION['nombre1']?></span>
                     </span>
                   </a>
                   <ul class="dropdown-menu dropdown-user animated fadeIn">
@@ -351,8 +351,8 @@
                             />
                           </div>
                           <div class="u-text">
-                            <h4>holi</h4>
-                            <p class="text-muted">variable session?></p>
+                            <h4><?php echo $_SESSION['nombre1']." ".$_SESSION['apellido1']?></h4>
+                            <p class="text-muted"><?php echo $_SESSION['email']?></p>
                             <a
                               href="profile.html"
                               class="btn btn-xs btn-secondary btn-sm"
@@ -369,7 +369,7 @@
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Account Setting</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Logout</a>
+                        <a class="dropdown-item" href="<?php echo getUrl('Acceso', 'Acceso','logout');?>">Logout</a>
                       </li>
                     </div>
                   </ul>

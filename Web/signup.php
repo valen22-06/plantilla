@@ -5,6 +5,7 @@
   include_once '../Lib/helpers.php';
 
 ?>
+
 <style>
   body {
     background-image: url("https://propacifico.org/wp-content/uploads/2024/02/adobestock-284418692-scaled.jpeg");
@@ -72,7 +73,8 @@
 
   .row {
     width: 55%;
-    margin-top: 80px;
+    margin-top: 15px;
+    padding: 30px 0px;
     /* border: 2px solid #434c54; */
     border-radius: 40px;
     /* height: auto; */
@@ -110,7 +112,16 @@
 
 
   }
-
+  div.botonRegre button{
+    width: 120px;
+    height: 35px;
+    font-size: 15px;
+    background: rgba(255, 255, 255, 0.8);
+    margin-top: 15px;
+    margin-bottom: 15px;
+    color: black;
+  }
+  
 
   @media(max-width:600px) {
     body {
@@ -166,39 +177,53 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script> 
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+<!-- <script src = "js/global.js"></script> -->
+
+  
 </head>
 <center>
 
   <body>
-  <div class='alert alert-danger d-none' role='alert' id='error'>
 
-</div>
+    
 
+  <!-- <div class='alert alert-danger d-none' role='alert' id='error'>
+
+</div> -->
+
+    <div class="container">
+    
 <?php
-    if(isset($_SESSION['errores'])){
-        echo "<div class = 'alert alert-danger' role='alert'>";
-        foreach ($_SESSION['errores'] as $error) {
-            echo $error;
-            echo "<br>";
-        }
-        echo "</div>";
-        unset($_SESSION['errores']);
+
+if(isset($_SESSION['errores'])){
+    echo "<div class='alert alert-danger' role='alert'>";
+    foreach($_SESSION['errores'] as $error){
+        echo $error."<br>";
     }
+    echo "</div>";
+    unset($_SESSION['errores']);
+}
+
+
 ?>
 
 
-    <div class="container">
 
       <div class="row">
 
-        <form action="<?php echo getUrl('Usuarios', 'Usuarios', 'postCreate'); ?>" method="post" class="col-xs-12 col-sm-12 col-md-12" id=form>
+        <form  action="<?php echo getUrl('Usuarios', 'Usuarios', 'postCreate'); ?>" method="post" class="col-xs-12 col-sm-12 col-md-12">
           <h2>Registrar</h2>
 
           <div class="contM">
             <div class="cont1">
               <div class="form-group">
 
-              <select class="form-control" name="tipo_documento" id=tipo_docu required>
+              <select  class="form-control" name="tipo_documento" id="tipo_docu" >
                   <option selected disabled>Seleccione un tipo de documento</option>
                   <?php
                       foreach ($tipo_documento as $tipo) {
@@ -210,23 +235,25 @@
 
               <div class="form-group">
               <!-- <label class="form-label">Primer nombre:</label> -->
-                <input type="text" class="form-control" id="name" placeholder="Primer nombre *" name="name" required>
+                <input type="text" class="form-control" id="name" placeholder="Primer nombre *" name="name" >
               </div>
 
               <div class="form-group">
-                <input type="text" class="form-control" id="apellido" placeholder="Primer apellido *" name="apellido" required>
+                <input type="text" class="form-control" id="apellido" placeholder="Primer apellido *" name="apellido" >
               </div>
 
               <div class="form-group">
-                <input type="date" class="form-control" id="date" placeholder="Fecha de nacimiento *" name="date" required>
+                <input type="date" class="form-control" id="date" placeholder="Fecha de nacimiento *" name="date" >
               </div>
               <div class="form-group">
-                <input type="email" class="form-control" id="email" placeholder="Email *" name="email" required>
-
+                <input type="email" class="form-control" id="email" placeholder="Email *" name="email" >
               </div>
+              <!-- <div class="form-group">
+                <input type="text" class="form-control" id="direccion_residencia" placeholder="Calle" name="direccion" >
+              </div> -->
 
               <div class="form-group">
-                <input type="password" class="form-control" id="pwd" placeholder="Password *" name="pwd" required>
+                <input type="password" class="form-control" id="pwd" placeholder="Password *" name="pwd" >
               </div>
 
             </div>
@@ -235,44 +262,45 @@
 
 
               <div class="form-group">
-                <input type="number" class="form-control" id="documento" placeholder="Documento de identidad *" name="documento" required>
+                <input type="number" class="form-control" id="documento" placeholder="Documento de identidad *" name="documento" >
               </div>
 
 
               <div class="form-group">
-                <input type="text" class="form-control" id="surname" placeholder="Segundo nombre" name="secondName" required>
+                <input type="text" class="form-control" id="surname" placeholder="Segundo nombre" name="secondName" >
               </div>
 
               <div class="form-group">
-                <input type="text" class="form-control" id="segundoApellido" placeholder="Segundo apellido *" name="segundoApellido" required>
+                <input type="text" class="form-control" id="segundoApellido" placeholder="Segundo apellido *" name="segundoApellido" >
               </div>
 
               <div class="form-group">
-                <input type="text" class="form-control" id="telefono" placeholder="Telefono *" name="telefono" required>
+                <input type="text" class="form-control" id="telefono" placeholder="Telefono *" name="telefono" >
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" id="direccion_residencia" placeholder="Direccion de residencia *" name="direccion" required>
+                <input type="text" class="form-control" id="direccion_residencia" placeholder="Direccion de residencia *" name="direccion" >
               </div>
               <div class="form-group">
-                <input type="password" class="form-control" id="Rtpwd" placeholder="Confirmar password *" name="Rptpwd" required>
+                <input type="password" class="form-control" id="Rtpwd" placeholder="Confirmar password *" name="Rptpwd" >
               </div>
 
             </div>
           </div>
-          <div class="enviar">
-            <button type="submit">Enviar <i class="glyphicon glyphicon-send"></i></button>
-          </div>
-
-        </form>
-
-      </div>
-    </div>
-  </body>
+          
+  <button type="submit" id="btn-env">Enviar <i class="glyphicon glyphicon-send" ></i></button>
+            
   </form>
 
+                
+<button type="submit" id="btn-reg">Volver</button>
+        
+      </div>
+
+            
+    </div>
+  </body>
+  
+</center>
 </center>
 </html>
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script> 
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>

@@ -19,7 +19,7 @@ include_once '../Lib/helpers.php';
     <table class="table table-hover table-striped mt-3">
         <thead>
             <tr>
-                <th>ID</th>
+                <th>Id</th>
                 <th>Tipo de documento</th>
                 <th>Numero de docuento</th>
                 <th>Nombres</th>
@@ -70,9 +70,9 @@ include_once '../Lib/helpers.php';
                             echo "<a href='" . getUrl("Usuarios", "Usuarios", "getUpdate", array("id_usuario" => $usu['id_usuario'])) . "'>";
                             echo "<button class='btn btn-primary'>Editar</button>";
                             echo "</a>";
-                            echo "</td>";
+                            // echo "</td>";
 
-                            echo "<td>";
+                            // echo "<td>";
                             echo "<a href='" . getUrl("Usuarios", "Usuarios", "getDelete", array("id_usuario" => $usu['id_usuario'])) . "'>";
                             echo "<button class='btn btn-danger'>Eliminar</button>";
                             echo "</a>";

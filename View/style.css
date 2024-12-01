@@ -73,6 +73,16 @@ body {
 
   }
 
+  input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
   form h2 {
     color: #3b4d54;
     font-size: 40px;
@@ -147,5 +157,6 @@ body {
       display: inline;
       /* color: #3b4d54; */
     }
+
 
   }
