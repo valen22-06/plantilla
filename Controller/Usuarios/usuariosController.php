@@ -141,6 +141,7 @@ echo "$ejecutar";
 
         $obj = new UsuariosModel();
 
+        $usu_id = $_SESSION['id_usu'];
         $usu_nombre1 = $_POST['name'];
         $usu_nombre2 = $_POST['secondName'];
         $usu_apellido1 = $_POST['apellido'];
@@ -217,14 +218,21 @@ echo "$ejecutar";
         //     $validacion = false;
         // }
 
-        if ($_SESSION['id_rol']==3) {
+        $hash = password_hash($usu_clave, PASSWORD_DEFAULT);
+
+
+        if ($_SESSION['rol']==3) {
             # code...
+        } elseif ($_SESSION['rol']==2){
+
+        } elseif ($_SESSION['rol']==1){
+
         }
 
 
-        $sql = "UPDATE usuarios SET primer_nombre = '$usu_nombre1', segundo_nombre = '$usu_nombre2', primer_apellido = '$usu_apellido1', segundo_apellido = '$usu_apellido2', WHERE tareaId = $usu_id";
-        echo "Usuario ID: " . $usu_id;
-        echo $sql;
+        $sql = "UPDATE usuarios SET primer_nombre = '$usu_nombre1', segundo_nombre = '$usu_nombre2', primer_apellido = '$usu_apellido1', segundo_apellido = '$usu_apellido2', correo = '$usu_correo', telefono = '$usu_telefono', direccion_residencia ='$usu_direccion', contrasenia ='$hash' WHERE id_usuario = $usu_id";
+        // echo "Usuario ID: " . $usu_id;
+        // echo $sql;
 
         $ejecutar = $obj->update($sql);
         echo $sql;

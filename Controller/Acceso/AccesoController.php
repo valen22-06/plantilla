@@ -18,7 +18,6 @@ class AccesoController {
 
         $usuario = $obj -> consult($sql);
 
-        echo "aca llega";
         
         if (!empty($usuario)){
             foreach($usuario as $usu){

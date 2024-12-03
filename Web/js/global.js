@@ -136,6 +136,7 @@ $(document).ready(function(){
         
 
       });
+      
       $(document).ready(function () {
         
         $('#btn-reg').click(function (event) {
