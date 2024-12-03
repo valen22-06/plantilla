@@ -217,8 +217,12 @@ echo "$ejecutar";
         //     $validacion = false;
         // }
 
+        if ($_SESSION['id_rol']==3) {
+            # code...
+        }
 
-        $sql = "UPDATE usuarios SET primer_nombre = '$usu_nombre1', segundo_nombre = '$usu_nombre2', primer_apellido = '$usu_nombre1', usuarioId = $id WHERE tareaId = $usu_id";
+
+        $sql = "UPDATE usuarios SET primer_nombre = '$usu_nombre1', segundo_nombre = '$usu_nombre2', primer_apellido = '$usu_apellido1', segundo_apellido = '$usu_apellido2', WHERE tareaId = $usu_id";
         echo "Usuario ID: " . $usu_id;
         echo $sql;
 
