@@ -23,6 +23,7 @@ class AccesoController {
         if (!empty($usuario)){
             foreach($usuario as $usu){
                 if($pass = $usu['contrasenia']){
+                    $_SESSION['id_usu'] = $usu['id_usuario'];
                     $_SESSION['documento'] = $usu['numero_documento'];
                     $_SESSION['nombre1'] = $usu['primer_nombre'];
                     $_SESSION['nombre2'] = $usu['segundo_nombre'];
@@ -32,6 +33,8 @@ class AccesoController {
                     $_SESSION['telefono']=$usu['telefono'];
                     $_SESSION['direccion_residencia']=$usu[''];
                     $_SESSION['nacimiento']=$usu['direccion_residencia'];
+                    $_SESSION['rol']=$usu['id_rol'];
+                    $_SESSION['estado']=$usu['id_estado'];
                     
 
                     $_SESSION['auth'] = "ok";

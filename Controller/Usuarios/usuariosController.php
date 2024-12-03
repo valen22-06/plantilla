@@ -126,7 +126,7 @@ echo "$ejecutar";
     public function getUpdate(){
         $obj = new UsuariosModel();
 
-        $usu_id= $_GET['id_usuario'];
+        $usu_id = $_SESSION['id_usu'];
 
         $sql = "SELECT * FROM usuarios WHERE id_usuario = $usu_id";
         $usuarios = $obj->consult($sql);
@@ -216,20 +216,20 @@ echo "$ejecutar";
         // }
 
 
-        // $sql = "UPDATE tareas SET tareaNombre = '$usu_nombre1', tareaDescripcion = 'usu_descripcion', usuarioId = $id WHERE tareaId = $usu_id";
-        // echo "Usuario ID: " . $usu_id;
-        // echo $sql;
+        $sql = "UPDATE usuarios SET primer_nombre = '$usu_nombre1', segundo_nombre = '$usu_nombre2', primer_apellido = '$usu_nombre1', usuarioId = $id WHERE tareaId = $usu_id";
+        echo "Usuario ID: " . $usu_id;
+        echo $sql;
 
-        // $ejecutar = $obj->update($sql);
-        // echo $sql;
+        $ejecutar = $obj->update($sql);
+        echo $sql;
 
         
 
-        // if($ejecutar){
-        //     redirect(getUrl("Tareas","Tareas","getTareas"));
-        // }else{
-        //     echo "Se ha producido un error al insactualizarertar";
-        // }
+        if($ejecutar){
+            redirect(getUrl("Usuarios","Usuarios","getUsuarios"));
+        }else{
+            echo "Se ha producido un error al insactualizarertar";
+        }
 
 
     }
