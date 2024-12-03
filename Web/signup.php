@@ -248,13 +248,6 @@ if(isset($_SESSION['errores'])){
               <div class="form-group">
                 <input type="email" class="form-control" id="email" placeholder="Email *" name="email" >
               </div>
-              <!-- <div class="form-group">
-                <input type="text" class="form-control" id="direccion_residencia" placeholder="Calle" name="direccion" >
-              </div> -->
-
-              <div class="form-group">
-                <input type="password" class="form-control" id="pwd" placeholder="Password *" name="pwd" >
-              </div>
 
             </div>
 
@@ -277,15 +270,43 @@ if(isset($_SESSION['errores'])){
               <div class="form-group">
                 <input type="text" class="form-control" id="telefono" placeholder="Telefono *" name="telefono" >
               </div>
+              
               <div class="form-group">
-                <input type="text" class="form-control" id="direccion_residencia" placeholder="Direccion de residencia *" name="direccion" >
+                <input type="password" class="form-control" id="Rtpwd" placeholder="Contraseña *" name="Rptpwd" >
+              </div>
+              
+            </div>
+            
+          </div>
+          <div class="cont3">
+          <select  class="form-control" name="tipo_via" id="tipo_via" >
+                  <option selected disabled>Seleccione un tipo de via</option>
+                  <?php
+                      foreach ($tipo_via as $tipo) {
+                          echo "<option value='" .$tipo['id_tipo_via']. "'>" .$tipo['nombre_via']."</option>";
+                      }
+                  ?>
+          </select>
+          <div class="form-group">
+                <input type="text" class="form-control" id="numVia" placeholder="Numero de la via" name="numVia" >
               </div>
               <div class="form-group">
-                <input type="password" class="form-control" id="Rtpwd" placeholder="Confirmar password *" name="Rptpwd" >
+                <input type="text" class="form-control" id="letra" placeholder="Letra" name="letra" >
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" id="complemento" placeholder="Complemento" name="complemento" >
+              </div>
+              <div class="form-group">
+                <input type="numeric" class="form-control" id="num" placeholder="Numero" name="num" >
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" id="letra2" placeholder="Letra" name="letra2" >
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" id="complemento2" placeholder="Complemento" name="complemento2" >
               </div>
 
-            </div>
-          </div>
+              </div>
           
   <button type="submit" id="btn-env">Enviar <i class="glyphicon glyphicon-send" ></i></button>
             
