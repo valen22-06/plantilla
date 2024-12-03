@@ -192,9 +192,9 @@
 
     
 
-  <!-- <div class='alert alert-danger d-none' role='alert' id='error'>
+  <div class='alert alert-danger d-none' role='alert' id='error'>
 
-</div> -->
+</div>
 
     <div class="container">
     
@@ -301,6 +301,6 @@ if(isset($_SESSION['errores'])){
   </body>
   
 </center>
-</center>
+
 </html>
 

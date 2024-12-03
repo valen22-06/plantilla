@@ -111,12 +111,12 @@ class UsuariosController{
     
             $ejecutar = $obj->insert($sql);
 echo "$ejecutar";
-            // if ($ejecutar) {
+            if ($ejecutar) {
 
-            //     redirect("login.php");
-            // } else {
-            //     echo "Se ha producido un error al insertar";
-            // }
+                redirect("login.php");
+            } else {
+                echo "Se ha producido un error al insertar";
+            }
         } else {
             redirect(getUrl("Usuarios", "Usuarios", "getCreate",false, 'ajax'));
         }
