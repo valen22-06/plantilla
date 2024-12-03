@@ -18,17 +18,17 @@ include_once '../Lib/helpers.php';
 
     </div>
 
-    <!-- <?php
-        // if(isset($_SESSION['errores'])){
-        //     echo "<div class = 'alert alert-danger' role='alert'>";
-        //     foreach ($_SESSION['errores'] as $error) {
-        //         echo $error;
-        //         echo "<br>";
-        //     }
-        //     echo "</div>";
-        //     unset($_SESSION['errores']);
-        // }
-    ?> -->
+    <?php
+        if(isset($_SESSION['errores'])){
+            echo "<div class = 'alert alert-danger' role='alert'>";
+            foreach ($_SESSION['errores'] as $error) {
+                echo $error;
+                echo "<br>";
+            }
+            echo "</div>";
+            unset($_SESSION['errores']);
+        }
+    ?>
         
 <form action="<?php echo getUrl("pqrs","pqrs","postCreate"); ?> " method="post">
     <div class="row mt-5">

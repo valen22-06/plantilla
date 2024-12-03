@@ -116,7 +116,7 @@ function redirect($url)
     }
 
     function validarClave($input){
-        $patron = "/^([A-Z])([a-z])(?=.*[\W_]).{8,15}$/";
+        $patron = '/^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{9,}$/';
         return preg_match($patron, $input) ===1;
     }
 

@@ -130,24 +130,24 @@ $(document).ready(function(){
     });
 
     $(document).ready(function() {
-        // Manejar el clic del botón "Registrar"
+        
         $('#consultar').click(function(event) {
-          // Prevenir comportamiento predeterminado
+          
           event.preventDefault();
 
-          // Redirigir a la página de registro
+          
           window.location.href = "../View/Usuarios/consult.php";
         });
         
 
       });
       $(document).ready(function () {
-        // Manejar el clic del botón "Volver"
+        
         $('#btn-reg').click(function (event) {
-            // Prevenir comportamiento predeterminado (no necesario si el botón no es de tipo "submit")
+            
             event.preventDefault();
     
-            // Redirigir a la página de login
+            
             window.location.href = "login.php";
         });
     });    

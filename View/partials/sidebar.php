@@ -89,7 +89,7 @@
                 <div class="collapse" id="sidebarLayouts">
                   <ul class="nav nav-collapse">
                     <li>
-                      <a href="sidebar-style-2.html">
+                      <a href="<?php echo getUrl("Accidente","Accidente","getCreate");?>">
                         <span class="sub-item">Accidentes</span>
                       </a>
                     </li>

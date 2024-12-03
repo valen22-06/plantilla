@@ -354,7 +354,7 @@
                             <h4><?php echo $_SESSION['nombre1']." ".$_SESSION['apellido1']?></h4>
                             <p class="text-muted"><?php echo $_SESSION['email']?></p>
                             <a
-                              href="profile.html"
+                              href="<?php echo getUrl('Usuarios', 'Usuarios', 'getUpdate'); ?>"
                               class="btn btn-xs btn-secondary btn-sm"
                               >View Profile</a
                             >

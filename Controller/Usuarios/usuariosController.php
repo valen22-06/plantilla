@@ -126,9 +126,9 @@ echo "$ejecutar";
     public function getUpdate(){
         $obj = new UsuariosModel();
 
-        $usu_id= $_GET['usuarioId'];
+        $usu_id= $_GET['id_usuario'];
 
-        $sql = "SELECT * FROM usuarios WHERE usuarioId = $usu_id";
+        $sql = "SELECT * FROM usuarios WHERE id_usuario = $usu_id";
         $usuarios = $obj->consult($sql);
 
         include_once '../view/Usuarios/update.php';
@@ -139,16 +139,15 @@ echo "$ejecutar";
 
         $obj = new UsuariosModel();
 
-        $usu_documento=$_POST['documento_persona'];
-        $usu_nombre1 = $_POST['primer_nombre_persona'];
-        $usu_nombre2 = $_POST['segundo_nombre_persona'];
-        $usu_apellido1 = $_POST['primer_apellido_persona'];
-        $usu_apellido2 = $_POST['segundo_apellido_persona'];
-        $usu_correo = $_POST['email_persona'];
-        $usu_clave = $_POST['contrasenia_persona'];
-        $usu_telefono=$_POST['telefono_persona'];
-        $f_nacimiento=$_POST['fecha_nacimiento_persona'];
-        $rol_id = $_POST['rol_persona'];
+        $usu_nombre1 = $_POST['name'];
+        $usu_nombre2 = $_POST['secondName'];
+        $usu_apellido1 = $_POST['apellido'];
+        $usu_apellido2 = $_POST['segundoApellido'];
+        $usu_correo = $_POST['email'];
+        $usu_clave = $_POST['Rptpwd'];
+        $usu_telefono = $_POST['telefono'];
+        $usu_direccion = $_POST['direccion'];
+        
         
 
         // if(empty($usu_documento)){
