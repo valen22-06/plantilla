@@ -22,7 +22,7 @@ class AccesoController {
         
         if (!empty($usuario)){
             foreach($usuario as $usu){
-                if($pass = $usu['contrasenia']){
+                if(password_verify($pass, $usu['contrasenia'])){
                     $_SESSION['id_usu'] = $usu['id_usuario'];
                     $_SESSION['documento'] = $usu['numero_documento'];
                     $_SESSION['nombre1'] = $usu['primer_nombre'];
