@@ -43,7 +43,7 @@ class UsuariosController{
         $usu_correo = $_POST['email'];
         $usu_clave = $_POST['Rptpwd'];
         $usu_telefono = $_POST['telefono'];
-        $usu_direccion = $_POST['direccion'];
+        $usu_direccion = $_POST['direccion'].['numVia'].['letra'].['complemento'].['num'].['letra2'].['complemento2'];
         $f_nacimiento = $_POST['date'];
     
         $validacion = true;  
