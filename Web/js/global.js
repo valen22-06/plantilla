@@ -42,11 +42,6 @@ $(document).ready(function(){
             esValido = false;
         }
 
-        const clave1 = $('#pwd').val().trim();
-        if (clave != clave1) {
-            mensajes.push('El campo confirmar password debe coincidir con password.');
-            esValido = false;
-        }
 
         const telefono = $('#telefono').val().trim();
         if (telefono === '') {

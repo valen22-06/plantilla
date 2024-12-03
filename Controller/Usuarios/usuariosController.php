@@ -18,6 +18,8 @@ class UsuariosController{
         $model = new usuariosModel();
         $sql = "SELECT * FROM tipo_documento";
         $tipo_documento =$model->consult($sql);
+        $sql2='SELECT * FROM tipo_via';
+        $tipo_via =$model->consult($sql2);
         if(!empty($tipo_documento)){    
             // include_once 'signup.php';
             // foreach($tipo_documento as $tipo){
