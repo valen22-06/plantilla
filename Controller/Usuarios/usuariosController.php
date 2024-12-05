@@ -34,7 +34,7 @@ class UsuariosController{
     public function postCreate() {
         $obj = new usuariosModel();
 
-        $usu_tipo = $_POST['tipo_documento'];
+        $usu_tipo = $_POST['id_tipo_documento'];
         $usu_documento = $_POST['documento'];
         $usu_nombre1 = $_POST['name'];
         $usu_nombre2 = $_POST['secondName'];
@@ -43,9 +43,14 @@ class UsuariosController{
         $usu_correo = $_POST['email'];
         $usu_clave = $_POST['Rptpwd'];
         $usu_telefono = $_POST['telefono'];
-        $usu_direccion = $_POST['direccion'].['numVia'].['letra'].['complemento'].['num'].['letra2'].['complemento2'];
-        $f_nacimiento = $_POST['date'];
-    
+        $usu_direccion = $_POST['numVia'];
+        $usu_direccion1 =$_POST['letra'];
+        $usu_direccion2=$_POST['complemento'];
+        $usu_direccion3=$_POST['num'];
+        $usu_direccion4=$_POST['letra2'];
+        $usu_direccion5=$_POST['complemento2'];
+
+        $direccion = $usu_direccion . " " . $usu_direccion1 . " " . $usu_direccion2 . " " . $usu_direccion3 . " " . $usu_direccion4 . " " . $usu_direccion5;
         $validacion = true;  
     
         if (empty($usu_documento)) {
@@ -109,18 +114,17 @@ class UsuariosController{
     
         if ($validacion) {
             $id = $obj->autoIncrement("usuarios");
-            $sql = "INSERT INTO usuarios VALUES ($id, $usu_tipo, $usu_documento, '$usu_nombre1', '$usu_nombre2', '$usu_apellido1', '$usu_apellido2', $usu_telefono, '$usu_correo', '$usu_direccion', '$f_nacimiento', '$hash', 1, 3)";
+            $sql = "INSERT INTO usuarios VALUES ($id, $usu_tipo, $usu_documento, '$usu_nombre1', '$usu_nombre2', '$usu_apellido1', '$usu_apellido2', $usu_telefono, '$usu_correo', '$direccion', '$f_nacimiento', '$hash', 1, 3)";
     
             $ejecutar = $obj->insert($sql);
-echo "$ejecutar";
             if ($ejecutar) {
 
-                redirect("login.php");
+                // redirect("login.php");
             } else {
                 echo "Se ha producido un error al insertar";
             }
         } else {
-            redirect(getUrl("Usuarios", "Usuarios", "getCreate",false, 'ajax'));
+            redirect(getUrl("Usuarios", "Usuarios", "getCreate",false, 'ajax'));    
         }
     }
     
