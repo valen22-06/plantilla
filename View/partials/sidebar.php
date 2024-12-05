@@ -94,7 +94,7 @@
                       </a>
                     </li>
                     <li>
-                      <a href="sidebar-style-2.html">
+                      <a href="<?php echo getUrl("Senializacion", "Senializacion", "getCreate");?>">
                         <span class="sub-item">Nueva señalizacion</span>
                       </a>
                     </li>

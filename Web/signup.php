@@ -236,7 +236,7 @@ if(isset($_SESSION['errores'])){
             </div>
 
               <div class="form-group">
-              <!-- <label class="form-label">Primer nombre:</label> -->
+              
                 <input type="text" class="form-control" id="name" placeholder="Primer nombre *" name="name" >
               </div>
 

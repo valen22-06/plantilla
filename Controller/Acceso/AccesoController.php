@@ -6,7 +6,7 @@ class AccesoController {
  
 
     public function getCreate(){
-        $conn = pg_connect("host=localhost dbname=geovisor user=postgres password=Valen123");
+        // $conn = pg_connect("host=localhost dbname=geovisor user=postgres password=Valen123");
         
         $obj = new AccesoModel();
         $user = $_POST['user'];

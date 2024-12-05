@@ -23,7 +23,11 @@
                 <label for="cat_accidente" class="form-label">Tipo de accidente</label>
                 <select class="form-select" name="cat_accidente" id="cat_accidente">
                     <option disabled selected>Seleccione tipo de accidente</option>
-                    <!-- Opciones dinámicas aquí -->
+                    <?php
+                      foreach ($choque as $cho) {
+                          echo "<option value='" .$cho['id_choque_detalle']. "'>" .$cho['nombre_choque_detalle']."</option>";
+                      }
+                  ?>
                 </select>
             </div>
             <div class="col-md-6">
@@ -34,17 +38,25 @@
 
         <div class="row mb-3">
             <div class="col-md-6">
-                <label for="choque" class="form-label">Tipo de choque</label>
+                <label for="choque" class="form-label">Tipo de daño</label>
                 <select class="form-select" name="choque" id="choque">
-                    <option disabled selected>Seleccione tipo de choque</option>
-                    <!-- Opciones dinámicas aquí -->
+                    <option disabled selected>Seleccione tipo de daño</option>
+                    <?php
+                      foreach ($tipo_choque as $cho) {
+                          echo "<option value='" .$cho['id_choque']. "'>" .$cho['descripcion']."</option>";
+                      }
+                  ?>
                 </select>
             </div>
             <div class="col-md-6">
                 <label for="vehiculo" class="form-label">Tipo de vehículo</label>
                 <select class="form-select" name="vehiculo" id="vehiculo">
                     <option disabled selected>Seleccione tipo de vehículo</option>
-                    <!-- Opciones dinámicas aquí -->
+                    <?php
+                      foreach ($tipo_vehiculo  as $vehiculo) {
+                          echo "<option value='" .$vehiculo['id_tipo_vehiculo']. "'>" .$vehiculo['nombre_tipo_vehiculo']."</option>";
+                      }
+                  ?>
                 </select>
             </div>
         </div>

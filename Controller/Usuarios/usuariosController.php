@@ -43,8 +43,16 @@ class UsuariosController{
         $usu_correo = $_POST['email'];
         $usu_clave = $_POST['Rptpwd'];
         $usu_telefono = $_POST['telefono'];
-        $usu_direccion = $_POST['direccion'].['numVia'].['letra'].['complemento'].['num'].['letra2'].['complemento2'];
+        $usu_numvia=$_POST['numVia'];
+        $usu_letra= $_POST['letra'];
+        $usu_com= $_POST['complemento'];
+        $usu_num= $_POST['num'];
+        $usu_letra2= $_POST['letra2'];
+        $usu_com2= $_POST['complemento2'];
         $f_nacimiento = $_POST['date'];
+
+        $dire=$usu_numvia.' '.$usu_letra.' '.$usu_com.' '.$usu_num.' '.$usu_letra2.' '.$usu_com2;
+
     
         $validacion = true;  
     
@@ -109,10 +117,9 @@ class UsuariosController{
     
         if ($validacion) {
             $id = $obj->autoIncrement("usuarios");
-            $sql = "INSERT INTO usuarios VALUES ($id, $usu_tipo, $usu_documento, '$usu_nombre1', '$usu_nombre2', '$usu_apellido1', '$usu_apellido2', $usu_telefono, '$usu_correo', '$usu_direccion', '$f_nacimiento', '$hash', 1, 3)";
+            $sql = "INSERT INTO usuarios VALUES ($id, $usu_tipo, $usu_documento, '$usu_nombre1', '$usu_nombre2', '$usu_apellido1', '$usu_apellido2', $usu_telefono, '$usu_correo', '$dire', '$f_nacimiento', '$hash', 1, 3)";
     
             $ejecutar = $obj->insert($sql);
-echo "$ejecutar";
             if ($ejecutar) {
 
                 redirect("login.php");
