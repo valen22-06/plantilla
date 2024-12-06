@@ -99,7 +99,7 @@
                       </a>
                     </li>
                     <li>
-                      <a href="sidebar-style-2.html">
+                      <a href="<?php echo getUrl("SenializacionM", "SenializacionM", "getCreate");?>">
                         <span class="sub-item">Señalizacion en mal estado</span>
                       </a>
                     </li>

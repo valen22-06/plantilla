@@ -70,27 +70,27 @@
                 $validacion = false;
             }
             if (empty($acc_letra)) {
-                $_SESSION['errores'][] = "El campo numero via es requerido";
+                $_SESSION['errores'][] = "El campo letra via es requerido";
                 $validacion = false;
             }
             if (empty($acc_com)) {
-                $_SESSION['errores'][] = "El campo numero via es requerido";
+                $_SESSION['errores'][] = "El campo complemento via es requerido";
                 $validacion = false;
             }
             if (empty($acc_num)) {
-                $_SESSION['errores'][] = "El campo numero via es requerido";
+                $_SESSION['errores'][] = "El campo numero es requerido";
                 $validacion = false;
             }
             if (empty($acc_letra2)) {
-                $_SESSION['errores'][] = "El campo numero via es requerido";
+                $_SESSION['errores'][] = "El campo letra via es requerido";
                 $validacion = false;
             }
             if (empty($acc_com2)) {
-                $_SESSION['errores'][] = "El campo numero via es requerido";
+                $_SESSION['errores'][] = "El campo complemento es requerido";
                 $validacion = false;
             }
             if (empty($acc_tipo_via)) {
-                $_SESSION['errores'][] = "El campo numero via es requerido";
+                $_SESSION['errores'][] = "El campo tipo via es requerido";
                 $validacion = false;
             }
 
@@ -106,7 +106,7 @@
                     echo "Se ha producido un error al insertar";
                 }
             } else {
-                redirect(getUrl("Accidente", "Accidente", "getCreate",false, 'ajax'));
+                redirect(getUrl("Accidente", "Accidente", "getCreate"));
             }
 
         }

@@ -1,14 +1,10 @@
-
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> 
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <?php include_once '../Lib/helpers.php'; ?>
 
 <div class="container mt-5">
-<div class='alert alert-danger d-none' role='alert' id='error'>
-
-</div>
     <div class="text-center">
-        <h3 class="display-4">Registrar Accidente</h3>
+        <h3 class="display-4">Registrar Señalizacion Nueva</h3>
     </div>
 
     <?php
@@ -23,15 +19,15 @@
         }
     ?>
 
-    <form action="<?php echo getUrl("Accidente", "Accidente", "postCreate"); ?>" method="post" class="mt-4">
+        <form action="<?php echo getUrl("Senializacion", "Senializacion", "postCreate"); ?>" method="post" class="mt-4">
         <div class="row mb-3">
             <div class="col-md-6">
-                <label for="cat_accidente" class="form-label">Tipo de accidente</label>
-                <select class="form-select" name="cat_accidente" id="cat_accidente">
-                    <option disabled selected>Seleccione tipo de accidente</option>
+                <label for="cat_senializacion" class="form-label">Tipo de Señalizacion</label>
+                <select class="form-select" name="cat_senializacion" id="cat_senializacion">
+                    <option disabled selected>Seleccione tipo de Señalizacion</option>
                     <?php
-                      foreach ($choque as $cho) {
-                          echo "<option value='" .$cho['id_choque_detalle']. "'>" .$cho['nombre_choque_detalle']."</option>";
+                      foreach ($tipo_sen as $tipo) {
+                          echo "<option value='" .$tipo['id_tipo_senializacion']. "'>" .$tipo['nombre_tipo_senializacion']."</option>";
                       }
                   ?>
                 </select>
@@ -44,23 +40,23 @@
 
         <div class="row mb-3">
             <div class="col-md-6">
-                <label for="choque" class="form-label">Tipo de daño</label>
-                <select class="form-select" name="choque" id="choque">
-                    <option disabled selected>Seleccione tipo de daño</option>
+                <label for="cat_sen" class="form-label">Categoria Señalizacion</label>
+                <select class="form-select" name="cat_sen" id="cat_sen">
+                    <option disabled selected>Seleccione categoria Señalizacion</option>
                     <?php
-                      foreach ($tipo_choque as $cho) {
-                          echo "<option value='" .$cho['id_choque']. "'>" .$cho['descripcion']."</option>";
+                      foreach ($cat_sen as $sen) {
+                          echo "<option value='" .$sen['id_categoria_senializacion']. "'>" .$sen['nombre_categoria_senializacion']."</option>";
                       }
                   ?>
                 </select>
             </div>
             <div class="col-md-6">
-                <label for="vehiculo" class="form-label">Tipo de vehículo</label>
-                <select class="form-select" name="vehiculo" id="vehiculo">
-                    <option disabled selected>Seleccione tipo de vehículo</option>
+                <label for="t_sen" class="form-label">Tipo de Señalizacion</label>
+                <select class="form-select" name="t_sen" id="t_sen">
+                    <option disabled selected>Seleccione tipo de señalizacion</option>
                     <?php
-                      foreach ($tipo_vehiculo  as $vehiculo) {
-                          echo "<option value='" .$vehiculo['id_tipo_vehiculo']. "'>" .$vehiculo['nombre_tipo_vehiculo']."</option>";
+                      foreach ($tipo_sen  as $tsen) {
+                          echo "<option value='" .$tsen['id_tipo_senializacion']. "'>" .$tsen['nombre_tipo_senializacion']."</option>";
                       }
                   ?>
                 </select>
@@ -68,13 +64,6 @@
         </div>
 
         <div class="row mb-3">
-            <div class="col-md-6">
-                <label for="lesionados" class="form-label">¿Lesionados?</label>
-                <select class="form-select" id="lesionados" name="lesionados">
-                    <option value="si">Sí</option>
-                    <option value="no">No</option>
-                </select>
-            </div>
             <div class="col-md-6">
                 <label for="tipo_via" class="form-label">Tipo de vía</label>
                 <select class="form-select" name="tipo_via" id="tipo_via">
@@ -122,4 +111,6 @@
             <button type="submit" class="btn btn-primary">Registrar</button>
         </div>
     </form>
-</div>
+        </div>
+
+        
