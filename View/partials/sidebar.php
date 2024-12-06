@@ -104,12 +104,12 @@
                       </a>
                     </li>
                     <li>
-                      <a href="icon-menu.html">
+                      <a href="<?php echo getUrl("Reductor", "Reductor", "getCreate");?>">
                         <span class="sub-item">Reductor nuevo</span>
                       </a>
                     </li>
                     <li>
-                      <a href="sidebar-style-2.html">
+                      <a href="<?php echo getUrl("ReductorM", "ReductorM", "getCreate");?>">
                         <span class="sub-item">Reductor en mal esatdo</span>
                       </a>
                     </li>
