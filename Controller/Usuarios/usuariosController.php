@@ -34,7 +34,7 @@ class UsuariosController{
     public function postCreate() {
         $obj = new usuariosModel();
 
-        $usu_tipo = $_POST['id_tipo_documento'];
+        $usu_tipo = $_POST['tipo_documento'];
         $usu_documento = $_POST['documento'];
         $usu_nombre1 = $_POST['name'];
         $usu_nombre2 = $_POST['secondName'];
@@ -122,7 +122,7 @@ class UsuariosController{
             $ejecutar = $obj->insert($sql);
             if ($ejecutar) {
 
-                // redirect("login.php");
+                redirect("login.php");
             } else {
                 echo "Se ha producido un error al insertar";
             }
