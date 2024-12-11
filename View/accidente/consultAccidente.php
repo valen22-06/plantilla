@@ -39,11 +39,15 @@
                 echo "<td>".$acc['lesionados']."</td>";
                 echo "<td>".$acc['observacion']."</td>";
                 echo "<td>".$acc['direccion']."</td>";
-                
-
-
-
-
+                echo "<td>";
+                echo "<select class='form-select' name='cat_accidente' id='cat_accidente'>
+                <option disabled selected>".$acc['Edescripcion']."</option>";
+                foreach ($estado as $est) {
+                echo "<option value='".$est['id_estado']."'>".$est['nombre_estado']."</option>";
+                }
+                echo "</select>";
+                echo "</td>";
+                echo"<td>".$acc['id_tipo_vehiculo']."</td>";
 
                 echo "</tr>";
             }

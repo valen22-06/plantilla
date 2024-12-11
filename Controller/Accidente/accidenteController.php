@@ -5,6 +5,8 @@
             $obj = new accidenteModel();
             $sql="SELECT a.*,e.nombre_estado as Edescripcion FROM registro_accidente a, estado e WHERE a.id_estado = e.id_estado ORDER BY a.id_registro_accidente ASC";
             $accidente = $obj->consult($sql);
+            $sql2="SELECT * FROM estado WHERE id_tipo_estado=2";
+            $estado=$obj->consult($sql2);
 
             include_once '../View/accidente/consultAccidente.php';
         }
@@ -19,6 +21,7 @@
             $tipo_via =$model->consult($sql3);
             $sql4="SELECT * FROM choque";
             $tipo_choque=$model->consult($sql4);
+
               
                 
             include_once '../View/accidente/createAccidente.php';
@@ -32,6 +35,7 @@
             $acc_choque=$_POST['choque'];
             $acc_vehiculo=$_POST['vehiculo'];
             $acc_lesionados=$_POST['lesionados'];
+            $acc_tipo_via=$_POST['tipo_via'];
             $acc_numvia=$_POST['numVia'];
             $acc_letra= $_POST['letra'];
             $acc_com= $_POST['complemento'];
