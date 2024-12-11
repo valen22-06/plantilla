@@ -12,7 +12,7 @@
             $tipo_sen =$model->consult($sql3);
             $sql4="SELECT * FROM tipo_via";
             $tipo_via =$model->consult($sql4);
-            $sql5="SELECT * FROM danio";
+            $sql5="SELECT * FROM danio where id_tipo_danio=2";
             $danio=$model->consult($sql5);
               
                 

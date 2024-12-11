@@ -38,10 +38,10 @@
                   ?>
                 </select>
             </div>
-            <div class="col-md-6">
+            <!-- <div class="col-md-6">
                 <label for="date" class="form-label">Fecha del accidente</label>
                 <input type="date" class="form-control" id="date" name="date">
-            </div>
+            </div> -->
         </div>
 
         <div class="row mb-3">
