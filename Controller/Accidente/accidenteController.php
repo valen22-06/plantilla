@@ -32,7 +32,6 @@
             $acc_choque=$_POST['choque'];
             $acc_vehiculo=$_POST['vehiculo'];
             $acc_lesionados=$_POST['lesionados'];
-            $acc_via=$_POST['tipo_via'];
             $acc_numvia=$_POST['numVia'];
             $acc_letra= $_POST['letra'];
             $acc_com= $_POST['complemento'];
@@ -42,7 +41,7 @@
             $acc_comentario=$_POST['comentario'];
             
 
-            $dire=$acc_via.' '.$acc_numvia.' '.$acc_letra.' '.$acc_com.' '.$acc_num.' '.$acc_letra2.' '.$acc_com2;
+            $dire= $acc_tipo_via.' '.$acc_numvia.' '.$acc_letra.' '.$acc_com.' '.$acc_num.' '.$acc_letra2.' '.$acc_com2;
             
             $validacion = true; 
             if (empty($acc_tipo_acc)) {

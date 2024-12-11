@@ -36,6 +36,12 @@
                 echo "<tr>";
                 echo "<td>".$acc['id_registro_accidente']."</td>";
                 echo "<td>".$acc['fecha_accidente']."</td>";
+                echo "<td>".$acc['lesionados']."</td>";
+                echo "<td>".$acc['observacion']."</td>";
+                echo "<td>".$acc['direccion']."</td>";
+                
+
+
 
 
 
