@@ -92,7 +92,7 @@
                     echo "Se ha producido un error al insertar";
                 }
             } else {
-                redirect(getUrl("Reductor", "Reductor", "getCreate"));
+                redirect(getUrl("ReductorM", "ReductorM", "getCreate"));
             }
         }
     }
