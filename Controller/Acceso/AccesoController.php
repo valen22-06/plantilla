@@ -6,7 +6,6 @@ class AccesoController {
  
 
     public function getCreate(){
-        // $conn = pg_connect("host=localhost dbname=geovisor user=postgres password=Valen123");
         
         $obj = new AccesoModel();
         $user = $_POST['user'];
@@ -30,8 +29,8 @@ class AccesoController {
                     $_SESSION['apellido2']=$usu['segundo_apellido'];
                     $_SESSION['email']=$usu['correo'];
                     $_SESSION['telefono']=$usu['telefono'];
-                    $_SESSION['direccion_residencia']=$usu[''];
-                    $_SESSION['nacimiento']=$usu['direccion_residencia'];
+                    $_SESSION['direccion_residencia']=$usu['direccion_residencia'];
+                    $_SESSION['nacimiento']=$usu['fecha_nacimiento'];
                     $_SESSION['rol']=$usu['id_rol'];
                     $_SESSION['estado']=$usu['id_estado'];
                     

@@ -42,7 +42,7 @@
             $acc_comentario=$_POST['comentario'];
             $acc_tipo_via=$_POST['tipo_via'];
 
-            $dire=$acc_numvia.' '.$acc_letra.' '.$acc_com.' '.$acc_num.' '.$acc_letra2.' '.$acc_com2;
+            $dire=$acc_via.' '.$acc_numvia.' '.$acc_letra.' '.$acc_com.' '.$acc_num.' '.$acc_letra2.' '.$acc_com2;
             
             $validacion = true; 
             if (empty($acc_tipo_acc)) {

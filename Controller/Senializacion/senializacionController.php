@@ -36,7 +36,7 @@
             $id_usu = $_SESSION ['id_usu'];
 
 
-            $dire=$sen_numvia.' '.$sen_letra.' '.$sen_com.' '.$sen_num.' '.$sen_letra2.' '.$sen_com2;
+            $dire=$sen_via.' '.$sen_numvia.' '.$sen_letra.' '.$sen_com.' '.$sen_num.' '.$sen_letra2.' '.$sen_com2;
             
             $validacion = true; 
 

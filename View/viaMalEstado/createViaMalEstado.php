@@ -1,17 +1,13 @@
-
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> 
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<?php include_once '../Lib/helpers.php'; ?>
 
 <div class="card shadow-lg" id="card_red_man">
     <div class="card-header bg-dark text-white text-center">
-        <h3 class="display-6 mb-0">Señalizacion en mal estado</h3>
+        <h3 class="display-6 mb-0">Via publica en mal estado</h3>
     </div>
 
     <div class="card-body">
-<div class="mt-5">
-    <div class='alert alert-danger d-none' role='alert' id='error'>
-
-    </div>
 
     <?php
         if(isset($_SESSION['errores'])){
@@ -23,47 +19,73 @@
             echo "</div>";
             unset($_SESSION['errores']);
         }
-        ?>
-        
-<form action="<?php echo getUrl("viaMalEstado", "viaMalEstado", "postCreate"); ?> " method="post" id="form">
-    <div class="row mt-5">
-        
-
-        <div class ="col-md-4">
-        <label for="VMEdescipcion">Descripcion</label>
-            <input type="text" name="VMEdescripcion" id="desc" class="form-control" placeholder="Descripcion">
-        </div>
-
-        <div class ="col-md-4">
-            <label for="cat_pqrs">Seleccionar daño:</label>
+    ?>
     
-            
-                    <select class="form-control" aria-label="Small select example" name="id_danio" id="id_danio">
-                    <option disablet>Seleccione...</option>
+    <form action="<?php echo getUrl("ViaMalEstado", "ViaMalEstado", "postCreate");?>" method="post" class="mt-4">
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="tipo_danio" class="form-label">Tipo de daño</label>
+                <select class="form-select" name="tipo_danio" id="tipo_danio">
+                    <option disabled selected>Seleccione un tipo de daño</option>
                     <?php
+                      foreach ($danio as $dan) {
+                          echo "<option value='" .$dan['id_danio']. "'>" .$dan['nombre_danio']."</option>";
+                      }
+                  ?>
                     
-                        foreach ($via_danio as $via) {
-                            echo "<option value='".$via['id_danio']."'>".$via['nombre_danio']. "</option>";
-                        }
-                    
-                    ?>
-                    </select>
-
-        <div class ="col-md-4">
-        <label for="VMEdireccion">Direccion</label>
-            <input type="text" name="VMEdireccion" id="direccion" class="form-control" placeholder="Direccion">
+                </select>
+            </div>
         </div>
 
-        
-         
-        
-
-        
-    </div>
-        <div class="mt-5">
-            <input type="submit" value="Enviar" class="btn btn-success">
+        <div class="row mb-3">
+        <div class="col-md-6">
+                <label for="tipo_via" class="form-label">Tipo de vía</label>
+                <select class="form-select" name="tipo_via" id="tipo_via">
+                    <option disabled selected>Seleccione un tipo de vía</option>
+                    <?php
+                      foreach ($tipo_via as $tipo) {
+                          echo "<option value='" .$tipo['id_tipo_via']. "'>" .$tipo['nombre_via']."</option>";
+                      }
+                  ?>
+                    
+                </select>
+            </div>
+            
         </div>
-         
-</form>
 
+        <div class="row mb-3">
+            <div class="col-md-3">
+                <input type="text" class="form-control" id="numVia" placeholder="Número de la vía" name="numVia">
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="form-control" id="letra" placeholder="Letra" name="letra">
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="form-control" id="complemento" placeholder="Complemento" name="complemento">
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="form-control" id="num" placeholder="Número" name="num">
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-3">
+                <input type="text" class="form-control" id="letra2" placeholder="Letra" name="letra2">
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="form-control" id="complemento2" placeholder="Complemento" name="complemento2">
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="comentario" class="form-label">Comentario</label>
+            <textarea class="form-control" id="comentario" name="comentario" rows="3" placeholder="Escribe un comentario"></textarea>
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Registrar</button>
+        </div>
+    </form>
                     </div>
+        </div>
