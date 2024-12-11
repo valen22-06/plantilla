@@ -4,6 +4,7 @@ include_once '../lib/conf/connection.php';
 //como lo trabajamos en modelo fachada, incluir todas las librerias, html 
 include_once '../Lib/helpers.php';
 
+
 ?>
 
 <style>
@@ -204,10 +205,9 @@ include_once '../Lib/helpers.php';
   <script src="js/jquery.js"></script>
   <script src="js/global.js"></script>
 
-  <!-- <script src = "js/global.js"></script> -->
+<script src = "js/global.js"></script>
 
-
-</head>
+ </head>
 <center>
 
   <body>
@@ -277,7 +277,7 @@ include_once '../Lib/helpers.php';
                 <option selected disabled>Seleccione un tipo de via</option>
                 <?php
                 foreach ($tipo_via as $tipo) {
-                  echo "<option value='" . $tipo['id_tipo_via'] . "'>" . $tipo['nombre_via'] . "</option>";
+                  echo "<option value='" . $tipo['nombre_via'] . "'>" . $tipo['nombre_via'] . "</option>";
                 }
                 ?>
               </select>

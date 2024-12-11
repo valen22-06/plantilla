@@ -2,10 +2,13 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <?php include_once '../Lib/helpers.php'; ?>
 
-<div class="container mt-5">
-    <div class="text-center">
-        <h3 class="display-4">Registrar Reductor Nuevo</h3>
+
+<div class="card shadow-lg" id="card_red_man">
+    <div class="card-header bg-dark text-white text-center">
+        <h3 class="display-6 mb-0">Reductor nuevo</h3>
     </div>
+
+    <div class="card-body">
 
     <?php
         if(isset($_SESSION['errores'])){
@@ -31,10 +34,10 @@
                   ?>
                 </select>
             </div>
-            <div class="col-md-6">
+            <!-- <div class="col-md-6">
                 <label for="date" class="form-label">Fecha</label>
                 <input type="date" class="form-control" id="date" name="date">
-            </div>
+            </div> -->
         </div>
 
         <div class="row mb-3">
@@ -112,4 +115,5 @@
             <button type="submit" class="btn btn-primary">Registrar</button>
         </div>
     </form>
+                    </div>
         </div>

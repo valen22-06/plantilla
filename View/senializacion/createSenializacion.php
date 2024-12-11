@@ -2,10 +2,12 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <?php include_once '../Lib/helpers.php'; ?>
 
-<div class="container mt-5">
-    <div class="text-center">
-        <h3 class="display-4">Registrar Señalizacion Nueva</h3>
+<div class="card shadow-lg" id="card_red_man">
+    <div class="card-header bg-dark text-white text-center">
+        <h3 class="display-6 mb-0">señalizacion nueva</h3>
     </div>
+
+    <div class="card-body">
 
     <?php
         if(isset($_SESSION['errores'])){
@@ -22,20 +24,20 @@
         <form action="<?php echo getUrl("Senializacion", "Senializacion", "postCreate"); ?>" method="post" class="mt-4">
         <div class="row mb-3">
             <div class="col-md-6">
-                <label for="cat_senializacion" class="form-label">Tipo de Señalizacion</label>
+                <label for="cat_senializacion" class="form-label">Tipo de Orientacion</label>
                 <select class="form-select" name="cat_senializacion" id="cat_senializacion">
-                    <option disabled selected>Seleccione tipo de Señalizacion</option>
+                    <option disabled selected>Seleccione tipo de Orientacion</option>
                     <?php
-                      foreach ($tipo_sen as $tipo) {
-                          echo "<option value='" .$tipo['id_tipo_senializacion']. "'>" .$tipo['nombre_tipo_senializacion']."</option>";
+                      foreach ($orientacion as $tipo) {
+                          echo "<option value='" .$tipo['id_orientacion_senializacion']. "'>" .$tipo['nombre_orientacion_senializacion']."</option>";
                       }
                   ?>
                 </select>
             </div>
-            <div class="col-md-6">
+            <!-- <div class="col-md-6">
                 <label for="date" class="form-label">Fecha del accidente</label>
                 <input type="date" class="form-control" id="date" name="date">
-            </div>
+            </div> -->
         </div>
 
         <div class="row mb-3">
@@ -111,6 +113,7 @@
             <button type="submit" class="btn btn-primary">Registrar</button>
         </div>
     </form>
+                    </div>
         </div>
 
         

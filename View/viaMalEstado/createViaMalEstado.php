@@ -2,9 +2,12 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> 
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 
-<div class="mt-5">
-    <h3 class ="display-4">Solicitud Via En Mal Estado</h3>
-</div>
+<div class="card shadow-lg" id="card_red_man">
+    <div class="card-header bg-dark text-white text-center">
+        <h3 class="display-6 mb-0">Señalizacion en mal estado</h3>
+    </div>
+
+    <div class="card-body">
 <div class="mt-5">
     <div class='alert alert-danger d-none' role='alert' id='error'>
 
@@ -62,3 +65,5 @@
         </div>
          
 </form>
+
+                    </div>

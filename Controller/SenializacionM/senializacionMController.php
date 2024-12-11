@@ -23,9 +23,10 @@
             $obj = new senializacionMModel();
 
             $sen_tipo_senializacion=$_POST['cat_senializacion'];
-            $sen_fecha=$_POST['date'];
+            // $sen_fecha=$_POST['date'];
             $sen_cat_senializacion=$_POST['cat_sen'];
             $sen_t_sen=$_POST['t_sen'];
+            $sen_danio=$_POST['tipo_danio'];
             $sen_via=$_POST['tipo_via'];
             $sen_numvia=$_POST['numVia'];
             $sen_letra= $_POST['letra'];
@@ -35,6 +36,7 @@
             $sen_com2= $_POST['complemento2'];
             $sen_comentario=$_POST['comentario'];
             $sen_tipo_via=$_POST['tipo_via'];
+            $id_usu = $_SESSION ['id_usu'];
 
             $dire=$sen_numvia.' '.$sen_letra.' '.$sen_com.' '.$sen_num.' '.$sen_letra2.' '.$sen_com2;
             
@@ -70,8 +72,8 @@
             }
 
             if ($validacion) {
-                $id = $obj->autoIncrement("senializacion_vial_nueva");
-                $sql = "INSERT INTO senializacion_vial_nueva VALUES ($id, $sen_tipo_senializacion, $sen_cat_senializacion, $sen_t_sen, '$sen_comentario', '$acc_comentario', ,'$dire', 3)";
+                $id = $obj->autoIncrement("senializacion_vial_malEstado");
+                $sql = "INSERT INTO senializacion_vial_malestado VALUES ($id, '$sen_comentario','$dire',$sen_tipo_senializacion, $sen_cat_senializacion,  $sen_t_sen,$sen_danio ,$id_usu, 3)";
         
                 $ejecutar = $obj->insert($sql);
                 if ($ejecutar) {

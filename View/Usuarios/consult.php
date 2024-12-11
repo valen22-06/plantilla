@@ -31,7 +31,6 @@
                     <th>Fecha Nacimiento</th>
                     <th>Estado</th>
                     <th>Editar</th>
-                    <th>Eliminar</th>
                 </tr>
             </thead>
             <tbody>
@@ -73,11 +72,6 @@
                             echo "</a>";
                             echo "</td>";
 
-                            echo "<td>";
-                            echo "<a href='" . getUrl("Usuarios", "Usuarios", "getDelete", array("id_usuario" => $usu['id_usuario'])) . "'>";
-                            echo "<button class='btn btn-danger'>Eliminar</button>";
-                            echo "</a>";
-                            echo "</td>";
                         
                     echo "</tr>";
                 }

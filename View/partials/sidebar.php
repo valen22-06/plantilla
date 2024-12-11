@@ -1,26 +1,28 @@
 
-<div class="sidebar" data-background-color="dark">
+<div class="sidebar" data-background-color="light">
         <div class="sidebar-logo">
           <!-- Logo Header -->
-          <div class="logo-header" data-background-color="dark">
+          <div class="logo-header" data-background-color="light">
             <a href="../Web/index.php" class="logo">
               <img
-                src="assets/img/kaiadmin/logo_light.svg"
+                src="assets/img/kaiadmin/logo_light.png"
                 alt="navbar brand"
                 class="navbar-brand"
-                height="20"
+                height="109"
+                width="120"
+                
               />
             </a>
             <div class="nav-toggle">
               <button class="btn btn-toggle toggle-sidebar">
-                <i class="gg-menu-right"></i>
+                <i class="gg-menu-right text-dark"></i>
               </button>
               <button class="btn btn-toggle sidenav-toggler">
-                <i class="gg-menu-left"></i>
+                <i class="gg-menu-left text-dark"></i>
               </button>
             </div>
             <button class="topbar-toggler more">
-              <i class="gg-more-vertical-alt"></i>
+              <i class="gg-more-vertical-alt text-dark"></i>
             </button>
           </div>
           <!-- End Logo Header -->
@@ -57,13 +59,13 @@
                 <span class="sidebar-mini-icon">
                   <i class="fa fa-ellipsis-h"></i>
                 </span>
-                <h4 class="text-section">Components</h4>
+                <h4 class="text-section text-dark">Components</h4>
               </li>
               <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#base">
-                  <i class="fas fa-layer-group"></i>
-                  <p>Usuario</p>
-                  <span class="caret"></span>
+                  <i class="fas fa-layer-group text-dark"></i>
+                  <p class="text-dark">Usuario</p>
+                  <span class="caret text-dark"></span>
                 </a>
                 <div class="collapse" id="base">
                   <ul class="nav nav-collapse">
@@ -82,46 +84,46 @@
               </li>
               <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#sidebarLayouts">
-                  <i class="fas fa-th-list"></i>
-                  <p>Registrar Solicitudes</p>
-                  <span class="caret"></span>
+                  <i class="fas fa-th-list text-dark"></i>
+                  <p  class="text-dark">Registrar Solicitudes</p>
+                  <span class="caret text-dark"></span>
                 </a>
                 <div class="collapse" id="sidebarLayouts">
                   <ul class="nav nav-collapse">
                     <li>
                       <a href="<?php echo getUrl("Accidente","Accidente","getCreate");?>">
-                        <span class="sub-item">Accidentes</span>
+                        <span class="sub-item text-dark">Accidentes</span>
                       </a>
                     </li>
                     <li>
                       <a href="<?php echo getUrl("Senializacion", "Senializacion", "getCreate");?>">
-                        <span class="sub-item">Nueva señalizacion</span>
+                        <span class="sub-item text-dark">Nueva señalizacion</span>
                       </a>
                     </li>
                     <li>
                       <a href="<?php echo getUrl("SenializacionM", "SenializacionM", "getCreate");?>">
-                        <span class="sub-item">Señalizacion en mal estado</span>
+                        <span class="sub-item text-dark">Señalizacion en mal estado</span>
                       </a>
                     </li>
                     <li>
                       <a href="<?php echo getUrl("Reductor", "Reductor", "getCreate");?>">
-                        <span class="sub-item">Reductor nuevo</span>
+                        <span class="sub-item text-dark">Reductor nuevo</span>
                       </a>
                     </li>
                     <li>
                       <a href="<?php echo getUrl("ReductorM", "ReductorM", "getCreate");?>">
-                        <span class="sub-item">Reductor en mal esatdo</span>
+                        <span class="sub-item text-dark">Reductor en mal esatdo</span>
                       </a>
                     </li>
                     <li>
                     <a href="<?php echo getUrl("viaMalEstado","viaMalEstado","getCreate");?>">
-                        <span class="sub-item">Via publica en mal estado</span>
+                        <span class="sub-item text-dark">Via publica en mal estado</span>
                       </a>
                     </li>
 
                     <li>
                       <a href="<?php echo getUrl("pqrs","pqrs","getCreate");?>">
-                        <span class="sub-item">PQRS</span>
+                        <span class="sub-item text-dark">PQRS</span>
                       </a>
                     </li>
                   </ul>
@@ -129,9 +131,9 @@
               </li>
               <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#forms">
-                  <i class="fas fa-pen-square"></i>
-                  <p>Consultar Solicitudes</p>
-                  <span class="caret"></span>
+                  <i class="fas fa-pen-square text-dark"></i>
+                  <p class="text-dark">Consultar Solicitudes</p>
+                  <span class="caret text-dark"></span>
                 </a>
                 <div class="collapse" id="forms">
                 <ul class="nav nav-collapse">

@@ -43,6 +43,7 @@ class UsuariosController{
         $usu_correo = $_POST['email'];
         $usu_clave = $_POST['Rptpwd'];
         $usu_telefono = $_POST['telefono'];
+        $usu_tipo_via = $_POST['tipo_via'];
         $usu_numvia=$_POST['numVia'];
         $usu_letra= $_POST['letra'];
         $usu_com= $_POST['complemento'];
@@ -51,7 +52,7 @@ class UsuariosController{
         $usu_com2= $_POST['complemento2'];
         $f_nacimiento = $_POST['date'];
 
-        $dire=$usu_numvia.' '.$usu_letra.' '.$usu_com.' '.$usu_num.' '.$usu_letra2.' '.$usu_com2;
+        $dire=$usu_tipo_via.' '.$usu_numvia.' '.$usu_letra.' '.$usu_com.' '.$usu_num.' '.$usu_letra2.' '.$usu_com2;
 
     
         $validacion = true;  
@@ -87,13 +88,17 @@ class UsuariosController{
         }
 
         if (validarCampoLetras($usu_nombre1) == false) {
-            $_SESSION['errores'][] = "El campo nombre solo debe contener letras";
+            $_SESSION['errores'][] = "El campo primer nombre solo debe contener letras";
             $validacion = false;
         }
-        if (validarCampoLetras($usu_nombre2) == false) {
-            $_SESSION['errores'][] = "El campo nombre solo debe contener letras";
-            $validacion = false;
+
+        if (!empty($usu_nombre2)) {
+            if (validarCampoLetras($usu_nombre2) == false) {
+                $_SESSION['errores'][] = "El campo segundo nombre solo debe contener letras";
+                $validacion = false;
+            }
         }
+        
         if (validarCampoLetras($usu_apellido1) == false) {
             $_SESSION['errores'][] = "El campo apellido solo debe contener letras";
             $validacion = false;
@@ -117,7 +122,7 @@ class UsuariosController{
     
         if ($validacion) {
             $id = $obj->autoIncrement("usuarios");
-            $sql = "INSERT INTO usuarios VALUES ($id, $usu_tipo, $usu_documento, '$usu_nombre1', '$usu_nombre2', '$usu_apellido1', '$usu_apellido2', $usu_telefono, '$usu_correo', '$dire', '$f_nacimiento', '$hash', 1, 3)";
+            $sql = "INSERT INTO usuarios VALUES ($id, $usu_documento, '$usu_nombre1', '$usu_nombre2', '$usu_apellido1', '$usu_apellido2', $usu_telefono, '$usu_correo', '$dire', '$f_nacimiento', '$hash', 1, 3, $usu_tipo)";
     
             $ejecutar = $obj->insert($sql);
             if ($ejecutar) {
@@ -249,7 +254,7 @@ class UsuariosController{
         if($ejecutar){
             redirect(getUrl("Usuarios","Usuarios","getUsuarios"));
         }else{
-            echo "Se ha producido un error al insactualizarertar";
+            echo "Se ha producido un error al actualizar";
         }
 
 

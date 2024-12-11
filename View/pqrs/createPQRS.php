@@ -9,9 +9,12 @@ include_once '../Lib/helpers.php';
 
 
 
-<div class="mt-5">
-    <h3 class ="display-4">Registrar PQRS</h3>
-</div>
+<div class="card shadow-lg" id="card_red_man">
+    <div class="card-header bg-dark text-white text-center">
+        <h3 class="display-6 mb-0">PQRS</h3>
+    </div>
+
+    <div class="card-body">
 
 <div class="mt-5">
     <div class='alert alert-danger d-none' role='alert' id='error'>
@@ -64,6 +67,8 @@ include_once '../Lib/helpers.php';
         
          
 </form>
+
+                    </div>  
 
 </div>
 

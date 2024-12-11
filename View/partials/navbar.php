@@ -32,7 +32,7 @@
               <nav
                 class="navbar navbar-header-left navbar-expand-lg navbar-form nav-search p-0 d-none d-lg-flex"
               >
-                <div class="input-group">
+                <!-- <div class="input-group">
                   <div class="input-group-prepend">
                     <button type="submit" class="btn btn-search pe-1">
                       <i class="fa fa-search search-icon"></i>
@@ -43,7 +43,7 @@
                     placeholder="Search ..."
                     class="form-control"
                   />
-                </div>
+                </div> -->
               </nav>
 
               <ul class="navbar-nav topbar-nav ms-md-auto align-items-center">
@@ -327,13 +327,13 @@
                     href="#"
                     aria-expanded="false"
                   >
-                    <div class="avatar-sm">
+                    <!-- <div class="avatar-sm">
                       <img
                         src="assets/img/profile.jpg"
                         alt="..."
                         class="avatar-img rounded-circle"
                       />
-                    </div>
+                    </div> -->
                     <span class="profile-username">
                       <span class="op-7">Hi,</span>
                       <span class="fw-bold"><?php echo $_SESSION['nombre1']?></span>
@@ -344,11 +344,11 @@
                       <li>
                         <div class="user-box">
                           <div class="avatar-lg">
-                            <img
+                            <!-- <img
                               src="assets/img/profile.jpg"
                               alt="image profile"
                               class="avatar-img rounded"
-                            />
+                            /> -->
                           </div>
                           <div class="u-text">
                             <h4><?php echo $_SESSION['nombre1']." ".$_SESSION['apellido1']?></h4>
@@ -363,11 +363,11 @@
                       </li>
                       <li>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="<?php echo getUrl('Usuarios','usuarios','getUpdate')?>">My Profile</a>
-                        <a class="dropdown-item" href="#">My Balance</a>
-                        <a class="dropdown-item" href="#">Inbox</a>
+                        <a class="dropdown-item" href="<?php echo getUrl('Usuarios','usuarios','getUpdate')?>">Mi perfil</a>
+                        <a class="dropdown-item" href="#">Mis solicitudes</a>
+                      
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="<?php echo getUrl('Acceso', 'Acceso','logout');?>">Logout</a>
+                        <a class="dropdown-item" href="<?php echo getUrl('Acceso', 'Acceso','logout');?>">Cerrar Sesion</a>
                         <div class="dropdown-divider"></div>
                         
                       </li>

@@ -96,7 +96,7 @@
 
             if ($validacion) {
                 $id = $obj->autoIncrement("registro_accidente");
-                $sql = "INSERT INTO registro_accidente VALUES ($id, '$acc_fecha', $acc_vehiculo, $acc_choque, '$acc_lesionados', '$acc_comentario', 3 , '$dire', $acc_tipo_via)";
+                $sql = "INSERT INTO registro_accidente VALUES ($id, '$acc_fecha', '$acc_lesionados', '$acc_comentario','$dire',3 , $acc_vehiculo, $acc_choque)";
         
                 $ejecutar = $obj->insert($sql);
                 if ($ejecutar) {

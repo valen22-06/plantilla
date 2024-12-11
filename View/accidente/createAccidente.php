@@ -7,10 +7,12 @@
 <div class='alert alert-danger d-none' role='alert' id='error'>
 
 </div>
-    <div class="text-center">
-        <h3 class="display-4">Registrar Accidente</h3>
+<div class="card shadow-lg" id="card_red_man">
+    <div class="card-header bg-dark text-white text-center">
+        <h3 class="display-6 mb-0">Registrar accidente</h3>
     </div>
 
+    <div class="card-body">
     <?php
         if(isset($_SESSION['errores'])){
             echo "<div class = 'alert alert-danger' role='alert'>";
@@ -119,7 +121,8 @@
         </div>
 
         <div class="text-center">
-            <button type="submit" class="btn btn-primary">Registrar</button>
+            <button type="submit" class="btn btn-dark">Registrar</button>
         </div>
     </form>
+                    </div>
 </div>
