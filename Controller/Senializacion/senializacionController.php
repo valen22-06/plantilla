@@ -84,5 +84,14 @@
                 redirect(getUrl("Senializacion", "Senializacion", "getCreate"));
             }
         }
+        public function getSenializacion(){
+            $obj = new senializacionModel();
+            $sql="SELECT s.*, e.nombre_estado as Edescripcion, o.nombre_orientacion_senializacion as nombre_o, c.nombre_categoria_senializacion as nombre_c_s, t.nombre_tipo_senializacion as tipo_senializacion  FROM senializacion_vial_nueva s, estado e, orientacion_senializacion o, categoria_senializacion c, tipo_senializacion t  WHERE s.id_estado = e.id_estado  AND e.id_estado=s.id_estado  AND o.id_orientacion_senializacion = s.id_orientacion_senializacion AND c.id_categoria_senializacion=s.id_cat_senializacion AND t.id_tipo_senializacion = s.id_tipo_senializacion ORDER BY s.id_senializacion_vial_nueva ASC";
+            $senializacion = $obj->consult($sql);
+            $sql2="SELECT * FROM estado WHERE id_tipo_estado=2";
+            $estado=$obj->consult($sql2);
+
+            include_once '../View/senializacion/consultSenializacion.php';
+        }
 }
 ?>

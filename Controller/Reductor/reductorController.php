@@ -1,6 +1,16 @@
 <?php
     include_once '../Model/Reductor/ReductorModel.php';
     class ReductorController{
+
+        public function getReductor(){
+            $obj = new reductorModel();
+            $sql="SELECT r.*, e.nombre_estado as Edescripcion, c.nombre_categoria_reductores as nombre_c, t.nombre_tipo_reductor as nombre_t FROM reductores_nuevo r, estado e, categoria_reductores c, tipo_reductor t  WHERE r.id_estado = e.id_estado AND r.id_categoria_reductor=c.id_categoria_reductores AND r.id_tipo_reductor=t.id_tipo_reductor ORDER BY r.id_reductores_nuevo ASC";
+            $redu = $obj->consult($sql);
+            $sql2="SELECT * FROM estado WHERE id_tipo_estado=2";
+            $estado=$obj->consult($sql2);
+
+            include_once '../View/reductor/consultReductor.php';
+        }
         public function getCreate() {
             $model = new reductorModel();
             $sql = "SELECT * FROM categoria_reductores";
