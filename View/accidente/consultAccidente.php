@@ -3,10 +3,12 @@
 
 <?php include_once '../Lib/helpers.php'; ?>
 
-<div class="container mt-3">
-    <div class="text-center mb-4">
-        <h3 class="display-4">Consultar Accidentes</h3>
+<div class="card shadow-lg mt-5" id="card_red_man">
+    <div class="card-header bg-secondary text-white text-center">
+        <h3 class="display-6 mb-0">Consultar accidentes</h3>
     </div>
+
+    <div class="card-body">
 
     <div class="row mb-3">
         <div class="col-md-4">
@@ -61,5 +63,6 @@
             ?>
             </tbody>
         </table>
+    </div>
     </div>
 </div>

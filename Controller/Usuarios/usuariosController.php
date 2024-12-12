@@ -290,7 +290,7 @@ class UsuariosController{
 
         $usuarios = $obj->consult($sql);
 
-        include_once '../view/usuarios/buscar.php';
+        include_once '../View/Usuarios/buscar.php';
 
     }
 
