@@ -120,10 +120,34 @@
     
             $sql = "";
     
-            $usuarios = $obj->consult($sql);
+            $accidente = $obj->consult($sql);
     
             include_once '../view/accidente/buscarAccidente.php';
     
+        }
+        public function postUpdateStatus(){
+            $obj = new accidenteModel();
+            $usu_id=$_POST['user'];
+            $est_id = $_POST['id'];
+        
+            if ($est_id==1) {
+                $statusToModify = 2;
+            } elseif ($est_id==2) {
+                $statusToModify = 1;
+            }
+        
+            $sql = "UPDATE accidente SET id_estado = $statusToModify WHERE id_usuario=$usu_id";
+        
+            $ejecutar = $obj->update($sql);
+        
+            if($ejecutar!=0){
+                $sql="SELECT a.*,e.nombre_estado as Edescripcion FROM registro_accidente a, estado e WHERE a.id_estado = e.id_estado ORDER BY a.id_registro_accidente ASC";
+                $usuarios = $obj->consult($sql);
+                include_once '../View/accidente/consultAccidente.php';
+            } else {
+                echo "No se pudo actualizar";
+            }
+            
         }
     }
 ?>
