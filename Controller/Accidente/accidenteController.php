@@ -3,7 +3,7 @@
     class AccidenteController{
         public function getAccidente(){
             $obj = new accidenteModel();
-            $sql="SELECT a.*,e.nombre_estado as Edescripcion FROM registro_accidente a, estado e WHERE a.id_estado = e.id_estado ORDER BY a.id_registro_accidente ASC";
+            $sql="SELECT a.*,e.nombre_estado as Edescripcion, c.nombre_choque_detalle as tipo_choque, t.nombre_tipo_vehiculo as tipo_vehiculo FROM registro_accidente a, estado e, choque_detalle c, tipo_vehiculo t WHERE a.id_estado = e.id_estado AND a.id_tipo_choque=c.id_choque_detalle AND a.id_tipo_vehiculo=t.id_tipo_vehiculo ORDER BY a.id_registro_accidente ASC";
             $accidente = $obj->consult($sql);
             $sql2="SELECT * FROM estado WHERE id_tipo_estado=2";
             $estado=$obj->consult($sql2);
