@@ -40,14 +40,19 @@
                 echo "<td>".$acc['observacion']."</td>";
                 echo "<td>".$acc['direccion']."</td>";
                 echo "<td>";
-                echo "<select class='form-select' name='cat_accidente' id='cat_accidente'>
-                <option disabled selected>".$acc['Edescripcion']."</option>";
+                echo"<form action='getUrl('Accidente', 'Accidente', 'postUpdateStatus');' method='post' class='mt-4'>";
+                echo "<select class='form-select' name='cat_accidente' id='cat_accidente'>";
+                echo "<option disabled selected>".($acc['Edescripcion'])."</option>";
                 foreach ($estado as $est) {
-                echo "<option value='".$est['id_estado']."'>".$est['nombre_estado']."</option>";
+                echo "<option value='".($est['id_estado'])."'>".($est['nombre_estado'])."</option>";
                 }
                 echo "</select>";
+                echo "<button type='submit' class='btn btn-dark'>Enviar</button>";
+                echo "</form>";
                 echo "</td>";
                 echo"<td>".$acc['id_tipo_vehiculo']."</td>";
+                echo"<td>".$acc['id_tipo_choque']."</td>";
+
 
                 echo "</tr>";
             }
