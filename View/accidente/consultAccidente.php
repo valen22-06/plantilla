@@ -44,7 +44,7 @@
                 echo "<td>";
                 echo"<form action='getUrl('Accidente', 'Accidente', 'postUpdateStatus');' method='post' class='mt-4'>";
                 echo "<select class='form-select' name='cat_accidente' id='cat_accidente'>";
-                echo "<option disabled selected>".($acc['Edescripcion'])."</option>";
+                echo "<option disabled selected>".($acc['edescripcion'])."</option>";
                 foreach ($estado as $est) {
                 echo "<option value='".($est['id_estado'])."'>".($est['nombre_estado'])."</option>";
                 }
