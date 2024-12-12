@@ -4,10 +4,12 @@
 
 <?php include_once '../Lib/helpers.php'; ?>
 
-<div class="container mt-3">
-    <div class="text-center mb-4">
-        <h3 class="display-4">Consultar Usuarios</h3>
+<div class="card shadow-lg mt-5" id="card_red_man">
+    <div class="card-header bg-secondary text-white text-center">
+        <h3 class="display-6 mb-0">Consultar usuarios</h3>
     </div>
+
+    <div class="card-body">
 
     <div class="row mb-3">
         <div class="col-md-4">
@@ -18,7 +20,7 @@
 
     <div class="table-responsive">
         <table class="table table-hover table-striped">
-            <thead class="table-dark">
+            <thead class="table-secondary">
                 <tr>
                     <th>Id</th>
                     <th>Tipo de Documento</th>
@@ -79,4 +81,5 @@
             </tbody>
         </table>
     </div>
+</div>
 </div>

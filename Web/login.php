@@ -16,9 +16,9 @@
         rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
         crossorigin="anonymous" />
-    <link
+    <!-- <link
         rel="stylesheet"
-        href="assets/css/login.css" />
+        href="assets/css/login.css" /> -->
        
 </head>
 <?php
@@ -29,63 +29,55 @@ include_once '../Lib/helpers.php';
 
 
 <body>
-<div class='alert alert-danger d-none' role='alert' id='error'>
+<body class="d-flex justify-content-center align-items-center vh-100">
+    <div class="container" style="max-width: 400px;">
+        <div class='alert alert-danger d-none' role='alert' id='error'></div>
 
-</div>
-
-<?php
-    if(isset($_SESSION['errores'])){
-        echo "<div class = 'alert alert-danger' role='alert'>";
-        foreach ($_SESSION['errores'] as $error) {
-            echo $error;
-            echo "<br>";
+        <?php
+        if (isset($_SESSION['errores'])) {
+            echo "<div class='alert alert-danger' role='alert'>";
+            foreach ($_SESSION['errores'] as $error) {
+                echo $error;
+                echo "<br>";
+            }
+            echo "</div>";
+            unset($_SESSION['errores']);
         }
-        echo "</div>";
-        unset($_SESSION['errores']);
-    }
-?>
-    <div class="container">
-        <div class="row">
-            <div class="text-center">
-                <h2>Bienvenido</h2>
-            </div>
-            <form class="mt-4"action="<?php echo getUrl('Acceso','Acceso','getCreate', false, 'ajax' ); ?>" method="post">
-                <?php $_SESSION['form-ant'] = "iniciar";?>
-                <div class="cont1">
-                    <label for="emailAddress" class="form-label">Documento de identidad:</label>
-                    <input
-                        type="number"
-                        class="form-control"
-                        name="user"
-                        id="documento"
-                        placeholder="Tu Documento" required/>
-                </div>
-                <div class="cont2">
-                    <label for="password" class="form-label">Contraseña:</label>
-                    <input
-                        type="password"
-                        class="form-control"
-                        name="pass"
-                        id="clave"
-                        placeholder="Tu Contraseña" required/>
-                </div>
-                <br />
-                <div class="botonIni">
-                    <button type="submit" id="btn-iniciar">Iniciar</button>
-                </div>
-            </form>
-            
-            
-            <div class="botonReg">
-                
-                <a href="<?php echo getUrl('Usuarios', 'Usuarios', 'getCreate', false, "ajax")?>"><?php $_SESSION['form-ant'] = "reg";?><button type="submit" id="btn-form">Registrar</button></a>
-            </div>
-            
+        ?>
 
+        <div class="card shadow-lg" id="card_red_man">
+            <div class="card-header bg-light text-dark text-center">
+                <h3 class="display-6 mb-0">Login</h3>
+            </div>
+
+            <div class="card-body shadow-lg bg-light">
+
+                <form class="mt-4" action="<?php echo getUrl('Acceso', 'Acceso', 'getCreate', false, 'ajax'); ?>" method="post">
+                    <?php $_SESSION['form-ant'] = "iniciar"; ?>
+                    <div class="mb-3 m-4">
+                        <label for="documento" class="form-label text-dark"><b>Documento de identidad:</b></label>
+                        <input type="number" class="form-control bg-light" name="user" id="documento" placeholder="Tu Documento" required />
+                    </div>
+                    <div class="mb-3 m-4">
+                        <label for="clave" class="form-label text-dark"><b>Contraseña:</b></label>
+                        <input type="password" class="form-control bg-light" name="pass" id="clave" placeholder="Tu Contraseña" required />
+                    </div>
+                    <div class="mt-5 text-center">
+                    <button type="submit" id="btn-iniciar" class="btn btn-secondary w-50">Iniciar</button>
+                    </div>
+                </form>
+
+                <div class="mt-3 mb-4 text-center">
+                    <a href="<?php echo getUrl('Usuarios', 'Usuarios', 'getCreate', false, 'ajax'); ?>">
+                        <?php $_SESSION['form-ant'] = "reg"; ?>
+                        <button type="button" id="btn-form" class="btn btn-secondary w-50">Registrar</button>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
-
-    
 </body>
+
+
 
 </html>
