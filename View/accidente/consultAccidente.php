@@ -8,7 +8,7 @@
         <h3 class="display-6 mb-0">Consultar accidentes</h3>
     </div>
 
-    <div class="card-body">
+    <div class="card-body bg-light mb-2">
 
     <div class="row mb-3">
         <div class="col-md-4">
@@ -18,7 +18,7 @@
     </div>
     <div class="table-responsive">
         <table class="table table-hover table-striped">
-            <thead class="table-dark">
+            <thead class="table-secondary">
                 <tr>
                     <th>Id</th>
                     <th>Fecha</th>
