@@ -10,7 +10,7 @@ include_once '../Lib/helpers.php';
 
 
 <div class="card shadow-lg" id="card_red_man">
-    <div class="card-header bg-dark text-white text-center">
+    <div class="card-header bg-secondary text-white text-center">
         <h3 class="display-6 mb-0">PQRS</h3>
     </div>
 

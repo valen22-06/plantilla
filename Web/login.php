@@ -9,7 +9,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bootstrap Login Form</title>
+    <title>Login</title>
     <link rel="icon" type="image/x-icon" href="/form-icon.png" />
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
@@ -46,8 +46,8 @@ include_once '../Lib/helpers.php';
         ?>
 
         <div class="card shadow-lg" id="card_red_man">
-            <div class="card-header bg-light text-dark text-center">
-                <h3 class="display-6 mb-0">Login</h3>
+            <div class="card-header bg-secondary text-light text-center">
+                <h3 class="display-6 mb-2">Login</h3>
             </div>
 
             <div class="card-body shadow-lg bg-light">
