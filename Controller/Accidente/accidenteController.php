@@ -3,7 +3,7 @@
     class AccidenteController{
         public function getAccidente(){
             $obj = new accidenteModel();
-            $sql="SELECT a.*,e.nombre_estado as Edescripcion FROM registro_accidente a, estado e WHERE a.id_estado = e.id_estado ORDER BY a.id_registro_accidente ASC";
+            $sql="SELECT a.*,e.nombre_estado as Edescripcion  FROM registro_accidente a, estado e WHERE a.id_estado = e.id_estado ORDER BY a.id_registro_accidente ASC";
             $accidente = $obj->consult($sql);
             $sql2="SELECT * FROM estado WHERE id_tipo_estado=2";
             $estado=$obj->consult($sql2);
@@ -130,11 +130,7 @@
             $usu_id=$_POST['user'];
             $est_id = $_POST['id'];
         
-            if ($est_id==1) {
-                $statusToModify = 2;
-            } elseif ($est_id==2) {
-                $statusToModify = 1;
-            }
+            
         
             $sql = "UPDATE accidente SET id_estado = $statusToModify WHERE id_usuario=$usu_id";
         
