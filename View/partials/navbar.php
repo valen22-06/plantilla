@@ -28,7 +28,7 @@
           <nav
             class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom"
           >
-            <div class="container-fluid">
+          <div class="container-fluid ms-0 bg-secondary text-white">
               <nav
                 class="navbar navbar-header-left navbar-expand-lg navbar-form nav-search p-0 d-none d-lg-flex"
               >
@@ -335,8 +335,8 @@
                       />
                     </div> -->
                     <span class="profile-username">
-                      <span class="op-7">Hi,</span>
-                      <span class="fw-bold"><?php echo $_SESSION['nombre1']?></span>
+                      <span class="op-7 text-white">Hi,</span>
+                      <span class="fw-bold text-white"><?php echo $_SESSION['nombre1']?></span>
                     </span>
                   </a>
                   <ul class="dropdown-menu dropdown-user animated fadeIn">

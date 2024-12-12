@@ -3,10 +3,12 @@
 
 <?php include_once '../Lib/helpers.php'; ?>
 
-<div class="container mt-3">
-    <div class="text-center mb-4">
-        <h3 class="display-4">Consultar Accidentes</h3>
+<div class="card shadow-lg mt-5" id="card_red_man">
+    <div class="card-header bg-secondary text-white text-center">
+        <h3 class="display-6 mb-0">Consultar accidentes</h3>
     </div>
+
+    <div class="card-body">
 
     <div class="row mb-3">
         <div class="col-md-4">
@@ -40,20 +42,26 @@
                 echo "<td>".$acc['observacion']."</td>";
                 echo "<td>".$acc['direccion']."</td>";
                 echo "<td>";
+                echo"<form action='getUrl('Accidente', 'Accidente', 'postUpdateStatus');' method='post' class='mt-4'>";
                 echo "<select class='form-select' name='cat_accidente' id='cat_accidente'>";
-                echo "<option disabled selected>".$acc['edescripcion']."</option>";
+                echo "<option disabled selected>".($acc['Edescripcion'])."</option>";
                 foreach ($estado as $est) {
-                echo "<option value='".$acc['id_estado']."'>".$est['nombre_estado']."</option>";
+                echo "<option value='".($est['id_estado'])."'>".($est['nombre_estado'])."</option>";
                 }
                 echo "</select>";
+                echo "<button type='submit' class='btn btn-dark'>Enviar</button>";
+                echo "</form>";
                 echo "</td>";
-                echo"<td>".$acc['tipo_vehiculo']."</td>";
-                echo"<td>".$acc['tipo_choque']."</td>";
+                echo"<td>".$acc['id_tipo_vehiculo']."</td>";
+                echo"<td>".$acc['id_tipo_choque']."</td>";
+
+
                 echo "</tr>";
             }
 
             ?>
             </tbody>
         </table>
+    </div>
     </div>
 </div>

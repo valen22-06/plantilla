@@ -3,7 +3,7 @@
 <?php include_once '../Lib/helpers.php'; ?>
 
 <div class="card shadow-lg" id="card_red_man">
-    <div class="card-header bg-dark text-white text-center">
+    <div class="card-header bg-secondary text-white text-center">
         <h3 class="display-6 mb-0">Reductor en mal estado</h3>
     </div>
 
@@ -108,7 +108,7 @@
         </div>
 
         <div class="text-center">
-            <button type="submit" class="btn btn-primary">Registrar</button>
+            <button type="submit" class="btn btn-secondary">Registrar</button>
         </div>
     </form>
                     </div>
