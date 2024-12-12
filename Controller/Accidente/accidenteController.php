@@ -8,7 +8,7 @@
             $sql2="SELECT * FROM estado WHERE id_tipo_estado=2";
             $estado=$obj->consult($sql2);
 
-            include_once '../View/accidente/consultAccidente.php';
+            include_once '../View/Solicitudes/consultAccidente.php';
         }
 
         public function getCreate() {
@@ -116,14 +116,22 @@
         public function buscar(){
             $obj = new accidenteModel();
         
-            $buscar = $_POST['buscar'];
+            $buscar = $_POST['buscarAccidente'];
     
-            $sql = "";
+            $sql = "SELECT a.*,e.nombre_estado as Edescripcion, c.nombre_choque_detalle as tipo_choque, t.nombre_tipo_vehiculo as tipo_vehiculo FROM registro_accidente a, estado e, choque_detalle c, tipo_vehiculo t WHERE a.id_estado = e.id_estado AND a.id_tipo_choque=c.id_choque_detalle AND a.id_tipo_vehiculo=t.id_tipo_vehiculo AND (
+     a.fecha_accidente::text LIKE '%$buscar%' OR 
+     a.lesionados LIKE '%$buscar%' OR 
+     a.direccion LIKE '%$buscar%' OR 
+     e.nombre_estado LIKE '%$buscar%' OR 
+     c.nombre_choque_detalle LIKE '%$buscar%' OR 
+     t.nombre_tipo_vehiculo LIKE '%$buscar%' OR 
+     a.observacion LIKE '%$buscar%') ORDER BY a.id_registro_accidente ASC";
     
             $accidente = $obj->consult($sql);
     
-            include_once '../view/accidente/buscarAccidente.php';
+            include_once '../View/Solicitudes/buscarAccidente.php';
     
+
         }
         public function postUpdateStatus(){
             $obj = new accidenteModel();

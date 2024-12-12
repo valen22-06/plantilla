@@ -21,7 +21,7 @@
         }
     ?>
 
-        <form action="<?php echo getUrl("Senializacion", "Senializacion", "postCreate"); ?>" method="post" class="mt-4">
+        <form action="<?php echo getUrl("Solicitudes", "Solicitudes", "postCreateSenializacion"); ?>" method="post" class="mt-4">
         <div class="row mb-3">
             <div class="col-md-6">
                 <label for="cat_senializacion" class="form-label">Tipo de Orientacion</label>

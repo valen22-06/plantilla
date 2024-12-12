@@ -10,7 +10,7 @@ class pqrsController{
         include_once '../View/pqrs/consultPqrs.php';
     }
     
-    public function getCreate(){
+    public function getCreatePQRS(){
         $obj = new pqrsModel();
         $sql = "SELECT * FROM categoria_pqrs";
         $cat_pqrs = $obj->consult($sql);
@@ -25,7 +25,7 @@ class pqrsController{
         
     }
 
-    public function postCreate(){
+    public function postCreatePQRS(){
         $obj = new pqrsModel();
         $id = $obj->autoIncrement("pqrs", "id_pqrs");
         $id_cat = $_POST['cat_pqrs'];

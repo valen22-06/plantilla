@@ -11,7 +11,7 @@
 
             include_once '../View/reductor/consultReductor.php';
         }
-        public function getCreate() {
+        public function getCreateReductor() {
             $model = new reductorModel();
             $sql = "SELECT * FROM categoria_reductores";
             $cat_reductor =$model->consult($sql);
@@ -24,7 +24,7 @@
             include_once '../View/reductor/createReductor.php';
 
         }
-        public function postCreate(){
+        public function postCreateReductor(){
             $obj = new reductorModel();
 
             $redu_cat_redu=$_POST['cat_reductor'];

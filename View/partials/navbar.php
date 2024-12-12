@@ -28,7 +28,7 @@
           <nav
             class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom"
           >
-          <div class="container-fluid ms-0 bg-secondary text-white">
+          <div class="container-fluid ms-0  text-dark">
               <nav
                 class="navbar navbar-header-left navbar-expand-lg navbar-form nav-search p-0 d-none d-lg-flex"
               >
@@ -44,6 +44,17 @@
                     class="form-control"
                   />
                 </div> -->
+                <div class="logo-navbar" data-background-color="light">
+            <a href="../Web/index.php" class="logo">
+              <img
+                src="assets/img/kaiadmin/logo_light.png"
+                alt="navbar brand"
+                class="navbar-brand"
+                height="109"
+                width="120"
+                
+              />
+            </a>
               </nav>
 
               <ul class="navbar-nav topbar-nav ms-md-auto align-items-center">
@@ -335,8 +346,8 @@
                       />
                     </div> -->
                     <span class="profile-username">
-                      <span class="op-7 text-white">Hi,</span>
-                      <span class="fw-bold text-white"><?php echo $_SESSION['nombre1']?></span>
+                      <span class="op-7 text-dark fs-5">Hi,</span>
+                      <span class="fw-bold text-dark fs-5"><?php echo $_SESSION['nombre1']?></span>
                     </span>
                   </a>
                   <ul class="dropdown-menu dropdown-user animated fadeIn">
@@ -350,7 +361,7 @@
                               class="avatar-img rounded"
                             /> -->
                           </div>
-                          <div class="u-text">
+                          <div class="u-text justify-content-center align-items-center">
                             <h4><?php echo $_SESSION['nombre1']." ".$_SESSION['apellido1']?></h4>
                             <p class="text-muted"><?php echo $_SESSION['email']?></p>
                             <a

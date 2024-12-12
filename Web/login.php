@@ -29,7 +29,7 @@ include_once '../Lib/helpers.php';
 
 
 <body>
-<body class="d-flex justify-content-center align-items-center vh-100">
+<body class="d-flex justify-content-center align-items-center vh-100 bg-light">
     <div class="container" style="max-width: 400px;">
         <div class='alert alert-danger d-none' role='alert' id='error'></div>
 
@@ -56,11 +56,11 @@ include_once '../Lib/helpers.php';
                     <?php $_SESSION['form-ant'] = "iniciar"; ?>
                     <div class="mb-3 m-4">
                         <label for="documento" class="form-label text-dark"><b>Documento de identidad:</b></label>
-                        <input type="number" class="form-control bg-light" name="user" id="documento" placeholder="Tu Documento" required />
+                        <input type="text" class="form-control bg-light text-dark" name="user" id="documento" placeholder="Tu Documento" required />
                     </div>
                     <div class="mb-3 m-4">
                         <label for="clave" class="form-label text-dark"><b>Contraseña:</b></label>
-                        <input type="password" class="form-control bg-light" name="pass" id="clave" placeholder="Tu Contraseña" required />
+                        <input type="password" class="form-control bg-light text-dark" name="pass" id="clave" placeholder="Tu Contraseña" required />
                     </div>
                     <div class="mt-5 text-center">
                     <button type="submit" id="btn-iniciar" class="btn btn-secondary w-50">Iniciar</button>

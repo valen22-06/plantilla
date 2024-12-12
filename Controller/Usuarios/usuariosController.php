@@ -6,7 +6,7 @@ class UsuariosController{
 
     public function getUsuarios(){
             $obj = new usuariosModel();
-            $sql="SELECT  u.*, r.nombre_rol as Rdescripcion, e.nombre_estado as Edescripcion  FROM usuarios u, roles r, estado e WHERE u.id_rol=r.id_rol AND u.id_estado = e.id_estado ORDER BY u.id_usuario ASC";
+            $sql="SELECT  u.*, r.nombre_rol as Rdescripcion, e.nombre_estado as Edescripcion, t.nombre_tipo_documento as tipo_documento FROM usuarios u, roles r, estado e, tipo_documento t WHERE u.id_rol=r.id_rol AND u.id_estado = e.id_estado AND u.id_tipo_documento = t.id_tipo_documento ORDER BY u.id_usuario ASC";
             $usuarios = $obj->consult($sql);
 
             include_once '../View/Usuarios/consult.php';
@@ -284,9 +284,9 @@ class UsuariosController{
     public function buscar(){
         $obj = new usuariosModel();
     
-        $buscar = $_POST['buscar'];
+        $buscar = $_POST['buscarUsuarios'];
 
-        $sql = "SELECT  u.*, r.descripcion as Rdescripcion, e.descripcion as Edescripcion FROM usuarios u, rol r, estado e WHERE u.rolId=r.id AND u.estadoId = e.id_estado AND (u.usuarioNombre LIKE '%$buscar%' OR u.usuarioApellido LIKE '%$buscar%' OR usuarioEmail LIKE '%$buscar%') ORDER BY u.usuarioId ASC";
+        $sql = "SELECT  u.*, r.nombre_rol as Rdescripcion, e.nombre_estado as Edescripcion, t.nombre_tipo_documento as tipo_documento FROM usuarios u, roles r, estado e, tipo_documento t WHERE u.id_rol=r.id_rol AND u.id_estado = e.id_estado AND u.id_tipo_documento = t.id_tipo_documento AND (u.primer_nombre LIKE '%$buscar%' OR u.segundo_nombre LIKE '%$buscar%' OR u.primer_apellido LIKE '%$buscar%' OR u.segundo_apellido LIKE '%$buscar%' OR u.correo LIKE '%$buscar%' OR u.telefono::text LIKE '%$buscar%' OR u.direccion_residencia LIKE '%$buscar%' OR u.fecha_nacimiento::text LIKE '%$buscar%') ORDER BY u.id_usuario ASC";
 
         $usuarios = $obj->consult($sql);
 
@@ -294,17 +294,7 @@ class UsuariosController{
 
     }
 
-    public function getDelete(){
-        $obj = new usuariosModel();
-
-        $usu_id= $_GET['usuarioId'];
-
-        $sql = "SELECT * FROM usuarios WHERE usuarioId = $usu_id";
-        $usuarios = $obj->consult($sql);
-
-        include_once '../view/Usuarios/delete.php';
-
-    }
+    
     public function postUpdateStatus(){
         $obj = new usuariosModel();
         $usu_id=$_POST['user'];

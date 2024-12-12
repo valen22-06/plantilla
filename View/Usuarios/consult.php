@@ -1,6 +1,7 @@
 
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> 
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="../assets/js/global.js"></script>
 
 <?php include_once '../Lib/helpers.php'; ?>
 
@@ -13,7 +14,7 @@
 
     <div class="row mb-3">
         <div class="col-md-4">
-            <input type="text" name="buscar" id="buscar" class="form-control" placeholder="Buscar por nombre o correo" 
+            <input type="text" name="buscarUsuarios" id="buscarUsuarios" class="form-control" placeholder="Buscar por nombre o correo" 
                 data-url='<?php echo getUrl("Usuarios", "Usuarios", "buscar", false, "ajax"); ?>'>
         </div>
     </div>
@@ -42,7 +43,7 @@
                     $texto="";
                     echo "<tr>";
                         echo "<td>".$usu['id_usuario']."</td>";
-                        echo "<td>".$usu['id_tipo_documento']."</td>";
+                        echo "<td>".$usu['tipo_documento']."</td>";
                         echo "<td>".$usu['numero_documento']."</td>";
                         echo "<td>".$usu['primer_nombre'].' '.$usu['segundo_nombre']."</td>";
                         // echo "<td>".$usu['segundo_nombre']."</td>";

@@ -4,7 +4,7 @@
                     $texto="";
                     echo "<tr>";
                         echo "<td>".$usu['id_usuario']."</td>";
-                        echo "<td>".$usu['id_tipo_documento']."</td>";
+                        echo "<td>".$usu['tipo_documento']."</td>";
                         echo "<td>".$usu['numero_documento']."</td>";
                         echo "<td>".$usu['primer_nombre'].$usu['segundo_nombre']."</td>";
                         // echo "<td>".$usu['segundo_nombre']."</td>";
@@ -36,11 +36,6 @@
                             echo "</a>";
                             echo "</td>";
 
-                            echo "<td>";
-                            echo "<a href='" . getUrl("Usuarios", "Usuarios", "getDelete", array("id_usuario" => $usu['id_usuario'])) . "'>";
-                            echo "<button class='btn btn-danger'>Eliminar</button>";
-                            echo "</a>";
-                            echo "</td>";
                         
                     echo "</tr>";
                 }

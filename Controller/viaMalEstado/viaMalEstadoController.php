@@ -11,7 +11,7 @@
 
             include_once '../View/viaMalEstado/consultViaMalEstado.php';
         }
-        public function getCreate() {
+        public function getCreateViaM() {
             $model = new viaMalEstadoModel();
             $sql3="SELECT * FROM tipo_via";
             $tipo_via =$model->consult($sql3);
@@ -22,7 +22,7 @@
             include_once '../View/viaMalEstado/createViaMalEstado.php';
 
         }
-        public function postCreate(){
+        public function postCreateViaM(){
             $obj = new viaMalEstadoModel();
 
             $via_danio=$_POST['tipo_danio'];

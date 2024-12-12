@@ -2,7 +2,7 @@
 
     include_once '../Model/MasterModel.php';
 
-    class pqrsModel extends MasterModel{
+    class solicitudesModel extends MasterModel{
         
     }
 ?>

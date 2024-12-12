@@ -82,6 +82,7 @@
                   </ul>
                 </div>
               </li>
+              
               <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#sidebarLayouts">
                   <i class="fas fa-th-list text-dark"></i>
@@ -90,8 +91,13 @@
                 </a>
                 <div class="collapse" id="sidebarLayouts">
                   <ul class="nav nav-collapse">
+                  <li>
+                      <a href="<?php echo getUrl("Solicitudes","Solicitudes","getSoli"); ?>">
+                        <span class="sub-item text-dark">Solicitudes</span>
+                      </a>
+                    </li>
                     <li>
-                      <a href="<?php echo getUrl("Accidente","Accidente","getCreate");?>">
+                      <!-- <a href="<?php echo getUrl("Accidente","Accidente","getCreate");?>">
                         <span class="sub-item text-dark">Accidentes</span>
                       </a>
                     </li>
@@ -125,7 +131,7 @@
                       <a href="<?php echo getUrl("pqrs","pqrs","getCreate");?>">
                         <span class="sub-item text-dark">PQRS</span>
                       </a>
-                    </li>
+                    </li> -->
                   </ul>
                 </div>
               </li>
@@ -138,8 +144,8 @@
                 <div class="collapse" id="forms">
                 <ul class="nav nav-collapse">
                     <li>
-                      <a href="<?php echo getUrl("Accidente","Accidente","getAccidente");?>">
-                        <span class="sub-item">Accidentes</span>
+                      <a href="<?php echo getUrl("Solicitudes","Solicitudes","getSoliConsult");?>">
+                        <span class="sub-item">Solicitudes</span>
                       </a>
                     </li>
                     <li>

@@ -1,56 +1,54 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> 
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="../js/global.js"></script>
 
 <?php include_once '../Lib/helpers.php'; ?>
 
 <div class="card shadow-lg mt-5" id="card_red_man">
     <div class="card-header bg-secondary text-white text-center">
-        <h3 class="display-6 mb-0">Consultar Señalizacion en mal estado</h3>
+        <h3 class="display-6 mb-0">Consultar accidentes</h3>
     </div>
 
-    <div class="card-body">
+    <div class="card-body bg-light mb-2">
 
     <div class="row mb-3">
         <div class="col-md-4">
-            <input type="text" name="buscar" id="buscar" class="form-control" placeholder="Buscar por nombre o correo" 
-                data-url='<?php echo getUrl("SenializacionM", "SenializacionM", "buscar", false, "ajax"); ?>'>
+            <input type="text" name="buscarAccidente" id="buscarAccidente" class="form-control" placeholder="Buscar por nombre o correo" 
+                data-url='<?php echo getUrl("Solicitudes", "Solicitudes", "buscar",false,"ajax"); ?>'>
         </div>
-    </div>
     </div>
     <div class="table-responsive">
         <table class="table table-hover table-striped">
-            <thead class="table-dark">
+            <thead class="table-secondary">
                 <tr>
                     <th>Id</th>
                     <th>Fecha</th>
+                    <th>Lesionados</th>
                     <th>Observacion</th>
                     <th>Direccion</th>
-                    <th>Orientacion</th>
-                    <th>Categoria</th>
-                    <th>Tipo de Señalizacion</th>
-                    <th>Daño</th>
+                    <th>Tipo de vehiculos</th>
+                    <th>Tipo choque</th>
                     <th>Estado</th>
 
                 </tr>
             </thead>
             <tbody>
             <?php
-            foreach($senializacion as $sen){
+            foreach($accidente as $acc){
                 $clase="";
                 $texto="";
                 echo "<tr>";
-                echo "<td>".$sen['id_senializacion_vial_malestado']."</td>";
-                echo "<td>".$sen['fecha']."</td>";
-                echo "<td>".$sen['descripcion']."</td>";
-                echo "<td>".$sen['direccion']."</td>";
-                echo "<td>".$sen['nombre_o']."</td>";
-                echo "<td>".$sen['nombre_c_s']."</td>";
-                echo "<td>".$sen['tipo_senializacion']."</td>";
-                echo "<td>".$sen['nombre_d']."</td>";
+                echo "<td>".$acc['id_registro_accidente']."</td>";
+                echo "<td>".$acc['fecha_accidente']."</td>";
+                echo "<td>".$acc['lesionados']."</td>";
+                echo "<td>".$acc['observacion']."</td>";
+                echo "<td>".$acc['direccion']."</td>";
+                echo"<td>".$acc['tipo_vehiculo']."</td>";
+                echo"<td>".$acc['tipo_choque']."</td>";
                 echo "<td>";
-                echo"<form action='getUrl('Senializacion', 'Senializacion', 'postUpdateStatus');' method='post' class='mt-4'>";
+                echo"<form action='getUrl('Accidente', 'Accidente', 'postUpdateStatus');' method='post' class='mt-4'>";
                 echo "<select class='form-select' name='id' id='id'>";
-                echo "<option disabled selected>".($sen['edescripcion'])."</option>";
+                echo "<option disabled selected>".($acc['edescripcion'])."</option>";
                 foreach ($estado as $est) {
                 echo "<option value='".($est['id_estado'])."'>".($est['nombre_estado'])."</option>";
                 }

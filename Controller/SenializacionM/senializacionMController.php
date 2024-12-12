@@ -11,7 +11,7 @@
             include_once '../View/senializacionM/consultSenializacionM.php';
         }
 
-        public function getCreate() {
+        public function getCreateSenializacionM() {
             $model = new senializacionMModel();
             $sql = "SELECT * FROM orientacion_senializacion";
             $orientacion =$model->consult($sql);
@@ -28,7 +28,7 @@
             include_once '../View/senializacionM/createSenializacionM.php';
 
         }
-        public function postCreate() {
+        public function postCreateSenializacionM() {
             $obj = new senializacionMModel();
 
             $sen_tipo_senializacion=$_POST['cat_senializacion'];

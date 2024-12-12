@@ -25,7 +25,7 @@
         }
     ?>
 
-    <form action="<?php echo getUrl("Accidente", "Accidente", "postCreate"); ?>" method="post" class="mt-4">
+    <form action="<?php echo getUrl("Solicitudes", "Solicitudes", "postCreateAccidente"); ?>" method="post" class="mt-4">
         <div class="row mb-3">
             <div class="col-md-6">
                 <label for="cat_accidente" class="form-label">Tipo de accidente</label>
