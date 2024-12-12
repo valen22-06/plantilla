@@ -47,7 +47,7 @@
               </nav>
 
               <ul class="navbar-nav topbar-nav ms-md-auto align-items-center">
-                <li
+                <!-- <li
                   class="nav-item topbar-icon dropdown hidden-caret d-flex d-lg-none"
                 >
                   <a
@@ -162,8 +162,8 @@
                       </a>
                     </li>
                   </ul>
-                </li>
-                <li class="nav-item topbar-icon dropdown hidden-caret">
+                </li> -->
+                <!-- <li class="nav-item topbar-icon dropdown hidden-caret">
                   <a
                     class="nav-link dropdown-toggle"
                     href="#"
@@ -240,8 +240,8 @@
                       </a>
                     </li>
                   </ul>
-                </li>
-                <li class="nav-item topbar-icon dropdown hidden-caret">
+                </li> -->
+                <!-- <li class="nav-item topbar-icon dropdown hidden-caret">
                   <a
                     class="nav-link"
                     data-bs-toggle="dropdown"
@@ -318,7 +318,7 @@
                       </div>
                     </div>
                   </div>
-                </li>
+                </li> -->
 
                 <li class="nav-item topbar-user dropdown hidden-caret">
                   <a
@@ -364,7 +364,7 @@
                       <li>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="<?php echo getUrl('Usuarios','usuarios','getUpdate')?>">Mi perfil</a>
-                        <a class="dropdown-item" href="#">Mis solicitudes</a>
+                        <!-- <a class="dropdown-item" href="#">Mis solicitudes</a> -->
                       
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="<?php echo getUrl('Acceso', 'Acceso','logout');?>">Cerrar Sesion</a>

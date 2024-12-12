@@ -31,7 +31,7 @@
             $id_usu = $_SESSION ['id_usu'];
 
 
-            $dire=$redu_via.' '.$redu_numvia.' '.$redu_letra.' '.$redu_com.' '.$redu_num.' '.$redu_letra2.' '.$redu_com2;
+            $dire= $redu_via.' '.$redu_numvia.' '.$redu_letra.' '.$redu_com.' '.$redu_num.' '.$redu_letra2.' '.$redu_com2;
             $validacion = true; 
             
             if (empty($redu_cat_redu)) {

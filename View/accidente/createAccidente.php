@@ -38,10 +38,10 @@
                   ?>
                 </select>
             </div>
-            <div class="col-md-6">
+            <!-- <div class="col-md-6">
                 <label for="date" class="form-label">Fecha del accidente</label>
                 <input type="date" class="form-control" id="date" name="date">
-            </div>
+            </div> -->
         </div>
 
         <div class="row mb-3">
@@ -83,7 +83,7 @@
                     <option disabled selected>Seleccione un tipo de vía</option>
                     <?php
                       foreach ($tipo_via as $tipo) {
-                          echo "<option value='" .$tipo['id_tipo_via']. "'>" .$tipo['nombre_via']."</option>";
+                          echo "<option value='" .$tipo['nombre_via']. "'>" .$tipo['nombre_via']."</option>";
                       }
                   ?>
                     

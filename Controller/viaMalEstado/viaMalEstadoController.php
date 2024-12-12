@@ -5,7 +5,7 @@
             $model = new viaMalEstadoModel();
             $sql3="SELECT * FROM tipo_via";
             $tipo_via =$model->consult($sql3);
-            $sql5="SELECT * FROM danio";
+            $sql5="SELECT * FROM danio where id_tipo_danio=1";
             $danio=$model->consult($sql5);
               
                 

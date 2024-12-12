@@ -3,8 +3,10 @@
     class AccidenteController{
         public function getAccidente(){
             $obj = new accidenteModel();
-            $sql="";
+            $sql="SELECT a.*,e.nombre_estado as Edescripcion FROM registro_accidente a, estado e WHERE a.id_estado = e.id_estado ORDER BY a.id_registro_accidente ASC";
             $accidente = $obj->consult($sql);
+            $sql2="SELECT * FROM estado WHERE id_tipo_estado=2";
+            $estado=$obj->consult($sql2);
 
             include_once '../View/accidente/consultAccidente.php';
         }
@@ -19,6 +21,7 @@
             $tipo_via =$model->consult($sql3);
             $sql4="SELECT * FROM choque";
             $tipo_choque=$model->consult($sql4);
+
               
                 
             include_once '../View/accidente/createAccidente.php';
@@ -28,11 +31,11 @@
             $obj = new accidenteModel();
 
             $acc_tipo_acc=$_POST['cat_accidente'];
-            $acc_fecha=$_POST['date'];
+            // $acc_fecha=$_POST['date'];
             $acc_choque=$_POST['choque'];
             $acc_vehiculo=$_POST['vehiculo'];
             $acc_lesionados=$_POST['lesionados'];
-            $acc_via=$_POST['tipo_via'];
+            $acc_tipo_via=$_POST['tipo_via'];
             $acc_numvia=$_POST['numVia'];
             $acc_letra= $_POST['letra'];
             $acc_com= $_POST['complemento'];
@@ -40,19 +43,19 @@
             $acc_letra2= $_POST['letra2'];
             $acc_com2= $_POST['complemento2'];
             $acc_comentario=$_POST['comentario'];
-            $acc_tipo_via=$_POST['tipo_via'];
+            
 
-            $dire=$acc_via.' '.$acc_numvia.' '.$acc_letra.' '.$acc_com.' '.$acc_num.' '.$acc_letra2.' '.$acc_com2;
+            $dire= $acc_tipo_via.' '.$acc_numvia.' '.$acc_letra.' '.$acc_com.' '.$acc_num.' '.$acc_letra2.' '.$acc_com2;
             
             $validacion = true; 
             if (empty($acc_tipo_acc)) {
                 $_SESSION['errores'][] = "El campo tipo de accidente es requerido";
                 $validacion = false;
             } 
-            if (empty($acc_fecha)) {
-                $_SESSION['errores'][] = "El campo fecha es requerido";
-                $validacion = false;
-            }
+            // if (empty($acc_fecha)) {
+            //     $_SESSION['errores'][] = "El campo fecha es requerido";
+            //     $validacion = false;
+            // }
             if (empty($acc_choque)) {
                 $_SESSION['errores'][] = "El campo tipo de daño es requerido";
                 $validacion = false;
@@ -96,7 +99,7 @@
 
             if ($validacion) {
                 $id = $obj->autoIncrement("registro_accidente");
-                $sql = "INSERT INTO registro_accidente VALUES ($id, '$acc_fecha', '$acc_lesionados', '$acc_comentario','$dire',3 , $acc_vehiculo, $acc_choque)";
+                $sql = "INSERT INTO registro_accidente (id_registro_accidente,lesionados,observacion,direccion,id_estado,id_tipo_vehiculo,id_tipo_choque) VALUES ($id, '$acc_lesionados', '$acc_comentario','$dire',3, $acc_vehiculo, $acc_choque)";
         
                 $ejecutar = $obj->insert($sql);
                 if ($ejecutar) {
@@ -109,6 +112,18 @@
                 redirect(getUrl("Accidente", "Accidente", "getCreate"));
             }
 
+        }
+        public function buscar(){
+            $obj = new accidenteModel();
+        
+            $buscar = $_POST['buscar'];
+    
+            $sql = "";
+    
+            $usuarios = $obj->consult($sql);
+    
+            include_once '../view/accidente/buscarAccidente.php';
+    
         }
     }
 ?>

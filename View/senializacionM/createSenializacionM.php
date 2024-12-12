@@ -29,7 +29,7 @@
                     <option disabled selected>Seleccione tipo de orientacion</option>
                     <?php
                       foreach ($orientacion as $tipo) {
-                          echo "<option value='" .$tipo['id_orientacion_senializacion']. "'>" .$tipo['nombre_orientacion_senializacion']."</option>";
+                          echo "<option value='" .$tipo['nombre_via']. "'>" .$tipo['nombre_orientacion_senializacion']."</option>";
                       }
                   ?>
                 </select>
