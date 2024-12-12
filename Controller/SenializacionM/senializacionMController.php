@@ -1,6 +1,15 @@
 <?php
     include_once '../Model/SenializacionM/senializacionMModel.php';
     class SenializacionMController{
+        public function getSenializacionM(){
+            $obj = new senializacionMModel();
+            $sql="SELECT s.*, e.nombre_estado as Edescripcion, o.nombre_orientacion_senializacion as nombre_o, c.nombre_categoria_senializacion as nombre_c_s, t.nombre_tipo_senializacion as tipo_senializacion, d.nombre_danio as nombre_d FROM senializacion_vial_malestado s, estado e, orientacion_senializacion o, categoria_senializacion c, tipo_senializacion t, danio d  WHERE s.id_estado = e.id_estado  AND e.id_estado=s.id_estado  AND o.id_orientacion_senializacion = s.id_orientacion_senializacion AND c.id_categoria_senializacion=s.id_cat_senializacion AND t.id_tipo_senializacion = s.id_tipo_senializacion AND d.id_danio=s.id_danio ORDER BY s.id_senializacion_vial_malestado ASC";
+            $senializacion = $obj->consult($sql);
+            $sql2="SELECT * FROM estado WHERE id_tipo_estado=2";
+            $estado=$obj->consult($sql2);
+
+            include_once '../View/senializacionM/consultSenializacionM.php';
+        }
 
         public function getCreate() {
             $model = new senializacionMModel();

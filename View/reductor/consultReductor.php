@@ -5,49 +5,48 @@
 
 <div class="card shadow-lg mt-5" id="card_red_man">
     <div class="card-header bg-secondary text-white text-center">
-        <h3 class="display-6 mb-0">Consultar accidentes</h3>
+        <h3 class="display-6 mb-0">Consultar Reductor nuevo</h3>
     </div>
 
-    <div class="card-body bg-light mb-2">
+    <div class="card-body">
 
     <div class="row mb-3">
         <div class="col-md-4">
             <input type="text" name="buscar" id="buscar" class="form-control" placeholder="Buscar por nombre o correo" 
-                data-url='<?php echo getUrl("Accidente", "Accidente", "buscar", false, "ajax"); ?>'>
+                data-url='<?php echo getUrl("Reductor", "Reductor", "buscar", false, "ajax"); ?>'>
         </div>
+    </div>
     </div>
     <div class="table-responsive">
         <table class="table table-hover table-striped">
-            <thead class="table-secondary">
+            <thead class="table-dark">
                 <tr>
                     <th>Id</th>
                     <th>Fecha</th>
-                    <th>Lesionados</th>
                     <th>Observacion</th>
                     <th>Direccion</th>
-                    <th>Tipo de vehiculos</th>
-                    <th>Tipo choque</th>
+                    <th>Categoria</th>
+                    <th>Tipo de Reductor</th>
                     <th>Estado</th>
 
                 </tr>
             </thead>
             <tbody>
             <?php
-            foreach($accidente as $acc){
+            foreach($redu as $sen){
                 $clase="";
                 $texto="";
                 echo "<tr>";
-                echo "<td>".$acc['id_registro_accidente']."</td>";
-                echo "<td>".$acc['fecha_accidente']."</td>";
-                echo "<td>".$acc['lesionados']."</td>";
-                echo "<td>".$acc['observacion']."</td>";
-                echo "<td>".$acc['direccion']."</td>";
-                echo"<td>".$acc['tipo_vehiculo']."</td>";
-                echo"<td>".$acc['tipo_choque']."</td>";
+                echo "<td>".$sen['id_reductores_nuevo']."</td>";
+                echo "<td>".$sen['fecha']."</td>";
+                echo "<td>".$sen['descripcion']."</td>";
+                echo "<td>".$sen['direccion']."</td>";
+                echo "<td>".$sen['nombre_c']."</td>";
+                echo "<td>".$sen['nombre_t']."</td>";
                 echo "<td>";
-                echo"<form action='getUrl('Accidente', 'Accidente', 'postUpdateStatus');' method='post' class='mt-4'>";
+                echo"<form action='getUrl('Senializacion', 'Senializacion', 'postUpdateStatus');' method='post' class='mt-4'>";
                 echo "<select class='form-select' name='id' id='id'>";
-                echo "<option disabled selected>".($acc['edescripcion'])."</option>";
+                echo "<option disabled selected>".($sen['edescripcion'])."</option>";
                 foreach ($estado as $est) {
                 echo "<option value='".($est['id_estado'])."'>".($est['nombre_estado'])."</option>";
                 }

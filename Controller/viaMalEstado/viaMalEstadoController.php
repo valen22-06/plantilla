@@ -1,6 +1,16 @@
 <?php
     include_once '../Model/viaMalEstado/viaMalEstadoModel.php';
     class ViaMalEstadoController{
+
+        public function getViaM(){
+            $obj = new viaMalEstadoModel();
+            $sql="SELECT v.*, e.nombre_estado as Edescripcion, d.nombre_danio as nombre_d FROM via_mal_estado v, estado e, danio d WHERE v.id_estado = e.id_estado AND d.id_danio=v.id_danio ORDER BY v.id_via_mal_estado ASC";
+            $viaM = $obj->consult($sql);
+            $sql2="SELECT * FROM estado WHERE id_tipo_estado=2";
+            $estado=$obj->consult($sql2);
+
+            include_once '../View/viaMalEstado/consultViaMalEstado.php';
+        }
         public function getCreate() {
             $model = new viaMalEstadoModel();
             $sql3="SELECT * FROM tipo_via";

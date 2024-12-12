@@ -143,27 +143,27 @@
                       </a>
                     </li>
                     <li>
-                      <a href="sidebar-style-2.html">
+                      <a href="<?php echo getUrl("Senializacion","Senializacion","getSenializacion");?>">
                         <span class="sub-item">Nueva señalizacion</span>
                       </a>
                     </li>
                     <li>
-                      <a href="sidebar-style-2.html">
+                      <a href="<?php echo getUrl("SenializacionM","SenializacionM","getSenializacionM");?>">
                         <span class="sub-item">Señalizacion en mal estado</span>
                       </a>
                     </li>
                     <li>
-                      <a href="icon-menu.html">
+                      <a href="<?php echo getUrl("Reductor","Reductor","getReductor");?>">
                         <span class="sub-item">Reductor nuevo</span>
                       </a>
                     </li>
                     <li>
-                      <a href="sidebar-style-2.html">
+                      <a href="<?php echo getUrl("ReductorM","ReductorM","getReductorM");?>">
                         <span class="sub-item">Reductor en mal esatdo</span>
                       </a>
                     </li>
                     <li>
-                      <a href="sidebar-style-2.html">
+                      <a href="<?php echo getUrl("ViaMalEstado","ViaMalEstado","getViaM");?>">
                         <span class="sub-item">Via publica en mal estado</span>
                       </a>
                     </li>
